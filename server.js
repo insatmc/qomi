@@ -17,27 +17,29 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'dist')))
 
 mongoDriver.connect(DB_URL, function (err, client) {
-  if (err) throw err
-  let db = client.db(DATABASE)
-  let collection = db.collection('students')
+  if (err) throw err;
+  let db = client.db(DATABASE);
+  let collection = db.collection('students');
 
   app.use(function (req, res, next) {
-    req.collection = collection
-    next()
-  })
+    req.collection = collection;
+    next();
+  });
 
-  
+  app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/dist/index.html');
+  });
 
-  app.get('/api/students', routes.students.getStudents)
+  app.get('/api/students', routes.students.getStudents);
 
-  app.get('/api/students/:id', routes.students.getStudent)
+  app.get('/api/students/:id', routes.students.getStudent);
 
-  app.post('/api/students', routes.students.addStudent)
+  app.post('/api/students', routes.students.addStudent);
 
-  app.put('/api/students/:id', routes.students.updateStudent)
+  app.put('/api/students/:id', routes.students.updateStudent);
 
-  app.delete('/api/students/:id', routes.students.removeStudent)
-})
+  app.delete('/api/students/:id', routes.students.removeStudent);
+});
 
 
 app.listen(PORT, error => (
