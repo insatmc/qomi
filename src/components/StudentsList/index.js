@@ -15,11 +15,7 @@ class StudentsList extends Component{
   render(){
     return(
       <div className="StudentsList">
-        {
-          this.students.map( (e) => {
-            return <div>{e.name}</div>
-          })
-        }
+        <h2>jjjslls</h2>
       </div>
     )
   }

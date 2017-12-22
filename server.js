@@ -26,9 +26,7 @@ mongoDriver.connect(DB_URL, function (err, client) {
     next()
   })
 
-  app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/dist/index.html')
-  })
+  
 
   app.get('/api/students', routes.students.getStudents)
 
