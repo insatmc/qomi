@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 import 'src/assets/stylesheets/base.scss';
 
+import StudentsList from '../StudentsList'
 
 function App({ name }) {
   return (
-    <h1>Hello, {name}!</h1>
+    <StudentsList />
   );
 };
 
