@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const path = require('path')
 const express = require('express')
 const logger = require('morgan')
@@ -42,26 +41,9 @@ mongoDriver.connect(DB_URL, function (err, client) {
   app.delete('/api/students/:id', routes.students.removeStudent)
 })
 
-app.use(errorHandler())
-=======
-const path = require('path');
-const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 8080;
-
-app.use(express.static(path.join(__dirname, 'dist')));
-
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/dist/index.html');
-});
->>>>>>> c671d3c09c4b5943a61dc27620d23886d7c28860
 
 app.listen(PORT, error => (
   error
     ? console.error(error)
     : console.info(`Listening on port ${PORT}. Visit http://localhost:${PORT}/ in your browser.`)
-<<<<<<< HEAD
-))
-=======
 ));
->>>>>>> c671d3c09c4b5943a61dc27620d23886d7c28860
