@@ -15,7 +15,7 @@ class StudentsList extends Component{
   render(){
     return(
       <div className="StudentsList">
-        <h2>fqsmlkfqsmlkffqskmlqfskmqsm</h2>
+        <h2></h2>
       </div>
     )
   }
