@@ -6,6 +6,7 @@ import axios from 'axios';
 class StudentsList extends Component{
   constructor(props){
     super(props);
+
     this.state = { students: [] }
     axios.get("/api/students").then((data) => {
       this.setState({ students: data.data })
@@ -24,6 +25,7 @@ class StudentsList extends Component{
 
         })
       }
+
       </div>
     )
   }
