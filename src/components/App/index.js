@@ -1,23 +1,32 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import 'src/assets/stylesheets/base.scss'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import StudentCard from '../StudentCard'
+
+import 'src/assets/stylesheets/base.scss';
 
 import StudentsList from '../StudentsList'
 
-import AddStudent from '../AddStudent'
-
 class App extends Component {
-  render () {
-    return (
-      <div>
-        <AddStudent />
-      </div>
-    )
-  }
+	constructor(props){
+		super(props)
+		this.state = {
+			student: {
+				src: 'avatar.jpg' ,
+				fullname: 'Baligh Hamdi',
+				location: 'Tunis',
+				disponibility: 'Immediatly',
+				lookingFor: 'Internship',
+				skills: ['#HTML', '#CSS', '#JAVASCRIPT']
+			}
+		}
+	}
+  	render(){
+  		return (
+    		<StudentCard student = {this.state.student} />
+  		)
+	}
 };
 
-App.propTypes = {
-  name: PropTypes.string
-}
 
-export default App
+
+export default App;
