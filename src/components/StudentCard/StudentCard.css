@@ -194,7 +194,7 @@
 }
 
 .card.hovercard .cardheader {
-    background: url("https://gomycode.tn/assets/images/logo.png");
+    background: url();
     background-size: cover;
     height: 135px;
 }

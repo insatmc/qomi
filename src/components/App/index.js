@@ -6,6 +6,7 @@ import 'src/assets/stylesheets/base.scss'
 import StudentsList from '../StudentsList'
 
 class App extends Component {
+<<<<<<< HEAD
   constructor (props) {
     super(props)
     this.state = {
@@ -27,3 +28,16 @@ class App extends Component {
 };
 
 export default App
+=======
+
+  	render(){
+  		return (
+    		<StudentsList />
+  		)
+	}
+
+}
+
+
+export default App;
+>>>>>>> ce077e5232e645cc4cd69217d4faf058f4eb2ceb
