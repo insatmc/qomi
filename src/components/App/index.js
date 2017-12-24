@@ -1,43 +1,25 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import StudentCard from '../StudentCard'
-import 'src/assets/stylesheets/base.scss'
-
 import StudentsList from '../StudentsList'
+import PropTypes from 'prop-types'
+import 'src/assets/stylesheets/base.scss'
+import axios from 'axios'
 
 class App extends Component {
-<<<<<<< HEAD
   constructor (props) {
     super(props)
-    this.state = {
-      student: {
-        src: 'avatar.jpg',
-        fullname: 'Baligh Hamdi',
-        location: 'Tunis',
-        disponibility: 'Immediatly',
-        lookingFor: 'Internship',
-        skills: ['#HTML', '#CSS', '#JAVASCRIPT']
-      }
-    }
+    this.state = { students: [] }
+    axios.get('http://localhost:8080/api/students').then((data) => {
+      this.setState({ students: data.data })
+    }).catch(function (error) {
+      alert('Something went wrong')
+    })
   }
   	render () {
   		return (
-    <StudentCard student={this.state.student} />
+    		<StudentsList students={this.state.students} />
   		)
   }
-};
-
-export default App
-=======
-
-  	render(){
-  		return (
-    		<StudentsList />
-  		)
-	}
 
 }
 
-
-export default App;
->>>>>>> ce077e5232e645cc4cd69217d4faf058f4eb2ceb
+export default App
