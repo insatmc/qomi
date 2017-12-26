@@ -11,11 +11,7 @@ class AddStudent extends Component {
             <legend><h3>Student Form</h3></legend>
 
             <div className='form-group'>
-<<<<<<< HEAD
               <label className='col-md-4 control-label' htmlFor='add-fullname'><h4>Student fullname</h4></label>
-=======
-              <label className='col-md-4 control-label' for='add-fullname'><h4>Student fullname</h4></label>
->>>>>>> untracked files on master: ce077e5 fix conflit
               <div className='col-md-5'>
                 <input id='add-fullname' name='add-fullname' type='text' placeholder='add fullname here' className='form-control input-md' required='' />
 
@@ -23,22 +19,14 @@ class AddStudent extends Component {
             </div>
 
             <div className='form-group'>
-<<<<<<< HEAD
               <label className='col-md-4 control-label' htmlFor='add-image'><h4>Add Image</h4></label>
-=======
-              <label className='col-md-4 control-label' for='add-image'><h4>Add Image</h4></label>
->>>>>>> untracked files on master: ce077e5 fix conflit
               <div className='col-md-4'>
                 <button id='add-image' name='add-image' className='btn btn-primary'>Find an Image</button>
               </div>
             </div>
 
             <div className='form-group'>
-<<<<<<< HEAD
               <label className='col-md-4 control-label' htmlFor='add-location'><h4>Location</h4></label>
-=======
-              <label className='col-md-4 control-label' for='add-location'><h4>Location</h4></label>
->>>>>>> untracked files on master: ce077e5 fix conflit
               <div className='col-md-4'>
                 <select id='add-location' name='add-location' className='form-control'>
                   <option value='Ariana'>Ariana</option>
@@ -71,11 +59,7 @@ class AddStudent extends Component {
             </div>
 
             <div className='form-group'>
-<<<<<<< HEAD
               <label className='col-md-4 control-label' htmlFor='add-disponibility'><h4>Disponibility</h4></label>
-=======
-              <label className='col-md-4 control-label' for='add-disponibility'><h4>Disponibility</h4></label>
->>>>>>> untracked files on master: ce077e5 fix conflit
               <div className='col-md-4'>
                 <select id='add-disponibility' name='add-disponibility' className='form-control'>
                   <option value='Immediately'>Immediately</option>
@@ -88,56 +72,33 @@ class AddStudent extends Component {
             </div>
 
             <div className='form-group'>
-<<<<<<< HEAD
               <label className='col-md-4 control-label' htmlFor='looking-for-checkboxes'><h4>Looking for</h4></label>
               <div className='col-md-4'>
                 <div className='checkbox'>
                   <label htmlFor='looking-for-checkboxes-0'>
-=======
-              <label className='col-md-4 control-label' for='looking-for-checkboxes'><h4>Looking for</h4></label>
-              <div className='col-md-4'>
-                <div className='checkbox'>
-                  <label for='looking-for-checkboxes-0'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-0' value='Freelance' />Freelance
                   </label>
                 </div>
                 <div className='checkbox'>
-<<<<<<< HEAD
                   <label htmlFor='looking-for-checkboxes-1'>
-=======
-                  <label for='looking-for-checkboxes-1'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-1' value='Internship' />
                     Internship
                   </label>
                 </div>
                 <div className='checkbox'>
-<<<<<<< HEAD
                   <label htmlFor='looking-for-checkboxes-2'>
-=======
-                  <label for='looking-for-checkboxes-2'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-2' value='CDI' />
                     CDI
                   </label>
                 </div>
                 <div className='checkbox'>
-<<<<<<< HEAD
                   <label htmlFor='looking-for-checkboxes-3'>
-=======
-                  <label for='looking-for-checkboxes-3'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-3' value='CDD' />
                     CDD
                   </label>
                 </div>
                 <div className='checkbox'>
-<<<<<<< HEAD
                   <label htmlFor='looking-for-checkboxes-4'>
-=======
-                  <label for='looking-for-checkboxes-4'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-4' value='Others' />
                     Others
                   </label>
@@ -146,94 +107,55 @@ class AddStudent extends Component {
             </div>
 
             <div className='form-group'>
-<<<<<<< HEAD
               <label className='col-md-4 control-label' htmlFor='frontend-checkboxes'><h4>Front-End Technologies</h4></label>
               <div className='col-md-4'>
                 <div className='checkbox'>
                   <label htmlFor='frontend-checkboxes-0'>
-=======
-              <label className='col-md-4 control-label' for='frontend-checkboxes'><h4>Front-End Technologies</h4></label>
-              <div className='col-md-4'>
-                <div className='checkbox'>
-                  <label for='frontend-checkboxes-0'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='frontend-checkboxes' id='frontend-checkboxes-0' value='HTML5' />
                     HTML5
                   </label>
                 </div>
                 <div className='checkbox'>
-<<<<<<< HEAD
                   <label htmlFor='frontend-checkboxes-1'>
-=======
-                  <label for='frontend-checkboxes-1'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='frontend-checkboxes' id='frontend-checkboxes-1' value='CSS3' />
                     CSS3
                   </label>
                 </div>
                 <div className='checkbox'>
-<<<<<<< HEAD
                   <label htmlFor='frontend-checkboxes-2'>
-=======
-                  <label for='frontend-checkboxes-2'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='frontend-checkboxes' id='frontend-checkboxes-2' value='Javascript' />
                     Javascript
                   </label>
                 </div>
                 <div className='checkbox'>
-<<<<<<< HEAD
                   <label htmlFor='frontend-checkboxes-3'>
-=======
-                  <label for='frontend-checkboxes-3'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='frontend-checkboxes' id='frontend-checkboxes-3' value='Bootstrap' />
                     Bootstrap
                   </label>
                 </div>
                 <div className='checkbox'>
-<<<<<<< HEAD
                   <label htmlFor='frontend-checkboxes-4'>
-=======
-                  <label for='frontend-checkboxes-4'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='frontend-checkboxes' id='frontend-checkboxes-4' value='Responsive Design' />
                     Responsive Design
                   </label>
                 </div>
                 <div className='checkbox'>
-<<<<<<< HEAD
                   <label htmlFor='frontend-checkboxes-5'>
-=======
-                  <label for='frontend-checkboxes-5'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='frontend-checkboxes' id='frontend-checkboxes-5' value='React JS' />React JS
                   </label>
                 </div>
                 <div className='checkbox'>
-<<<<<<< HEAD
                   <label htmlFor='frontend-checkboxes-6'>
-=======
-                  <label for='frontend-checkboxes-6'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='frontend-checkboxes' id='frontend-checkboxes-6' value='Angular JS' />Angular JS
                   </label>
                 </div>
                 <div className='checkbox'>
-<<<<<<< HEAD
                   <label htmlFor='frontend-checkboxes-7'>
-=======
-                  <label for='frontend-checkboxes-7'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='frontend-checkboxes' id='frontend-checkboxes-7' value='React Native' />React Native
                   </label>
                 </div>
                 <div className='checkbox'>
-<<<<<<< HEAD
                   <label htmlFor='frontend-checkboxes-8'>
-=======
-                  <label for='frontend-checkboxes-8'>
->>>>>>> untracked files on master: ce077e5 fix conflit
                     <input type='checkbox' name='frontend-checkboxes' id='frontend-checkboxes-8' value='Vue JS' />Vue JS
                   </label>
                 </div>
