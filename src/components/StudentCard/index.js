@@ -7,7 +7,7 @@ class StudentCard extends Component {
 		let student = this.props.student
 		console.log(student)
 		return (
-      <div>
+      <div className="StudentCard">
          <div className="container">
             <div className="row">
                <div >

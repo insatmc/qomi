@@ -1,17 +1,26 @@
 import React, { Component } from 'react'
+import './Search.css'
 
 class Search extends Component {
+  onChangeInput(e){
+    this.props.onChangeName(e)
+    this.props.onChangeLocation(e)
+    this.props.onChangeSkills(e)
+      }
   render () {
     return (<form>
-      <i class="fa fa-search" aria-hidden="true"></i>
-      <div className='form-group'>
+
+      <div className='inputForm'>
+
         <input
-         value=''
+         value={this.props.nameFilter}
+         onChange={this.onChangeInput.bind(this)}
 
           type='text'
           className='form-control'
+          placeholder='FullName,Skills,Location...'
+          />
 
-          placeholder='Nom,langage,région...' />
       </div>
 
     </form>)

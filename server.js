@@ -39,6 +39,10 @@ mongoDriver.connect(DB_URL, function (err, client) {
   app.put('/api/students/:id', routes.students.updateStudent);
 
   app.delete('/api/students/:id', routes.students.removeStudent);
+
+  app.get('/*', function (req, res) {
+    res.sendFile(__dirname + '/dist/index.html');
+  });
 });
 
 

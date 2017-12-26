@@ -1,28 +1,15 @@
 import React, {Component} from 'react'
-import StudentCard from'../StudentCard'
-import axios from 'axios';
+import StudentCard from '../StudentCard'
 
+class StudentsList extends Component {
 
-class StudentsList extends Component{
-  constructor(props){
-    super(props);
+  render () {
+    return (
+      <div className='row'>
 
-    this.state = { students: [] }
-    axios.get("/api/students").then((data) => {
-      this.setState({ students: data.data })
-    }).catch(function (error) {
-      alert("Something went wrong")
-    });
-  }
-  render(){
-
-    return(
-      <div className="StudentsList row">
-
-      {
-        this.state.students.map((el) => {
-          return <div className=" col-sm-6 col-md-4 col-lg-3  "><StudentCard student={el} /></div>
-
+        {
+        this.props.students.map((el,i) => {
+          return <div key={i} className='col-sm-6 col-md-4 col-lg-3'><StudentCard  student={el} /></div>
         })
       }
 
@@ -31,4 +18,4 @@ class StudentsList extends Component{
   }
 }
 
-export default StudentsList;
+export default StudentsList
