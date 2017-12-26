@@ -32,7 +32,7 @@ class StudentCard extends Component {
                     <i className='fa fa-twitter' />
                   </a>
                   <a className='btn btn-danger btn-sm' rel='publisher'
-                    target='_blank' href="mailto:"+{student.contact.mail}>
+                    target='_blank' href={student.contact.mail}>
                     <i className='fa fa-google-plus' />
                   </a>
                   <a className='btn btn-secondary btn-sm ' rel='publisher'
@@ -46,7 +46,6 @@ class StudentCard extends Component {
               </div>
 
             </div>
-
           </div>
         </div>
       </div>

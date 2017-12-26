@@ -1,0 +1,9 @@
+.Cards-container{
+  margin-left: 2px;
+  height: calc(100vh - 92px);
+  width: calc(100vw - 268px);
+  position: absolute;
+  left: 268px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}

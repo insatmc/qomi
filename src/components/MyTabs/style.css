@@ -1,0 +1,37 @@
+.cols-container{
+  display: flex;
+  height: 100vh;
+}
+.left-col{
+  height: calc(100vh - 92px);
+  background-color:#61728b;
+  overflow-y: auto;
+}
+.right-col{
+  height: calc(100vh - 92px);
+  background:#2e3e53;
+  overflow-y: auto;
+}
+.tab-icon{
+  color:#e74c3c;
+}
+.tab{
+  background-color: #61728b;
+  border: none;
+  text-align: center;
+  min-width: 95px;
+  border-bottom: 2px solid #e74c3c;
+  padding: 5px;
+}
+.tab:hover{
+  cursor: pointer;
+  background-color: darkgray;
+}
+.tab:focus{
+  background-color: black;
+}
+.icon-title{
+  color:#e74c3c;
+  text-align: center;
+  font-size: 0.8rem;
+}
