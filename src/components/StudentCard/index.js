@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './StudentCard.css'
+import StudentSkill from '../StudentSkill'
 
 class StudentCard extends Component {
   render () {
@@ -9,7 +10,7 @@ class StudentCard extends Component {
       <div>
         <div className='container'>
           <div className='row'>
-            <div >
+            <div>
 
               <div className='card hovercard'>
                 <div className='cardheader' />
@@ -21,10 +22,18 @@ class StudentCard extends Component {
                     <h2>{student.fullname}</h2>
                   </div>
                   <hr className='hr-style1' />
-                  <div className='desc'><h4>Location:</h4>{student.location} </div>
-                  <div className='desc'><h4>Disponibility:</h4>{student.disponibility} </div>
-                  <div className='desc'><h4>Looking For:</h4>{student['looking for']} </div>
-                  <div className='desc'><h4>Skills:</h4>{student.technologies}</div>
+                  <div className='desc'><h5>Location:</h5>{student.location} </div>
+                  <div className='desc'><h5>Disponibility:</h5>{student.disponibility} </div>
+                  <div className='desc'><h5>Looking For:</h5>{student['looking for']} </div>
+                  <div className='desc'>
+                    <h5>Skills:</h5>
+                    <div>
+                      {
+                        student.technologies.map((el, i) => <StudentSkill key={i} skill={el} />
+                        )
+                      }
+                    </div>
+                  </div>
                   <hr className='hr-style2' />
                 </div>
                 <div className='bottom'>

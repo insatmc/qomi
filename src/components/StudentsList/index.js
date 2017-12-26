@@ -10,7 +10,7 @@ class StudentsList extends Component {
 
         {
         this.props.students.map((el, i) => {
-          return <div key={i} className='col-sm-6 col-md-6 col-lg-4'><StudentCard student={el} /></div>
+          return <StudentCard className='col-xs-12 col-md-6 col-lg-3' key={i} student={el} />
         })
       }
 
