@@ -27,19 +27,16 @@ class TableUser extends Component {
     this.hideDeleteModal = this.hideDeleteModal.bind(this)
 
   }
-
   closeModalStudent() {
     this.setState({
       isModalOpenS: false
     })
   }
-
   showModalStudent() {
     this.setState({
       isModalOpenS: true
     })
   }
-
   showDeleteModal(studentToDelete) {
     this.setState({
       deleteModal: {
@@ -48,7 +45,6 @@ class TableUser extends Component {
       }
     })
   }
-
   hideDeleteModal() {
     this.setState({
       deleteModal:{
@@ -56,14 +52,16 @@ class TableUser extends Component {
       }
     })
   }
-
   render() {
     return (
       <div>
         <ModalDeleteStudent
           visible={this.state.deleteModal.isOpen}
           onClose={this.hideDeleteModal}
-          onSubmit={this.props.onDeleteUser}
+          onSubmit={()=>{
+            this.hideDeleteModal()
+            this.props.onDeleteUser(this.state.deleteModal.studentToDelete)
+          }}
           student={this.state.deleteModal.studentToDelete} />
         <div>
           <button type="button" className="btn btn-primary" onClick={this.showModalStudent}>Add Student

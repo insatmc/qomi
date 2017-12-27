@@ -51,7 +51,6 @@ class App extends Component {
       alert('Something went wrong')
     })
   }
-
 	isStudentVisible(student){
 		// let studentName = student.fullName.toLowerCase()
 		// let nameToSearch = this.state.nameFilter.toLowerCase()
@@ -61,7 +60,6 @@ class App extends Component {
 		// let skillsToSeach = this.state.skillsFilter.toLowerCase()
 		// return ((studentName.indexOf(nameToSearch)!==-1) || (studentLocation.indexOf(studentToSearch )!==-1)|| (studentSkills.indexOf(skillsToSeach)!==-1))
 	}
-
   render () {
   		return (
 				<div>
@@ -91,14 +89,13 @@ class App extends Component {
                   )
                 }
               } />
-              
+
             </Switch>
           </Router>
 				</div>
 
   		)
   }
-
 }
 
 export default App
