@@ -5,7 +5,8 @@ class studentSkill extends Component {
     let skill = this.props.skill
     let divStyle = {
       marginRight: '5px',
-      color: 'tomato'
+      color: 'tomato',
+      fontWeight: '600'
     }
     return (
       <span style={divStyle}>{skill}</span>

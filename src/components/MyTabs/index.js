@@ -45,16 +45,16 @@ class MyTabs extends Component {
 
             <div className='right-col'>
               <TabPanel tabId='vertical-tab-one'>
-                <LocationSubTab />
+                <LocationSubTab onChangeLocation={this.props.onChangeLocation} />
               </TabPanel>
               <TabPanel tabId='vertical-tab-two'>
-                <DisponibilitySubTab />
+                <DisponibilitySubTab onChangeDisponibility={this.props.onChangeDisponibility} />
               </TabPanel>
               <TabPanel tabId='vertical-tab-three'>
-                <TechnologiesSubTab />
+                <TechnologiesSubTab onChangeSkills={this.props.onChangeSkills} />
               </TabPanel>
               <TabPanel tabId='vertical-tab-four'>
-                <ContractSubTab />
+                <ContractSubTab onChangeContract={this.props.onChangeContract} />
               </TabPanel>
             </div>
 

@@ -5,6 +5,7 @@ import NavBar from '../NavBar'
 import MyTabs from '../MyTabs'
 import StudentsList from '../StudentsList'
 import Search from '../Search'
+import SearchTags from '../SearchTags'
 import PropTypes from 'prop-types'
 import {
   BrowserRouter as Router,
@@ -12,16 +13,18 @@ import {
   Link,
   Switch
 } from 'react-router-dom'
-
 import axios from 'axios'
 
 class App extends Component {
   constructor (props) {
     super(props)
-    this.state = { students: [],
+    this.state = {
+      students: [],
       nameFilter: '',
   		locationFilter: '',
-  		skillsFilter: ''
+  		skillsFilter: '',
+      disponibilityFilter: '',
+      contractFilter: ''
     }
 
     axios.get('http://localhost:8080/api/students').then((data) => {
@@ -37,8 +40,23 @@ class App extends Component {
     let studentLocation = student.location.toLowerCase()
     let studentToSearch = this.state.locationFilter.toLowerCase()
     let studentSkills = student['looking for'].toLowerCase()
-    let skillsToSeach = this.state.skillsFilter.toLowerCase()
-    return ((studentName.indexOf(nameToSearch) !== -1) || (studentLocation.indexOf(studentToSearch) !== -1) || (studentSkills.indexOf(skillsToSeach) !== -1))
+    let skillsToSearch = this.state.skillsFilter.toLowerCase()
+
+    let studentDisponibility = student.disponibility.toLowerCase()
+    let disponibilityToSearch = this.state.disponibilityFilter.toLowerCase()
+
+    let studentContract = student['looking for'].toLowerCase()
+    let contractFilter = this.state.contractFilter.toLowerCase()
+
+    let nameCond = (studentName.indexOf(nameToSearch) !== -1)
+    let locationCond = (studentLocation.indexOf(studentToSearch) !== -1)
+    let skillsCond = (studentSkills.indexOf(skillsToSearch) !== -1)
+    let disponibilityCond = (studentDisponibility.indexOf(disponibilityToSearch) !== -1)
+    let contractCond = (studentContract.indexOf(contractFilter) !== -1)
+    return (
+      (nameCond && locationCond && skillsCond) ||
+      (nameCond || locationCond || skillsCond)
+    )
   }
 
   render () {
@@ -57,13 +75,18 @@ class App extends Component {
           </div>
 
           <div className='col-xs-12 col-md-8 col-lg-8 search-tags'>
-            your Searches
+            <SearchTags />
           </div>
 
         </div>
         <div className='Tabs-Cards-container'>
           <div className='Tabs-container'>
-            <MyTabs />
+            <MyTabs
+              onChangeLocation={(e) => this.setState({locationFilter: e.target.value})}
+              onChangeDisponibility={(e) => this.setState({disponibilityFilter: e.target.value})}
+              onChangeSkills={(e) => this.setState({skillsFilter: e.target.value})}
+              onChangeContract={(e) => this.setState({contractFilter: e.target.value})}
+            />
           </div>
           <StudentsList students={this.state.students.filter(this.isStudentVisible.bind(this))} />
         </div>
