@@ -36,7 +36,7 @@ class App extends Component {
   onAddUser(e){
     console.log("works", e)
     axios.post('http://localhost:8080/api/students', e).then((data) => {
-      console.log(data)
+      console.log("incoming new user", data)
       this.setState({
         students: this.state.students.concat(e)
       })
@@ -45,11 +45,15 @@ class App extends Component {
     })
   }
   deleteUser(student){
-    axios.delete(`http://localhost:8080/api/students/${student._id}`).then((data) => {
-      console.log(data)
-    }).catch(function (error) {
-      alert('Something went wrong')
-    })
+    axios.delete(`http://localhost:8080/api/students/${student._id}`)
+      .then(() => {
+        this.setState({
+          students: this.state.students.filter(el => el._id != student._id)
+        })
+      })
+      .catch(function (error) {
+        alert('Something went wrong')
+      })
   }
 	isStudentVisible(student){
 		// let studentName = student.fullName.toLowerCase()
