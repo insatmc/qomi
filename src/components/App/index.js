@@ -26,7 +26,11 @@ class App extends Component {
   	}
 
     this.deleteUser = this.deleteUser.bind(this)
+    this.intitStudents = this.intitStudents.bind(this)
 
+    this.intitStudents()
+  }
+  intitStudents() {
     axios.get('http://localhost:8080/api/students').then((data) => {
       this.setState({ students: data.data })
     }).catch(function (error) {
@@ -34,12 +38,9 @@ class App extends Component {
     })
   }
   onAddUser(e){
-    console.log("works", e)
     axios.post('http://localhost:8080/api/students', e).then((data) => {
-      console.log("incoming new user", data)
-      this.setState({
-        students: this.state.students.concat(e)
-      })
+      // TODO: fix hack, only add new user to students once the server returns it
+      this.intitStudents()
     }).catch(function (error) {
       alert('Something went wrong')
     })
