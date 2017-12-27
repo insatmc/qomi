@@ -20,6 +20,7 @@ class App extends Component {
     super(props)
     this.state = {
       students: [],
+      userSearch: '',
       nameFilter: '',
   		locationFilter: '',
   		skillsFilter: '',
@@ -37,9 +38,11 @@ class App extends Component {
   isStudentVisible (student) {
     let studentName = student.fullname.toLowerCase()
     let nameToSearch = this.state.nameFilter.toLowerCase()
+
     let studentLocation = student.location.toLowerCase()
-    let studentToSearch = this.state.locationFilter.toLowerCase()
-    let studentSkills = student['looking for'].toLowerCase()
+    let locationToSearch = this.state.locationFilter.toLowerCase()
+
+    let studentSkills = student.technologies.map((el) => el.toLowerCase())
     let skillsToSearch = this.state.skillsFilter.toLowerCase()
 
     let studentDisponibility = student.disponibility.toLowerCase()
@@ -49,14 +52,18 @@ class App extends Component {
     let contractFilter = this.state.contractFilter.toLowerCase()
 
     let nameCond = (studentName.indexOf(nameToSearch) !== -1)
-    let locationCond = (studentLocation.indexOf(studentToSearch) !== -1)
+    let locationCond = (studentLocation.indexOf(locationToSearch) !== -1)
     let skillsCond = (studentSkills.indexOf(skillsToSearch) !== -1)
+    if (skillsToSearch === '') {
+      skillsCond = true
+    }
     let disponibilityCond = (studentDisponibility.indexOf(disponibilityToSearch) !== -1)
     let contractCond = (studentContract.indexOf(contractFilter) !== -1)
-    return (
-      (nameCond && locationCond && skillsCond) ||
-      (nameCond || locationCond || skillsCond)
-    )
+
+    let userSearch = this.state.userSearch.toLowerCase()
+    let userCond = (studentName.indexOf(userSearch) !== -1)
+
+    return (nameCond && locationCond && skillsCond && disponibilityCond && contractCond && userCond)
   }
 
   render () {
@@ -67,10 +74,7 @@ class App extends Component {
 
           <div className='col-xs-12 col-md-4 col-lg-4 user-search'>
             <Search
-              name={this.state.nameFilter}
-              onChangeName={(e) => this.setState({nameFilter: e.target.value})}
-              onChangeLocation={(e) => this.setState({locationFilter: e.target.value})}
-              onChangeSkills={(e) => this.setState({skillsFilter: e.target.value})}
+              onChangeSearch={(e) => this.setState({userSearch: e.target.value})}
             />
           </div>
 
