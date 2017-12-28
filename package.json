@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "build": "webpack --config webpack.prod.config.js",
-    "dev": "webpack --watch & node server.js",
+    "dev": "webpack --watch & nodemon server.js",
     "lint": "eslint src/**",
     "lint:watch": "esw -w src/**",
     "review": "npm run lint && npm test",
@@ -31,6 +31,8 @@
     "enzyme-adapter-react-16": "^1.0.0",
     "errorhandler": "^1.5.0",
     "express": "^4.16.2",
+    "lodash": "^4.17.4",
+    "react-web-tabs": "*",
     "logan": "0.0.2",
     "mongod": "^2.0.0",
     "mongodb": "^3.0.0-rc0",

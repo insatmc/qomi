@@ -35,15 +35,16 @@ class App extends Component {
       lookingForTag: ''
     }
 
-    axios.get('http://localhost:8080/api/students').then((data) => {
+    axios.get('/api/students').then((data) => {
       this.setState({ students: data.data })
     }).catch(function (error) {
-      alert('Something went wrong')
+      console.log(JSON.stringify(error))
     })
   }
 
   isStudentVisible (student) {
-    let studentName = student.fullname.toLowerCase()
+    console.log(student)
+    let studentName = student.fullname.toLowerCase() || ""
     let nameToSearch = this.state.nameFilter.toLowerCase()
 
     let studentLocation = student.location.toLowerCase()

@@ -1,17 +1,18 @@
 import React, {Component} from 'react'
+import './style.css'
 import StudentCard from '../StudentCard'
 
 class StudentsList extends Component {
 
   render () {
     return (
-      <div className='row'>
+      <div className='row Cards-container'>
 
         {
-        this.props.students.map((el,i) => {
-          return <div key={i} className='col-sm-6 col-md-4 col-lg-3'><StudentCard  student={el} /></div>
-        })
-      }
+          this.props.students.map((el, i) => {
+            return <StudentCard key={i} student={el} />
+          })
+        }
 
       </div>
     )

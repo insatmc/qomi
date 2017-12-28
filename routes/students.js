@@ -4,7 +4,7 @@ module.exports = {
   getStudents (req, res) {
     req.collection.find({}).toArray(function (err, docs) {
       if (err) throw err
-      res.send(docs)
+      res.status(200).send(docs)
     })
   },
   getStudent (req, res) {

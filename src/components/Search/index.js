@@ -13,13 +13,11 @@ class Search extends Component {
       <div className='inputForm'>
 
         <input
-         value={this.props.nameFilter}
-         onChange={this.onChangeInput.bind(this)}
-
+          onChange={this.props.onChangeSearch}
           type='text'
           className='form-control'
-          placeholder='FullName,Skills,Location...'
-          />
+          placeholder='Search student name...'
+        />
 
       </div>
 
