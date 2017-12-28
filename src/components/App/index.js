@@ -42,6 +42,8 @@ class App extends Component {
     })
   }
 
+
+
   isStudentVisible (student) {
     console.log(student)
     let studentName = student.fullname.toLowerCase() || ""
