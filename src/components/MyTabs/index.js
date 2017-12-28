@@ -8,10 +8,11 @@ import TechnologiesSubTab from '../SubTabs/TechnologiesSubTab.js'
 import ContractSubTab from '../SubTabs/ContractSubTab.js'
 
 class MyTabs extends Component {
+
   render () {
     return (
       <div className='aside'>
-        <Tabs defaultTab='vertical-tab-one' vertical>
+        <Tabs vertical>
           <div className='cols-container'>
 
             <div className='left-col'>

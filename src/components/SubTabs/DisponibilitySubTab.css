@@ -13,3 +13,8 @@
   background-color: white;
   color:#2e3e53;
 }
+
+.dispo-input:focus{
+  background-color: black;
+  color:white;
+}

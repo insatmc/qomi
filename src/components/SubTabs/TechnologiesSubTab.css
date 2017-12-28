@@ -13,3 +13,7 @@
   background-color: white;
   color:#2e3e53;
 }
+.techno-input:focus{
+  background-color: black;
+  color:white;
+}
