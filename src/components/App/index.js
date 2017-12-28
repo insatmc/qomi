@@ -14,6 +14,7 @@ import {
   Switch
 } from 'react-router-dom'
 import axios from 'axios'
+import _ from 'lodash'
 
 class App extends Component {
   constructor (props) {
@@ -57,7 +58,7 @@ class App extends Component {
 
     let nameCond = (studentName.indexOf(nameToSearch) !== -1)
     let locationCond = (studentLocation.indexOf(locationToSearch) !== -1)
-    let skillsCond = studentSkills.filter((skill) => skillsToSearch.includes(skill))
+    let skillsCond = _
     if (skillsToSearch.length === 0) {
       skillsCond = true
     }
@@ -80,8 +81,13 @@ class App extends Component {
     // }
   }
 
+  removeSkill (myVal, valIndex) {
+
+  }
+
   render () {
     return (
+
       <div>
         <NavBar />
         <div className='row bars-container'>
@@ -95,13 +101,20 @@ class App extends Component {
           <div className='col-xs-12 col-md-8 col-lg-8 search-tags'>
             <SearchTags tags={
               [
-                this.state.locationTag,
-                this.state.disponibilityTag,
-                this.state.technologiesTag,
-                this.state.lookingForTag
+                {
+                  type: 'location', value: this.state.locationTag
+                },
+                {
+                  type: 'disponibility', value: this.state.disponibilityTag
+                },
+                {
+                  type: 'lookingFor', value: this.state.lookingForTag
+                }
               ]
               }
               removeTag={this.removeTag.bind(this)}
+              technologiesTag={this.state.technologiesTag}
+              removeSkill={this.removeSkill.bind(this)}
             />
           </div>
 
@@ -111,7 +124,10 @@ class App extends Component {
             <MyTabs
               onChangeLocation={(e) => this.setState({locationFilter: e.target.value, locationTag: e.target.value})}
               onChangeDisponibility={(e) => this.setState({disponibilityFilter: e.target.value, disponibilityTag: e.target.value})}
-              onChangeSkills={(e) => this.setState({skillsFilter: this.state.skillsFilter.concat(e.target.value), technologiesTag: this.state.technologiesTag.concat(e.target.value)})}
+              onChangeSkills={(e) => this.setState(
+                {skillsFilter: this.state.skillsFilter.concat(e.target.value),
+                  technologiesTag: this.state.technologiesTag.concat(e.target.value)}
+              )}
               onChangeContract={(e) => this.setState({contractFilter: e.target.value, lookingForTag: e.target.value})}
             />
           </div>

@@ -5,15 +5,28 @@ class SearchTags extends Component {
   render () {
     return (
       <div className='tagsContainer'>
-        {
+        <span className='subtags'>
+          {
           this.props.tags.map((el, i) => {
             return (
               <span className='searchTag' key={i} onClick={this.props.removeTag({el}, {i})}>
+                {el.value}
+              </span>
+            )
+          })
+        }
+        </span>
+        <span className='subtags'>
+          {
+          this.props.technologiesTag.map((el, i) => {
+            return (
+              <span className='searchTag' key={i} onClick={this.props.removeSkill({el}, {i})}>
                 {el}
               </span>
             )
           })
         }
+        </span>
       </div>
     )
   }
