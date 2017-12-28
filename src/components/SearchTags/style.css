@@ -1,0 +1,25 @@
+.tagsContainer{
+  padding: 4px;
+}
+
+.searchTag{
+  background-color: lightgray;
+  padding: 4px;
+  margin: 5px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}
+
+.searchTag:empty{
+  display: none;
+}
+
+.searchTag::after{
+  content: ' ✖';
+}
+
+.searchTag:hover{
+  background-color: darkred;
+  color: white;
+  cursor: pointer;
+}

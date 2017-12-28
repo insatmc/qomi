@@ -23,9 +23,13 @@ class App extends Component {
       userSearch: '',
       nameFilter: '',
   		locationFilter: '',
-  		skillsFilter: '',
+  		skillsFilter: [],
       disponibilityFilter: '',
-      contractFilter: ''
+      contractFilter: '',
+      locationTag: '',
+      disponibilityTag: '',
+      technologiesTag: [],
+      lookingForTag: ''
     }
 
     axios.get('http://localhost:8080/api/students').then((data) => {
@@ -43,7 +47,7 @@ class App extends Component {
     let locationToSearch = this.state.locationFilter.toLowerCase()
 
     let studentSkills = student.technologies.map((el) => el.toLowerCase())
-    let skillsToSearch = this.state.skillsFilter.toLowerCase()
+    let skillsToSearch = this.state.skillsFilter.map((el) => el.toLowerCase())
 
     let studentDisponibility = student.disponibility.toLowerCase()
     let disponibilityToSearch = this.state.disponibilityFilter.toLowerCase()
@@ -53,8 +57,8 @@ class App extends Component {
 
     let nameCond = (studentName.indexOf(nameToSearch) !== -1)
     let locationCond = (studentLocation.indexOf(locationToSearch) !== -1)
-    let skillsCond = (studentSkills.indexOf(skillsToSearch) !== -1)
-    if (skillsToSearch === '') {
+    let skillsCond = studentSkills.filter((skill) => skillsToSearch.includes(skill))
+    if (skillsToSearch.length === 0) {
       skillsCond = true
     }
     let disponibilityCond = (studentDisponibility.indexOf(disponibilityToSearch) !== -1)
@@ -64,6 +68,16 @@ class App extends Component {
     let userCond = (studentName.indexOf(userSearch) !== -1)
 
     return (nameCond && locationCond && skillsCond && disponibilityCond && contractCond && userCond)
+  }
+
+  removeTag (myVal, valIndex) {
+    // console.log('clicked and myVal and valIndex are ======>', myVal.el, valIndex.i)
+    // if (valIndex.i === 0 && myVal.el === this.state.locationFilter) {
+    //   this.setState({
+    //     locationFilter: '',
+    //     locationTag: ''
+    //   })
+    // }
   }
 
   render () {
@@ -79,17 +93,26 @@ class App extends Component {
           </div>
 
           <div className='col-xs-12 col-md-8 col-lg-8 search-tags'>
-            <SearchTags />
+            <SearchTags tags={
+              [
+                this.state.locationTag,
+                this.state.disponibilityTag,
+                this.state.technologiesTag,
+                this.state.lookingForTag
+              ]
+              }
+              removeTag={this.removeTag.bind(this)}
+            />
           </div>
 
         </div>
         <div className='Tabs-Cards-container'>
           <div className='Tabs-container'>
             <MyTabs
-              onChangeLocation={(e) => this.setState({locationFilter: e.target.value})}
-              onChangeDisponibility={(e) => this.setState({disponibilityFilter: e.target.value})}
-              onChangeSkills={(e) => this.setState({skillsFilter: e.target.value})}
-              onChangeContract={(e) => this.setState({contractFilter: e.target.value})}
+              onChangeLocation={(e) => this.setState({locationFilter: e.target.value, locationTag: e.target.value})}
+              onChangeDisponibility={(e) => this.setState({disponibilityFilter: e.target.value, disponibilityTag: e.target.value})}
+              onChangeSkills={(e) => this.setState({skillsFilter: this.state.skillsFilter.concat(e.target.value), technologiesTag: this.state.technologiesTag.concat(e.target.value)})}
+              onChangeContract={(e) => this.setState({contractFilter: e.target.value, lookingForTag: e.target.value})}
             />
           </div>
           <StudentsList students={this.state.students.filter(this.isStudentVisible.bind(this))} />
