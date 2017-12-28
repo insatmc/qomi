@@ -18,7 +18,7 @@ module.exports = {
     })
   },
   addStudent (req, res, next) {
-    req.collection.insertOne(req.body)
+    req.collection.insert(req.body)
     .then(function (result) {
       res.status(201).send(result)
     })

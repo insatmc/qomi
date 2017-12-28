@@ -27,6 +27,8 @@ class App extends Component {
 
     this.deleteUser = this.deleteUser.bind(this)
     this.intitStudents = this.intitStudents.bind(this)
+    this.UpdateUser = this.UpdateUser.bind(this)
+
 
     this.intitStudents()
   }
@@ -56,6 +58,23 @@ class App extends Component {
         alert('Something went wrong')
       })
   }
+  UpdateUser(student){
+    let studentWithoutId = {
+      ...student
+    }
+    delete studentWithoutId._id
+    console.log()
+    axios.put(`http://localhost:8080/api/students/${student._id}`, studentWithoutId)
+      .then(() => {
+        this.setState({
+          students: this.state.students.filter(el => el._id != student._id)
+
+        })
+      })
+      .catch(function (error) {
+        alert('Something went wrong')
+      })
+  }
 	isStudentVisible(student){
 		// let studentName = student.fullName.toLowerCase()
 		// let nameToSearch = this.state.nameFilter.toLowerCase()
@@ -75,7 +94,8 @@ class App extends Component {
                   <TableUser
                     students={this.state.students}
                     onAddUser={(e) => this.onAddUser(e)}
-                    onDeleteUser={this.deleteUser}/>
+                    onDeleteUser={this.deleteUser}
+                    onUpdateUser={this.UpdateUser}/>
                 </div>
               }/>
               <Route path="/" render={

@@ -3,6 +3,7 @@ import { Table } from 'semantic-ui-react';
 import AddStudent from '../AddStudent';
 import ModalEditStudent from '../ModalEditStudent'
 import ModalDeleteStudent from '../ModalDeleteStudent'
+import './style.css';
 import Rodal from 'rodal';
 import { Button } from 'react-bootstrap';
 import 'rodal/lib/rodal.css'
@@ -18,13 +19,20 @@ class TableUser extends Component {
       deleteModal: {
         isOpen: false,
         studentToDelete: null
+      },
+      UpdateModal: {
+        isOpen: false,
+        studentToUpdate: null
       }
+
     }
 
     this.closeModalStudent = this.closeModalStudent.bind(this)
     this.showModalStudent = this.showModalStudent.bind(this)
     this.showDeleteModal = this.showDeleteModal.bind(this)
     this.hideDeleteModal = this.hideDeleteModal.bind(this)
+    this.showUpdateModal= this.showUpdateModal.bind(this)
+    this.hideUpdateModalModal = this.hideUpdateModal.bind(this)
 
   }
   closeModalStudent() {
@@ -52,6 +60,21 @@ class TableUser extends Component {
       }
     })
   }
+  showUpdateModal(studentToUpdate) {
+    this.setState({
+      UpdateModal: {
+        isOpen: true,
+        studentToUpdate: studentToUpdate
+      }
+    })
+  }
+  hideUpdateModal() {
+    this.setState({
+      UpdateModal:{
+        isOpen:false
+      }
+    })
+  }
   render() {
     return (
       <div>
@@ -63,8 +86,19 @@ class TableUser extends Component {
             this.props.onDeleteUser(this.state.deleteModal.studentToDelete)
           }}
           student={this.state.deleteModal.studentToDelete} />
+
+        <ModalEditStudent
+          visible={this.state.UpdateModal.isOpen}
+          onClose={this.hideUpdateModalModal}
+          onSubmit={(student)=>{
+            this.hideUpdateModalModal()
+            this.props.onUpdateUser(student)
+          }}
+          student={this.state.UpdateModal.studentToUpdate} />
+
+
         <div>
-          <button type="button" className="btn btn-primary" onClick={this.showModalStudent}>Add Student
+          <button type="button" className="btn btn-primary AddStudentBtn" onClick={this.showModalStudent}>Add Student
           </button>
         </div>
 
@@ -81,7 +115,7 @@ class TableUser extends Component {
 
         <div>
           <Table className="ui single line table">
-            <Table.Header>
+            <Table.Header className="tabHead">
               <Table.Row>
                 <Table.HeaderCell>fullName</Table.HeaderCell>
                 <Table.HeaderCell>location</Table.HeaderCell>
@@ -98,11 +132,11 @@ class TableUser extends Component {
                     <Table.Row key={i}>
                       <Table.Cell>{student.fullName}</Table.Cell>
                       <Table.Cell>{student.location}</Table.Cell>
-                      <Table.Cell>{student.skills}</Table.Cell>
+                      <Table.Cell>{student.Skills}</Table.Cell>
                       <Table.Cell>{student.Disponibility}</Table.Cell>
                       <Table.Cell>
                         <button
-                          onClick={this.showModalStudent}
+                          onClick={()=>this.showUpdateModal(student)}
                         className="btn btn-success">
                           Edit
                         </button>
