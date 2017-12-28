@@ -1,89 +1,91 @@
 import React, {Component} from 'react'
+import './style.css'
+import 'src/assets/stylesheets/base.scss'
+import NavBar from '../NavBar'
+import MyTabs from '../MyTabs'
 import StudentsList from '../StudentsList'
 import Search from '../Search'
-import TableUser from '../TableUser'
+import SearchTags from '../SearchTags'
 import PropTypes from 'prop-types'
-import 'src/assets/stylesheets/base.scss'
+import TableUser from '../TableUser'
+import Admin from '../Admin'
 import {
   BrowserRouter as Router,
   Route,
   Link,
   Switch
 } from 'react-router-dom'
-
 import axios from 'axios'
-
+import _ from 'lodash'
 
 class App extends Component {
   constructor (props) {
     super(props)
-
     this.state = {
       students: [],
-  		nameFilter :'',
-  		locationFilter : '',
-  		skillsFilter :''
-  	}
+      userSearch: '',
+      nameFilter: '',
+  		locationFilter: '',
+  		skillsFilter: [],
+      disponibilityFilter: '',
+      contractFilter: '',
+      locationTag: '',
+      disponibilityTag: '',
+      technologiesTag: [],
+      lookingForTag: ''
+    }
 
-    this.deleteUser = this.deleteUser.bind(this)
-    this.intitStudents = this.intitStudents.bind(this)
-    this.UpdateUser = this.UpdateUser.bind(this)
-
-
-    this.intitStudents()
-  }
-  intitStudents() {
     axios.get('http://localhost:8080/api/students').then((data) => {
       this.setState({ students: data.data })
     }).catch(function (error) {
       alert('Something went wrong')
     })
   }
-  onAddUser(e){
-    axios.post('http://localhost:8080/api/students', e).then((data) => {
-      // TODO: fix hack, only add new user to students once the server returns it
-      this.intitStudents()
-    }).catch(function (error) {
-      alert('Something went wrong')
-    })
-  }
-  deleteUser(student){
-    axios.delete(`http://localhost:8080/api/students/${student._id}`)
-      .then(() => {
-        this.setState({
-          students: this.state.students.filter(el => el._id != student._id)
-        })
-      })
-      .catch(function (error) {
-        alert('Something went wrong')
-      })
-  }
-  UpdateUser(student){
-    let studentWithoutId = {
-      ...student
-    }
-    delete studentWithoutId._id
-    console.log()
-    axios.put(`http://localhost:8080/api/students/${student._id}`, studentWithoutId)
-      .then(() => {
-        this.setState({
-          students: this.state.students.filter(el => el._id != student._id)
 
-        })
-      })
-      .catch(function (error) {
-        alert('Something went wrong')
-      })
+  isStudentVisible (student) {
+    let studentName = student.fullname.toLowerCase()
+    let nameToSearch = this.state.nameFilter.toLowerCase()
+
+    let studentLocation = student.location.toLowerCase()
+    let locationToSearch = this.state.locationFilter.toLowerCase()
+
+    let studentSkills = student.technologies.map((el) => el.toLowerCase())
+    let skillsToSearch = this.state.skillsFilter.map((el) => el.toLowerCase())
+
+    let studentDisponibility = student.disponibility.toLowerCase()
+    let disponibilityToSearch = this.state.disponibilityFilter.toLowerCase()
+
+    let studentContract = student['looking for'].toLowerCase()
+    let contractFilter = this.state.contractFilter.toLowerCase()
+
+    let nameCond = (studentName.indexOf(nameToSearch) !== -1)
+    let locationCond = (studentLocation.indexOf(locationToSearch) !== -1)
+    let skillsCond = _
+    if (skillsToSearch.length === 0) {
+      skillsCond = true
+    }
+    let disponibilityCond = (studentDisponibility.indexOf(disponibilityToSearch) !== -1)
+    let contractCond = (studentContract.indexOf(contractFilter) !== -1)
+
+    let userSearch = this.state.userSearch.toLowerCase()
+    let userCond = (studentName.indexOf(userSearch) !== -1)
+
+    return (nameCond && locationCond && skillsCond && disponibilityCond && contractCond && userCond)
   }
-	isStudentVisible(student){
-		// let studentName = student.fullName.toLowerCase()
-		// let nameToSearch = this.state.nameFilter.toLowerCase()
-		// let studentLocation = student.location.toLowerCase()
-		// let studentToSearch = this.state.locationFilter.toLowerCase()
-		// let studentSkills = student.skills.toLowerCase()
-		// let skillsToSeach = this.state.skillsFilter.toLowerCase()
-		// return ((studentName.indexOf(nameToSearch)!==-1) || (studentLocation.indexOf(studentToSearch )!==-1)|| (studentSkills.indexOf(skillsToSeach)!==-1))
-	}
+
+  removeTag (myVal, valIndex) {
+    // console.log('clicked and myVal and valIndex are ======>', myVal.el, valIndex.i)
+    // if (valIndex.i === 0 && myVal.el === this.state.locationFilter) {
+    //   this.setState({
+    //     locationFilter: '',
+    //     locationTag: ''
+    //   })
+    // }
+  }
+
+  removeSkill (myVal, valIndex) {
+
+  }
   render () {
   		return (
 				<div>
@@ -91,25 +93,57 @@ class App extends Component {
             <Switch>
               <Route path="/admin" render={() =>
                 <div>
-                  <TableUser
-                    students={this.state.students}
-                    onAddUser={(e) => this.onAddUser(e)}
-                    onDeleteUser={this.deleteUser}
-                    onUpdateUser={this.UpdateUser}/>
+                  <Admin />
                 </div>
               }/>
               <Route path="/" render={
                 () => {
                   return (
                     <div>
-                      <Link to="/admin">Admin</Link>
+                      <NavBar />
+                      <div className='row bars-container'>
 
-                      <Search
-                        name={this.state.nameFilter}
-                        onChangeName={(e) => this.setState({nameFilter: e.target.value})}
-                        onChangeLocation={(e)=>this.setState({locationFilter:e.target.value})}
-                        onChangeSkills={(e)=>this.setState({skillsFilter:e.target.value})}/>
-                      <StudentsList students={this.state.students.filter(this.isStudentVisible.bind(this))}/>
+                        <div className='col-xs-12 col-md-4 col-lg-4 user-search'>
+                          <Search
+                            onChangeSearch={(e) => this.setState({userSearch: e.target.value})}
+                          />
+                        </div>
+
+                        <div className='col-xs-12 col-md-8 col-lg-8 search-tags'>
+                          <SearchTags tags={
+                            [
+                            {
+                              type: 'location', value: this.state.locationTag
+                            },
+                            {
+                              type: 'disponibility', value: this.state.disponibilityTag
+                            },
+                            {
+                              type: 'lookingFor', value: this.state.lookingForTag
+                            }
+                            ]
+                          }
+                            removeTag={this.removeTag.bind(this)}
+                            technologiesTag={this.state.technologiesTag}
+                            removeSkill={this.removeSkill.bind(this)}
+                          />
+                        </div>
+
+                      </div>
+                      <div className='Tabs-Cards-container'>
+                        <div className='Tabs-container'>
+                          <MyTabs
+                            onChangeLocation={(e) => this.setState({locationFilter: e.target.value, locationTag: e.target.value})}
+                            onChangeDisponibility={(e) => this.setState({disponibilityFilter: e.target.value, disponibilityTag: e.target.value})}
+                            onChangeSkills={(e) => this.setState(
+                              {skillsFilter: this.state.skillsFilter.concat(e.target.value),
+                                technologiesTag: this.state.technologiesTag.concat(e.target.value)}
+                            )}
+                            onChangeContract={(e) => this.setState({contractFilter: e.target.value, lookingForTag: e.target.value})}
+                          />
+                        </div>
+                        <StudentsList students={this.state.students.filter(this.isStudentVisible.bind(this))} />
+                      </div>
                     </div>
                   )
                 }
