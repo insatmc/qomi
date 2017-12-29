@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import { Table } from 'semantic-ui-react';
-import AddStudent from '../AddStudent';
+import React, { Component } from 'react'
+import { Table } from 'semantic-ui-react'
+import AddStudent from '../AddStudent'
 import ModalEditStudent from '../ModalEditStudent'
 import ModalDeleteStudent from '../ModalDeleteStudent'
-import './style.css';
-import Rodal from 'rodal';
-import { Button } from 'react-bootstrap';
+import './style.css'
+import Rodal from 'rodal'
+import { Button } from 'react-bootstrap'
 import 'rodal/lib/rodal.css'
 
 class TableUser extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
-      fullName:'',
-      location:'',
-      Skills:'',
-      Disponibility:'',
+      fullName: '',
+      location: '',
+      Skills: '',
+      Disponibility: '',
       deleteModal: {
         isOpen: false,
         studentToDelete: null
@@ -31,21 +31,20 @@ class TableUser extends Component {
     this.showModalStudent = this.showModalStudent.bind(this)
     this.showDeleteModal = this.showDeleteModal.bind(this)
     this.hideDeleteModal = this.hideDeleteModal.bind(this)
-    this.showUpdateModal= this.showUpdateModal.bind(this)
+    this.showUpdateModal = this.showUpdateModal.bind(this)
     this.hideUpdateModalModal = this.hideUpdateModal.bind(this)
-
   }
-  closeModalStudent() {
+  closeModalStudent () {
     this.setState({
       isModalOpenS: false
     })
   }
-  showModalStudent() {
+  showModalStudent () {
     this.setState({
       isModalOpenS: true
     })
   }
-  showDeleteModal(studentToDelete) {
+  showDeleteModal (studentToDelete) {
     this.setState({
       deleteModal: {
         isOpen: true,
@@ -53,14 +52,14 @@ class TableUser extends Component {
       }
     })
   }
-  hideDeleteModal() {
+  hideDeleteModal () {
     this.setState({
-      deleteModal:{
-        isOpen:false
+      deleteModal: {
+        isOpen: false
       }
     })
   }
-  showUpdateModal(studentToUpdate) {
+  showUpdateModal (studentToUpdate) {
     this.setState({
       UpdateModal: {
         isOpen: true,
@@ -68,20 +67,20 @@ class TableUser extends Component {
       }
     })
   }
-  hideUpdateModal() {
+  hideUpdateModal () {
     this.setState({
-      UpdateModal:{
-        isOpen:false
+      UpdateModal: {
+        isOpen: false
       }
     })
   }
-  render() {
+  render () {
     return (
       <div>
         <ModalDeleteStudent
           visible={this.state.deleteModal.isOpen}
           onClose={this.hideDeleteModal}
-          onSubmit={()=>{
+          onSubmit={() => {
             this.hideDeleteModal()
             this.props.onDeleteUser(this.state.deleteModal.studentToDelete)
           }}
@@ -90,22 +89,21 @@ class TableUser extends Component {
         <ModalEditStudent
           visible={this.state.UpdateModal.isOpen}
           onClose={this.hideUpdateModalModal}
-          onSubmit={(student)=>{
+          onSubmit={(student) => {
             this.hideUpdateModalModal()
             this.props.onUpdateUser(student)
           }}
           student={this.state.UpdateModal.studentToUpdate} />
 
-
         <div>
-          <button type="button" className="btn btn-primary AddStudentBtn" onClick={this.showModalStudent}>Add Student
+          <button type='button' className='btn btn-primary AddStudentBtn' onClick={this.showModalStudent}>Add Student
           </button>
         </div>
 
         <div>
           <Rodal customStyles={{overflowY: 'scroll', height: '100%'}} visible={this.state.isModalOpenS} onClose={this.closeModalStudent}>
             <div>
-              <AddStudent onSubmit={this.props.onAddUser}/>
+              <AddStudent onSubmit={this.props.onAddUser} />
             </div>
 
             <Button bsStyle='danger' onClick={this.closeModalStudent}>Close</Button>
@@ -114,8 +112,8 @@ class TableUser extends Component {
         </div>
 
         <div>
-          <Table className="ui single line table">
-            <Table.Header className="tabHead">
+          <Table className='ui single line table'>
+            <Table.Header className='tabHead'>
               <Table.Row>
                 <Table.HeaderCell>fullName</Table.HeaderCell>
                 <Table.HeaderCell>location</Table.HeaderCell>
@@ -127,29 +125,27 @@ class TableUser extends Component {
             </Table.Header>
             <Table.Body>
               {
-                this.props.students.map( (student, i) => {
-                  return(
+                this.props.students.map((student, i) => {
+                  return (
                     <Table.Row key={i}>
                       <Table.Cell>{student.fullName}</Table.Cell>
                       <Table.Cell>{student.location}</Table.Cell>
-                      <Table.Cell>{student.Skills}</Table.Cell>
-                      <Table.Cell>{student.Disponibility}</Table.Cell>
+                      <Table.Cell>{student.skills}</Table.Cell>
+                      <Table.Cell>{student.disponibility}</Table.Cell>
                       <Table.Cell>
                         <button
-                          onClick={()=>this.showUpdateModal(student)}
-                        className="btn btn-success">
+                          onClick={() => this.showUpdateModal(student)}
+                          className='btn btn-success'>
                           Edit
                         </button>
                         <button
-                          type="button"
-                          className="btn btn-danger"
+                          type='button'
+                          className='btn btn-danger'
                           onClick={() => this.showDeleteModal(student)}>
                           Delete
                         </button>
-                        <div>
-                        </div>
-                        <div>
-                        </div>
+                        <div />
+                        <div />
                       </Table.Cell>
                     </Table.Row>
                   )
@@ -161,8 +157,8 @@ class TableUser extends Component {
         </div>
       </div>
 
-    );
+    )
   }
 }
 
-export default TableUser;
+export default TableUser

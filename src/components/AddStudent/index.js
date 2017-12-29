@@ -2,63 +2,71 @@ import React, {Component} from 'react'
 import './style.css'
 
 class AddStudent extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
-      fullName:'',
-      location:'',
-      Skills:'',
-      Disponibility:''
+      fullName: '',
+      image: '',
+      location: '',
+      disponibility: '',
+      lookingFor: [],
+      skills: [],
+      contacts: {
+        twitter: '',
+        main: '',
+        github: '',
+        linkedin: ''
+      },
+      cv: ''
     }
 
-    console.log("first props" ,props)
+    console.log('first props', props)
 
-    if(props.student){
+    if (props.student) {
       this.state = props.student
-      console.log("updating userx²")
+      console.log('updating userx²')
     }
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleChangeSkills = this.handleChangeSkills.bind(this);
-    this.handleChangeDisponibility = this.handleChangeDisponibility.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleChangeSkills = this.handleChangeSkills.bind(this)
+    this.handleChangeDisponibility = this.handleChangeDisponibility.bind(this)
   }
 
-  componentWillReceiveProps(props){
-    console.log("Component recieved props ",props)
-    if(props.student){
+  componentWillReceiveProps (props) {
+    console.log('Component recieved props ', props)
+    if (props.student) {
       this.setState({ ...props.student })
     }
   }
 
-  handleInputChange(e) {
-    const target = e.target;
-    const value = target.value;
+  handleInputChange (e) {
+    const target = e.target
+    const value = target.value
 
-    this.setState({ fullName: value });
+    this.setState({ fullName: value })
   }
-  handleChange(e) {
-    const target = e.target;
-    const value = target.value;
+  handleChange (e) {
+    const target = e.target
+    const value = target.value
 
     this.setState({
-    location:value});
-
+      location: value})
   }
 
-  handleChangeDisponibility(e) {
-    const target = e.target;
-    const value = target.value;
+  handleChangeDisponibility (e) {
+    const target = e.target
+    const value = target.value
 
     this.setState({
-    Disponibility:value});
+      disponibility: value})
   }
-  handleChangeSkills(e) {
-    const target = e.target;
-    const value = target.value;
+  handleChangeSkills (e) {
+    const target = e.target
+    const value = target.value
 
     this.setState({
-    Skills:value});
+      skills: this.state.skills.concat(value)})
   }
 
   render () {
@@ -70,11 +78,11 @@ class AddStudent extends Component {
             <legend><h3>Student Form</h3></legend>
 
             <div className='form-group'>
-              <label className='col-md-4 control-label' htmlFor='add-fullname'><h4>Student fullname</h4></label>
+              <label className='col-md-4 control-label' htmlFor='add-fullName'><h4>Student fullName</h4></label>
               <div className='col-md-5'>
-                <input id='add-fullname' name='add-fullname' type='text' placeholder='add fullname here' className='form-control input-md' required
+                <input id='add-fullName' name='add-fullName' type='text' placeholder='add fullName here' className='form-control input-md' required
                   value={this.state.fullName}
-                  onChange={this.handleInputChange}/>
+                  onChange={this.handleInputChange} />
 
               </div>
             </div>
@@ -122,7 +130,7 @@ class AddStudent extends Component {
             <div className='form-group'>
               <label className='col-md-4 control-label' htmlFor='add-disponibility'><h4>Disponibility</h4></label>
               <div className='col-md-4'>
-                <select id='add-disponibility' name='add-disponibility' className='form-control' value={this.state.Disponibility} onChange={this.handleChangeDisponibility}>
+                <select id='add-disponibility' name='add-disponibility' className='form-control' value={this.state.disponibility} onChange={this.handleChangeDisponibility}>
                   <option value='Immediately'>Immediately</option>
                   <option value='In a few days'>In a few days</option>
                   <option value='In 1 month'>In 1 month</option>
@@ -134,16 +142,26 @@ class AddStudent extends Component {
             <div className='form-group'>
               <label className='col-md-4 control-label' htmlFor='add-skills'><h4>Skills</h4></label>
               <div className='col-md-4'>
-                <select id='add-skills' name='add-skills' className='form-control' value={this.state.Skills} onChange={this.handleChangeSkills}>
+                <select id='add-skills' name='add-skills' className='form-control' value={this.state.skills} onChange={this.handleChangeSkills}>
+                  <option value='HTML'>HTML</option>
+                  <option value='CSS'>CSS</option>
                   <option value='Javascript'>Javascript</option>
-                  <option value='hTML5'>hTML5</option>
-                  <option value='CSS3'>CSS3</option>
                   <option value='Bootstrap'>Bootstrap</option>
                   <option value='Responsive Design'>Responsive Design</option>
-                  <option value='Vue JS'>Vue JS</option>
-                  <option value='Angular JS'>Angular JS</option>
-                  <option value='React JS'>React JS</option>
-                  <option value='NodeJS&&MongoDB'>NodeJS&&MongoDB</option>
+                  <option value='ReactJS'>ReactJS</option>
+                  <option value='AngularJS'>AngularJS</option>
+                  <option value='VueJS'>VueJS</option>
+                  <option value='React Native'>React Native</option>
+                  <option value='NodeJS'>NodeJS</option>
+                  <option value='ExpressJS'>ExpressJS</option>
+                  <option value='MongoDB'>MongoDB</option>
+                  <option value='MeteorJS'>MeteorJS</option>
+                  <option value='Ruby on Rails'>Ruby on Rails</option>
+                  <option value='.NET'>.NET</option>
+                  <option value='Java'>Java</option>
+                  <option value='Python'>Python</option>
+                  <option value='PHP'>PHP</option>
+                  <option value='Others'>Others</option>
                 </select>
               </div>
             </div>
@@ -182,7 +200,6 @@ class AddStudent extends Component {
                 </div>
               </div>
             </div>
-
 
             <div className='student-social-media'>
 
@@ -223,7 +240,7 @@ class AddStudent extends Component {
                   id='save-button'
                   name='save-button'
                   className='btn btn-primary'
-                  onClick={() =>this.props.onSubmit(this.state)}>
+                  onClick={() => this.props.onSubmit(this.state)}>
                   Click to Save
                 </button>
               </div>

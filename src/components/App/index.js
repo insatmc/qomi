@@ -31,7 +31,7 @@ class App extends Component {
       contractFilter: '',
       locationTag: '',
       disponibilityTag: '',
-      technologiesTag: [],
+      skillsTag: [],
       lookingForTag: ''
     }
 
@@ -42,28 +42,26 @@ class App extends Component {
     })
   }
 
-
-
   isStudentVisible (student) {
     console.log(student)
-    let studentName = student.fullname.toLowerCase() || ""
+    let studentName = student.fullName.toLowerCase() || ''
     let nameToSearch = this.state.nameFilter.toLowerCase()
 
     let studentLocation = student.location.toLowerCase()
     let locationToSearch = this.state.locationFilter.toLowerCase()
 
-    let studentSkills = student.technologies.map((el) => el.toLowerCase())
+    let studentSkills = student.skills.map((el) => el.toLowerCase())
     let skillsToSearch = this.state.skillsFilter.map((el) => el.toLowerCase())
 
     let studentDisponibility = student.disponibility.toLowerCase()
     let disponibilityToSearch = this.state.disponibilityFilter.toLowerCase()
 
-    let studentContract = student['looking for'].toLowerCase()
+    let studentContract = student.lookingFor.toLowerCase()
     let contractFilter = this.state.contractFilter.toLowerCase()
 
     let nameCond = (studentName.indexOf(nameToSearch) !== -1)
     let locationCond = (studentLocation.indexOf(locationToSearch) !== -1)
-    let skillsCond = _
+    let skillsCond = studentSkills.some(el => skillsToSearch.includes(el))
     if (skillsToSearch.length === 0) {
       skillsCond = true
     }
@@ -76,30 +74,49 @@ class App extends Component {
     return (nameCond && locationCond && skillsCond && disponibilityCond && contractCond && userCond)
   }
 
-  removeTag (myVal, valIndex) {
-    // console.log('clicked and myVal and valIndex are ======>', myVal.el, valIndex.i)
-    // if (valIndex.i === 0 && myVal.el === this.state.locationFilter) {
-    //   this.setState({
-    //     locationFilter: '',
-    //     locationTag: ''
-    //   })
-    // }
+  removeTag (myVal) {
+    let typeVal = myVal.el.type
+    console.log('the type value is ================> ', typeVal)
+    if (typeVal === 'location') {
+      this.setState({
+        locationFilter: '',
+        locationTag: ''
+      })
+    } else if (typeVal === 'disponibility') {
+      this.setState({
+        disponibilityFilter: '',
+        disponibilityTag: ''
+      })
+    } else if (typeVal === 'lookingFor') {
+      this.setState({
+        contractFilter: '',
+        lookingForTag: ''
+      })
+    }
   }
 
-  removeSkill (myVal, valIndex) {
-
+  removeSkill (myVal) {
+    let typeVal = myVal
+    if (this.state.skillsFilter.indexOf(typeVal) !== -1) {
+      let indInFilter = this.state.skillsFilter.indexOf(typeVal)
+      let indInTag = this.state.skillsTag.indexOf(typeVal)
+      this.setState({
+        skillsFilter: this.state.skillsFilter.filter((el, i) => i !== indInFilter),
+        skillsTag: this.state.skillsTag.filter((el, i) => i !== indInTag)
+      })
+    }
   }
   render () {
   		return (
-				<div>
-          <Router>
-            <Switch>
-              <Route path="/admin" render={() =>
-                <div>
-                  <Admin />
-                </div>
-              }/>
-              <Route path="/" render={
+    <div>
+      <Router>
+        <Switch>
+          <Route path='/admin' render={() =>
+            <div>
+              <Admin />
+            </div>
+              } />
+          <Route path='/' render={
                 () => {
                   return (
                     <div>
@@ -115,19 +132,19 @@ class App extends Component {
                         <div className='col-xs-12 col-md-8 col-lg-8 search-tags'>
                           <SearchTags tags={
                             [
-                            {
-                              type: 'location', value: this.state.locationTag
-                            },
-                            {
-                              type: 'disponibility', value: this.state.disponibilityTag
-                            },
-                            {
-                              type: 'lookingFor', value: this.state.lookingForTag
-                            }
+                              {
+                                type: 'location', value: this.state.locationTag
+                              },
+                              {
+                                type: 'disponibility', value: this.state.disponibilityTag
+                              },
+                              {
+                                type: 'lookingFor', value: this.state.lookingForTag
+                              }
                             ]
                           }
                             removeTag={this.removeTag.bind(this)}
-                            technologiesTag={this.state.technologiesTag}
+                            skillsTag={this.state.skillsTag}
                             removeSkill={this.removeSkill.bind(this)}
                           />
                         </div>
@@ -140,7 +157,7 @@ class App extends Component {
                             onChangeDisponibility={(e) => this.setState({disponibilityFilter: e.target.value, disponibilityTag: e.target.value})}
                             onChangeSkills={(e) => this.setState(
                               {skillsFilter: this.state.skillsFilter.concat(e.target.value),
-                                technologiesTag: this.state.technologiesTag.concat(e.target.value)}
+                                skillsTag: this.state.skillsTag.concat(e.target.value)}
                             )}
                             onChangeContract={(e) => this.setState({contractFilter: e.target.value, lookingForTag: e.target.value})}
                           />
@@ -152,9 +169,9 @@ class App extends Component {
                 }
               } />
 
-            </Switch>
-          </Router>
-				</div>
+        </Switch>
+      </Router>
+    </div>
 
   		)
   }
