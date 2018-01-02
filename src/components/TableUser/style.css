@@ -1,10 +1,23 @@
 .table {
 margin: 50px;
 max-width: 95%;
-
-
 }
+
 .AddStudentBtn{
   margin-top: 30px;
   margin-left: 50px;
+}
+
+.skill-span{
+  background-color: #dc3545;
+  color: white;
+  padding:4px;
+  margin: 2px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+}
+
+.table-btn{
+  margin: 2px;
+  cursor: pointer;
 }

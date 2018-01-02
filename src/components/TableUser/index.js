@@ -115,7 +115,7 @@ class TableUser extends Component {
           <Table className='ui single line table'>
             <Table.Header className='tabHead'>
               <Table.Row>
-                <Table.HeaderCell>fullName</Table.HeaderCell>
+                <Table.HeaderCell>Full Name</Table.HeaderCell>
                 <Table.HeaderCell>location</Table.HeaderCell>
                 <Table.HeaderCell>Skills</Table.HeaderCell>
                 <Table.HeaderCell>Disponibility</Table.HeaderCell>
@@ -130,17 +130,21 @@ class TableUser extends Component {
                     <Table.Row key={i}>
                       <Table.Cell>{student.fullName}</Table.Cell>
                       <Table.Cell>{student.location}</Table.Cell>
-                      <Table.Cell>{student.skills}</Table.Cell>
+                      <Table.Cell>
+                        {
+                        student.skills.map((el, i) => <span key={i} className='skill-span'>{el}</span>)
+                      }
+                      </Table.Cell>
                       <Table.Cell>{student.disponibility}</Table.Cell>
                       <Table.Cell>
                         <button
                           onClick={() => this.showUpdateModal(student)}
-                          className='btn btn-success'>
+                          className='btn btn-success table-btn'>
                           Edit
                         </button>
                         <button
                           type='button'
-                          className='btn btn-danger'
+                          className='btn btn-danger table-btn'
                           onClick={() => this.showDeleteModal(student)}>
                           Delete
                         </button>

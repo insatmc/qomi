@@ -139,30 +139,160 @@ class AddStudent extends Component {
                 </select>
               </div>
             </div>
+
             <div className='form-group'>
-              <label className='col-md-4 control-label' htmlFor='add-skills'><h4>Skills</h4></label>
+              <label className='col-md-4 control-label' htmlFor='skills'>Skills</label>
               <div className='col-md-4'>
-                <select id='add-skills' name='add-skills' className='form-control' value={this.state.skills} onChange={this.handleChangeSkills}>
-                  <option value='HTML'>HTML</option>
-                  <option value='CSS'>CSS</option>
-                  <option value='Javascript'>Javascript</option>
-                  <option value='Bootstrap'>Bootstrap</option>
-                  <option value='Responsive Design'>Responsive Design</option>
-                  <option value='ReactJS'>ReactJS</option>
-                  <option value='AngularJS'>AngularJS</option>
-                  <option value='VueJS'>VueJS</option>
-                  <option value='React Native'>React Native</option>
-                  <option value='NodeJS'>NodeJS</option>
-                  <option value='ExpressJS'>ExpressJS</option>
-                  <option value='MongoDB'>MongoDB</option>
-                  <option value='MeteorJS'>MeteorJS</option>
-                  <option value='Ruby on Rails'>Ruby on Rails</option>
-                  <option value='.NET'>.NET</option>
-                  <option value='Java'>Java</option>
-                  <option value='Python'>Python</option>
-                  <option value='PHP'>PHP</option>
-                  <option value='Others'>Others</option>
-                </select>
+                <div className='checkbox'>
+                  <label htmlFor='skills-0'>
+                    <input type='checkbox' name='skills' id='skills-0' value='HTML' />
+                    HTML
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-1'>
+                    <input type='checkbox' name='skills' id='skills-1' value='CSS' />
+                    CSS
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-2'>
+                    <input type='checkbox' name='skills' id='skills-2' value='Javascript' />
+                    Javascript
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-3'>
+                    <input type='checkbox' name='skills' id='skills-3' value='Bootstrap' />
+                    Bootstrap
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-4'>
+                    <input type='checkbox' name='skills' id='skills-4' value='Responsive Design' />
+                    Responsive Design
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-5'>
+                    <input type='checkbox' name='skills' id='skills-5' value='ReactJS' />
+                    ReactJS
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-6'>
+                    <input type='checkbox' name='skills' id='skills-6' value='AngularJS' />
+                    AngularJS
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-7'>
+                    <input type='checkbox' name='skills' id='skills-7' value='VueJS' />
+                    VueJS
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-8'>
+                    <input type='checkbox' name='skills' id='skills-8' value='React Native' />
+                    React Native
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-9'>
+                    <input type='checkbox' name='skills' id='skills-9' value='NodeJS' />
+                    NodeJS
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-10'>
+                    <input type='checkbox' name='skills' id='skills-10' value='ExpressJS' />
+                    ExpressJS
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-11'>
+                    <input type='checkbox' name='skills' id='skills-11' value='MongoDB' />
+                    MongoDB
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-12'>
+                    <input type='checkbox' name='skills' id='skills-12' value='MeteorJS' />
+                    MeteorJS
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-13'>
+                    <input type='checkbox' name='skills' id='skills-13' value='Ruby on Rails' />
+                    Ruby on Rails
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-14'>
+                    <input type='checkbox' name='skills' id='skills-14' value='.Net' />
+                    .Net
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-15'>
+                    <input type='checkbox' name='skills' id='skills-15' value='Java' />
+                    Java
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-16'>
+                    <input type='checkbox' name='skills' id='skills-16' value='Python' />
+                    Python
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-17'>
+                    <input type='checkbox' name='skills' id='skills-17' value='PHP' />
+                    PHP
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-18'>
+                    <input type='checkbox' name='skills' id='skills-18' value='C#' />
+                    C#
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-19'>
+                    <input type='checkbox' name='skills' id='skills-19' value='Unity' />
+                    Unity
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-20'>
+                    <input type='checkbox' name='skills' id='skills-20' value='Web Design' />
+                    Web Design
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-21'>
+                    <input type='checkbox' name='skills' id='skills-21' value='AI' />
+                    AI
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-22'>
+                    <input type='checkbox' name='skills' id='skills-22' value='Others' />
+                    Others
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-23'>
+                    <input type='checkbox' name='skills' id='skills-23' value='Android Dev' />
+                    Android Dev
+                  </label>
+                </div>
+                <div className='checkbox'>
+                  <label htmlFor='skills-24'>
+                    <input type='checkbox' name='skills' id='skills-24' value='Ios Dev' />
+                    Ios Dev
+                  </label>
+                </div>
               </div>
             </div>
 
