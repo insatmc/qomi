@@ -43,7 +43,7 @@ class App extends Component {
   }
 
   isStudentVisible (student) {
-    console.log(student)
+    console.log('student in db', student)
     let studentName = student.fullName.toLowerCase() || ''
     let nameToSearch = this.state.nameFilter.toLowerCase()
 
@@ -56,7 +56,7 @@ class App extends Component {
     let studentDisponibility = student.disponibility.toLowerCase()
     let disponibilityToSearch = this.state.disponibilityFilter.toLowerCase()
 
-    let studentContract = student.lookingFor.toLowerCase()
+    let studentContract = student.lookingFor
     let contractFilter = this.state.contractFilter.toLowerCase()
 
     let nameCond = (studentName.indexOf(nameToSearch) !== -1)

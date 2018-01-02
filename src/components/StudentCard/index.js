@@ -5,7 +5,7 @@ import StudentSkill from '../StudentSkill'
 class StudentCard extends Component {
   render () {
     let student = this.props.student
-    console.log(student)
+    console.log('student in student card is ', student)
     return (
       <div>
         <div className='container'>

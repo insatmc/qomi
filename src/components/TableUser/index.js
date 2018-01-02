@@ -116,7 +116,7 @@ class TableUser extends Component {
             <Table.Header className='tabHead'>
               <Table.Row>
                 <Table.HeaderCell>Full Name</Table.HeaderCell>
-                <Table.HeaderCell>location</Table.HeaderCell>
+                <Table.HeaderCell>Location</Table.HeaderCell>
                 <Table.HeaderCell>Skills</Table.HeaderCell>
                 <Table.HeaderCell>Disponibility</Table.HeaderCell>
                 <Table.HeaderCell>Actions</Table.HeaderCell>
@@ -132,8 +132,8 @@ class TableUser extends Component {
                       <Table.Cell>{student.location}</Table.Cell>
                       <Table.Cell>
                         {
-                        student.skills.map((el, i) => <span key={i} className='skill-span'>{el}</span>)
-                      }
+                          student.skills.map((el, i) => <span key={i} className='skill-span'>{el}</span>)
+                        }
                       </Table.Cell>
                       <Table.Cell>{student.disponibility}</Table.Cell>
                       <Table.Cell>

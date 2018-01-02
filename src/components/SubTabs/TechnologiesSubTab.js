@@ -23,8 +23,13 @@ class TechnologiesSubTab extends Component {
         <input onClick={this.props.onChangeSkills} className='techno-input' type='button' value='Java' /><br />
         <input onClick={this.props.onChangeSkills} className='techno-input' type='button' value='Python' /><br />
         <input onClick={this.props.onChangeSkills} className='techno-input' type='button' value='PHP' /><br />
+        <input onClick={this.props.onChangeSkills} className='techno-input' type='button' value='C#' /><br />
+        <input onClick={this.props.onChangeSkills} className='techno-input' type='button' value='Unity' /><br />
+        <input onClick={this.props.onChangeSkills} className='techno-input' type='button' value='Web Design' /><br />
+        <input onClick={this.props.onChangeSkills} className='techno-input' type='button' value='AI' /><br />
+        <input onClick={this.props.onChangeSkills} className='techno-input' type='button' value='Android Dev' /><br />
+        <input onClick={this.props.onChangeSkills} className='techno-input' type='button' value='Ios Dev' /><br />
         <input onClick={this.props.onChangeSkills} className='techno-input' type='button' value='Others' /><br />
-
       </div>
     )
   }

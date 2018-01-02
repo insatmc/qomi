@@ -31,6 +31,7 @@ class AddStudent extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleChangeSkills = this.handleChangeSkills.bind(this)
     this.handleChangeDisponibility = this.handleChangeDisponibility.bind(this)
+    this.handleChangeLookingFor = this.handleChangeLookingFor.bind(this)
   }
 
   componentWillReceiveProps (props) {
@@ -44,14 +45,27 @@ class AddStudent extends Component {
     const target = e.target
     const value = target.value
 
-    this.setState({ fullName: value })
+    this.setState({
+      fullName: value
+    })
   }
+
+  handleImageChange (e) {
+    const target = e.target
+    const value = target.value
+
+    this.setState({
+      image: value
+    })
+  }
+
   handleChange (e) {
     const target = e.target
     const value = target.value
 
     this.setState({
-      location: value})
+      location: value
+    })
   }
 
   handleChangeDisponibility (e) {
@@ -59,14 +73,26 @@ class AddStudent extends Component {
     const value = target.value
 
     this.setState({
-      disponibility: value})
+      disponibility: value
+    })
   }
+
   handleChangeSkills (e) {
     const target = e.target
     const value = target.value
 
     this.setState({
-      skills: this.state.skills.concat(value)})
+      skills: this.state.skills.concat(value)
+    })
+  }
+
+  handleChangeLookingFor (e) {
+    const target = e.target
+    const value = target.value
+
+    this.setState({
+      lookingFor: this.state.lookingFor.concat(value)
+    })
   }
 
   render () {
@@ -75,28 +101,29 @@ class AddStudent extends Component {
         <form className='form-horizontal'>
           <fieldset>
 
-            <legend><h3>Student Form</h3></legend>
+            <legend><h3>STUDENT FORM</h3></legend>
 
             <div className='form-group'>
-              <label className='col-md-4 control-label' htmlFor='add-fullName'><h4>Student fullName</h4></label>
-              <div className='col-md-5'>
-                <input id='add-fullName' name='add-fullName' type='text' placeholder='add fullName here' className='form-control input-md' required
+              <label className='col-md-10 control-label' htmlFor='add-fullName'><h4>Student Fullname</h4></label>
+              <div className='col-md-10'>
+                <input id='add-fullName' name='add-fullName' type='text' placeholder='add fullname here' className='form-control input-md' required
                   value={this.state.fullName}
                   onChange={this.handleInputChange} />
-
               </div>
             </div>
 
             <div className='form-group'>
-              <label className='col-md-4 control-label' htmlFor='add-image'><h4>Add Image</h4></label>
-              <div className='col-md-4'>
-                <button id='add-image' name='add-image' className='btn btn-primary'>Find an Image</button>
+              <label className='col-md-10 control-label' htmlFor='add-image'><h4>Add Image</h4></label>
+              <div className='col-md-10'>
+                <input id='add-image' name='add-image' type='text' placeholder='add image link' className='form-control input-md'
+                  value={this.state.image}
+                  onChange={this.handleImageChange} />
               </div>
             </div>
 
             <div className='form-group'>
-              <label className='col-md-4 control-label' htmlFor='add-location'><h4>Location</h4></label>
-              <div className='col-md-4'>
+              <label className='col-md-10 control-label' htmlFor='add-location'><h4>Location</h4></label>
+              <div className='col-md-10'>
                 <select id='add-location' name='add-location' className='form-control' value={this.state.location} onChange={this.handleChange}>
                   <option value='Ariana'>Ariana</option>
                   <option value='Beja'>Beja</option>
@@ -128,8 +155,8 @@ class AddStudent extends Component {
             </div>
 
             <div className='form-group'>
-              <label className='col-md-4 control-label' htmlFor='add-disponibility'><h4>Disponibility</h4></label>
-              <div className='col-md-4'>
+              <label className='col-md-10 control-label' htmlFor='add-disponibility'><h4>Disponibility</h4></label>
+              <div className='col-md-10'>
                 <select id='add-disponibility' name='add-disponibility' className='form-control' value={this.state.disponibility} onChange={this.handleChangeDisponibility}>
                   <option value='Immediately'>Immediately</option>
                   <option value='In a few days'>In a few days</option>
@@ -141,8 +168,8 @@ class AddStudent extends Component {
             </div>
 
             <div className='form-group'>
-              <label className='col-md-4 control-label' htmlFor='skills'>Skills</label>
-              <div className='col-md-4'>
+              <label className='col-md-10 control-label' htmlFor='skills'><h4>Skills</h4></label>
+              <div className='col-md-10'>
                 <div className='checkbox'>
                   <label htmlFor='skills-0'>
                     <input type='checkbox' name='skills' id='skills-0' value='HTML' />
@@ -297,34 +324,34 @@ class AddStudent extends Component {
             </div>
 
             <div className='form-group'>
-              <label className='col-md-4 control-label' htmlFor='looking-for-checkboxes'><h4>Looking for</h4></label>
-              <div className='col-md-4'>
+              <label className='col-md-10 control-label' htmlFor='looking-for-checkboxes'><h4>Looking for</h4></label>
+              <div className='col-md-10'>
                 <div className='checkbox'>
                   <label htmlFor='looking-for-checkboxes-0'>
-                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-0' value='Freelance' />Freelance
+                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-0' value='Freelance' onClick={this.handleChangeLookingFor} />Freelance
                   </label>
                 </div>
                 <div className='checkbox'>
                   <label htmlFor='looking-for-checkboxes-1'>
-                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-1' value='Internship' />
+                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-1' value='Internship' onClick={this.handleChangeLookingFor} />
                     Internship
                   </label>
                 </div>
                 <div className='checkbox'>
                   <label htmlFor='looking-for-checkboxes-2'>
-                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-2' value='CDI' />
+                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-2' value='CDI' onClick={this.handleChangeLookingFor} />
                     CDI
                   </label>
                 </div>
                 <div className='checkbox'>
                   <label htmlFor='looking-for-checkboxes-3'>
-                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-3' value='CDD' />
+                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-3' value='CDD' onClick={this.handleChangeLookingFor} />
                     CDD
                   </label>
                 </div>
                 <div className='checkbox'>
                   <label htmlFor='looking-for-checkboxes-4'>
-                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-4' value='Others' />
+                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-4' value='Others' onClick={this.handleChangeLookingFor} />
                     Others
                   </label>
                 </div>
@@ -334,37 +361,36 @@ class AddStudent extends Component {
             <div className='student-social-media'>
 
               <div className='form-group'>
-                <label className='col-md-4 control-label' htmlFor='student-github'>Student GitHub</label>
-                <div className='col-md-4'>
+                <label className='col-md-10 control-label' htmlFor='student-github'>Student GitHub</label>
+                <div className='col-md-10'>
                   <input id='student-github' name='student-github' type='text' placeholder='' className='form-control input-md' required='' />
                 </div>
               </div>
 
               <div className='form-group'>
-                <label className='col-md-4 control-label' htmlFor='student-mail'>Student Mail</label>
-                <div className='col-md-4'>
+                <label className='col-md-10 control-label' htmlFor='student-mail'>Student Mail</label>
+                <div className='col-md-10'>
                   <input id='student-mail' name='student-mail' type='text' placeholder='' className='form-control input-md' />
                 </div>
               </div>
 
               <div className='form-group'>
-                <label className='col-md-4 control-label' htmlFor='student-linkedin'>Student LinkedIn</label>
-                <div className='col-md-4'>
+                <label className='col-md-10 control-label' htmlFor='student-linkedin'>Student LinkedIn</label>
+                <div className='col-md-10'>
                   <input id='student-linkedin' name='student-linkedin' type='text' placeholder='' className='form-control input-md' />
                 </div>
               </div>
 
               <div className='form-group'>
-                <label className='col-md-4 control-label' htmlFor='student-twitter'>Student Twitter</label>
-                <div className='col-md-4'>
+                <label className='col-md-10 control-label' htmlFor='student-twitter'>Student Twitter</label>
+                <div className='col-md-10'>
                   <input id='student-twitter' name='student-twitter' type='text' placeholder='' className='form-control input-md' />
                 </div>
               </div>
             </div>
 
             <div className='form-group'>
-              <label className='col-md-4 control-label' htmlFor='save-button' />
-              <div className='col-md-4'>
+              <div className='col-md-6'>
                 <button
                   type='button'
                   id='save-button'
