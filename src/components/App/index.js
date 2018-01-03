@@ -43,7 +43,6 @@ class App extends Component {
   }
 
   isStudentVisible (student) {
-    console.log('student in db', student)
     let studentName = student.fullName.toLowerCase() || ''
     let nameToSearch = this.state.nameFilter.toLowerCase()
 

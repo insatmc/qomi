@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './style.css'
+import {Checkbox, CheckboxGroup} from 'react-checkbox-group'
 
 class AddStudent extends Component {
   constructor (props) {
@@ -13,7 +14,7 @@ class AddStudent extends Component {
       skills: [],
       contacts: {
         twitter: '',
-        main: '',
+        mail: '',
         github: '',
         linkedin: ''
       },
@@ -32,6 +33,11 @@ class AddStudent extends Component {
     this.handleChangeSkills = this.handleChangeSkills.bind(this)
     this.handleChangeDisponibility = this.handleChangeDisponibility.bind(this)
     this.handleChangeLookingFor = this.handleChangeLookingFor.bind(this)
+    this.handleChangeCV = this.handleChangeCV.bind(this)
+    this.handleChangeGithub = this.handleChangeGithub.bind(this)
+    this.handleChangeTwitter = this.handleChangeTwitter.bind(this)
+    this.handleChangeMail = this.handleChangeMail.bind(this)
+    this.handleChangeLinkedIn = this.handleChangeLinkedIn.bind(this)
   }
 
   componentWillReceiveProps (props) {
@@ -77,22 +83,60 @@ class AddStudent extends Component {
     })
   }
 
-  handleChangeSkills (e) {
-    const target = e.target
-    const value = target.value
-
+  handleChangeSkills (newSkills) {
     this.setState({
-      skills: this.state.skills.concat(value)
+      skills: newSkills
     })
   }
 
-  handleChangeLookingFor (e) {
-    const target = e.target
-    const value = target.value
+  handleChangeLookingFor (newLookingFor) {
+    this.setState({
+      lookingFor: newLookingFor
+    })
+  }
+
+  handleChangeCV (e) {
+    const value = e.target.value
 
     this.setState({
-      lookingFor: this.state.lookingFor.concat(value)
+      cv: value
     })
+  }
+
+  handleChangeGithub (e) {
+    const value = e.target.value
+
+    let contacts = Object.assign({}, this.state.contacts)
+    contacts.github = value
+
+    this.setState({contacts})
+  }
+
+  handleChangeLinkedIn (e) {
+    const value = e.target.value
+
+    let contacts = Object.assign({}, this.state.contacts)
+    contacts.linkedin = value
+
+    this.setState({contacts})
+  }
+
+  handleChangeTwitter (e) {
+    const value = e.target.value
+
+    let contacts = Object.assign({}, this.state.contacts)
+    contacts.twitter = value
+
+    this.setState({contacts})
+  }
+
+  handleChangeMail (e) {
+    const value = e.target.value
+
+    let contacts = Object.assign({}, this.state.contacts)
+    contacts.mail = value
+
+    this.setState({contacts})
   }
 
   render () {
@@ -170,191 +214,214 @@ class AddStudent extends Component {
             <div className='form-group'>
               <label className='col-md-10 control-label' htmlFor='skills'><h4>Skills</h4></label>
               <div className='col-md-10'>
-                <div className='checkbox'>
-                  <label htmlFor='skills-0'>
-                    <input type='checkbox' name='skills' id='skills-0' value='HTML' />
+
+                <CheckboxGroup
+                  value={this.state.skills}
+                  onChange={this.handleChangeSkills}>
+
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-0' value='HTML' />
                     HTML
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-1'>
-                    <input type='checkbox' name='skills' id='skills-1' value='CSS' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-1' value='CSS' />
                     CSS
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-2'>
-                    <input type='checkbox' name='skills' id='skills-2' value='Javascript' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-2' value='Javascript' />
                     Javascript
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-3'>
-                    <input type='checkbox' name='skills' id='skills-3' value='Bootstrap' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-3' value='Bootstrap' />
                     Bootstrap
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-4'>
-                    <input type='checkbox' name='skills' id='skills-4' value='Responsive Design' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-4' value='Responsive Design' />
                     Responsive Design
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-5'>
-                    <input type='checkbox' name='skills' id='skills-5' value='ReactJS' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-5' value='ReactJS' />
                     ReactJS
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-6'>
-                    <input type='checkbox' name='skills' id='skills-6' value='AngularJS' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-6' value='AngularJS' />
                     AngularJS
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-7'>
-                    <input type='checkbox' name='skills' id='skills-7' value='VueJS' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-7' value='VueJS' />
                     VueJS
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-8'>
-                    <input type='checkbox' name='skills' id='skills-8' value='React Native' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-8' value='React Native' />
                     React Native
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-9'>
-                    <input type='checkbox' name='skills' id='skills-9' value='NodeJS' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-9' value='NodeJS' />
                     NodeJS
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-10'>
-                    <input type='checkbox' name='skills' id='skills-10' value='ExpressJS' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-10' value='ExpressJS' />
                     ExpressJS
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-11'>
-                    <input type='checkbox' name='skills' id='skills-11' value='MongoDB' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-11' value='MongoDB' />
                     MongoDB
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-12'>
-                    <input type='checkbox' name='skills' id='skills-12' value='MeteorJS' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-12' value='MeteorJS' />
                     MeteorJS
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-13'>
-                    <input type='checkbox' name='skills' id='skills-13' value='Ruby on Rails' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-13' value='Ruby on Rails' />
                     Ruby on Rails
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-14'>
-                    <input type='checkbox' name='skills' id='skills-14' value='.Net' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-14' value='.Net' />
                     .Net
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-15'>
-                    <input type='checkbox' name='skills' id='skills-15' value='Java' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-15' value='Java' />
                     Java
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-16'>
-                    <input type='checkbox' name='skills' id='skills-16' value='Python' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-16' value='Python' />
                     Python
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-17'>
-                    <input type='checkbox' name='skills' id='skills-17' value='PHP' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-17' value='PHP' />
                     PHP
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-18'>
-                    <input type='checkbox' name='skills' id='skills-18' value='C#' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-18' value='C#' />
                     C#
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-19'>
-                    <input type='checkbox' name='skills' id='skills-19' value='Unity' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-19' value='Unity' />
                     Unity
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-20'>
-                    <input type='checkbox' name='skills' id='skills-20' value='Web Design' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-20' value='Web Design' />
                     Web Design
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-21'>
-                    <input type='checkbox' name='skills' id='skills-21' value='AI' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-21' value='AI' />
                     AI
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-22'>
-                    <input type='checkbox' name='skills' id='skills-22' value='Others' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-22' value='Others' />
                     Others
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-23'>
-                    <input type='checkbox' name='skills' id='skills-23' value='Android Dev' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-23' value='Android Dev' />
                     Android Dev
                   </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='skills-24'>
-                    <input type='checkbox' name='skills' id='skills-24' value='Ios Dev' />
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-24' value='Ios Dev' />
                     Ios Dev
                   </label>
-                </div>
+                  </div>
+                </CheckboxGroup>
+
+              </div>
+            </div>
+
+            <div className='form-group'>
+              <label className='col-md-10 control-label' htmlFor='add-cv'><h4>Student CV</h4></label>
+              <div className='col-md-10'>
+                <input id='add-cv' name='add-cv' type='text' placeholder='add CV link here' className='form-control input-md'
+                  value={this.state.cv}
+                  onChange={this.handleChangeCV} />
               </div>
             </div>
 
             <div className='form-group'>
               <label className='col-md-10 control-label' htmlFor='looking-for-checkboxes'><h4>Looking for</h4></label>
               <div className='col-md-10'>
-                <div className='checkbox'>
-                  <label htmlFor='looking-for-checkboxes-0'>
-                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-0' value='Freelance' onClick={this.handleChangeLookingFor} />Freelance
-                  </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='looking-for-checkboxes-1'>
-                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-1' value='Internship' onClick={this.handleChangeLookingFor} />
-                    Internship
-                  </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='looking-for-checkboxes-2'>
-                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-2' value='CDI' onClick={this.handleChangeLookingFor} />
-                    CDI
-                  </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='looking-for-checkboxes-3'>
-                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-3' value='CDD' onClick={this.handleChangeLookingFor} />
-                    CDD
-                  </label>
-                </div>
-                <div className='checkbox'>
-                  <label htmlFor='looking-for-checkboxes-4'>
-                    <input type='checkbox' name='looking-for-checkboxes' id='looking-for-checkboxes-4' value='Others' onClick={this.handleChangeLookingFor} />
-                    Others
-                  </label>
-                </div>
+                <CheckboxGroup
+                  value={this.state.lookingFor}
+                  onChange={this.handleChangeLookingFor}>
+
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='looking-for-checkboxes' id='looking-for-checkboxes-0' value='Freelance' />
+                      Freelance
+                    </label>
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='looking-for-checkboxes' id='looking-for-checkboxes-1' value='Internship' />
+                      Internship
+                    </label>
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='looking-for-checkboxes' id='looking-for-checkboxes-2' value='CDI' />
+                      CDI
+                    </label>
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='looking-for-checkboxes' id='looking-for-checkboxes-3' value='CDD' />
+                      CDD
+                    </label>
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='looking-for-checkboxes' id='looking-for-checkboxes-4' value='Others' />
+                      Others
+                    </label>
+                  </div>
+
+                </CheckboxGroup>
               </div>
             </div>
 
@@ -363,28 +430,36 @@ class AddStudent extends Component {
               <div className='form-group'>
                 <label className='col-md-10 control-label' htmlFor='student-github'>Student GitHub</label>
                 <div className='col-md-10'>
-                  <input id='student-github' name='student-github' type='text' placeholder='' className='form-control input-md' required='' />
+                  <input id='student-github' name='student-github' type='text' placeholder='' className='form-control input-md' required
+                    value={this.state.contacts.github}
+                    onChange={this.handleChangeGithub} />
                 </div>
               </div>
 
               <div className='form-group'>
                 <label className='col-md-10 control-label' htmlFor='student-mail'>Student Mail</label>
                 <div className='col-md-10'>
-                  <input id='student-mail' name='student-mail' type='text' placeholder='' className='form-control input-md' />
+                  <input id='student-mail' name='student-mail' type='text' placeholder='' className='form-control input-md'
+                    value={this.state.contacts.mail}
+                    onChange={this.handleChangeMail} />
                 </div>
               </div>
 
               <div className='form-group'>
                 <label className='col-md-10 control-label' htmlFor='student-linkedin'>Student LinkedIn</label>
                 <div className='col-md-10'>
-                  <input id='student-linkedin' name='student-linkedin' type='text' placeholder='' className='form-control input-md' />
+                  <input id='student-linkedin' name='student-linkedin' type='text' placeholder='' className='form-control input-md'
+                    value={this.state.contacts.linkedin}
+                    onChange={this.handleChangeLinkedIn} />
                 </div>
               </div>
 
               <div className='form-group'>
                 <label className='col-md-10 control-label' htmlFor='student-twitter'>Student Twitter</label>
                 <div className='col-md-10'>
-                  <input id='student-twitter' name='student-twitter' type='text' placeholder='' className='form-control input-md' />
+                  <input id='student-twitter' name='student-twitter' type='text' placeholder='' className='form-control input-md'
+                    value={this.state.contacts.twitter}
+                    onChange={this.handleChangeTwitter} />
                 </div>
               </div>
             </div>

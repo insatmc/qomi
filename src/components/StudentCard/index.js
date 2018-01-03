@@ -24,7 +24,11 @@ class StudentCard extends Component {
                   <hr className='hr-style1' />
                   <div className='desc'><h5>Location:</h5>{student.location} </div>
                   <div className='desc'><h5>Disponibility:</h5>{student.disponibility} </div>
-                  <div className='desc'><h5>Looking For:</h5>{student.lookingFor} </div>
+                  <div className='desc'><h5>Looking For:</h5>
+                    {
+                    student.lookingFor.map((el, i) => <span className='lookingFor-container' key={i}>{el}</span>)
+                  }
+                  </div>
                   <div className='desc'>
                     <h5>Skills:</h5>
                     <div>

@@ -259,3 +259,10 @@ h5 {
     color: #585353;
     margin-top: 10px;
 }
+
+.lookingFor-container{
+  margin:2px;
+  padding: 2px;
+  background-color: #e74c3c;
+  color: white;
+}
