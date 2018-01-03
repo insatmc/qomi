@@ -247,13 +247,14 @@
     margin-right: 5px;
 }
 .hr-style1{
-    height: 3px;
-    background-color: blue;
-    width: 70px;
+    height: 2px;
+    background-color: #211c0d;
+    width: 60%;
 }
 .hr-style2 {
-    height: 3px;
-    background-color: deepskyblue;
+    height: 2px;
+    width: 75%;
+    background-color: #211c0d;
 }
 
 h5 {

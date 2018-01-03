@@ -11,24 +11,24 @@ body{
 
 .bars-container{
   height:40px;
-  background-color: #61728b;
+  background-color: whitesmoke;
 }
 
 .user-search input{
   background: none;
-  border: none;
+  /*border: none;*/
   color: white;
-  outline: none;
+  /*outline: none;*/
+  width: 290px;
 }
 
 .user-search:focus{
-  outline: none;
+  /*outline: none;*/
   background-color: none;
 }
 
 .search-tags{
   text-align: center;
-  background-color: #61728b;
 }
 
 

@@ -9,8 +9,8 @@
   background: none;
 }
 .location-input:hover{
-  background-color: #172942;
+  background-color: #e74c3c;
 }
 .location-input:focus{
-  background-color: #172942;
+  background-color: #e74c3c;
 }

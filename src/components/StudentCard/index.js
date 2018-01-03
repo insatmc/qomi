@@ -22,8 +22,8 @@ class StudentCard extends Component {
                     <h2>{student.fullName}</h2>
                   </div>
                   <hr className='hr-style1' />
-                  <div className='desc'><h5>Location:</h5>{student.location} </div>
-                  <div className='desc'><h5>Disponibility:</h5>{student.disponibility} </div>
+                  <div className='desc'><h5>Location:</h5>{student.location}</div>
+                  <div className='desc'><h5>Disponibility:</h5>{student.disponibility}</div>
                   <div className='desc'><h5>Looking For:</h5>
                     {
                     student.lookingFor.map((el, i) => <span className='lookingFor-container' key={i}>{el}</span>)
@@ -41,6 +41,8 @@ class StudentCard extends Component {
                   <hr className='hr-style2' />
                 </div>
                 <div className='bottom'>
+                  <a className='fa fa-facebook social-icon' rel='publisher' target='_blank' href='https://www.facebook.com/gomycode' />
+
                   <a className='btn btn-primary btn-twitter btn-sm' target='_blank' href={student.contacts.twitter}>
                     <i className='fa fa-twitter' />
                   </a>

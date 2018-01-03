@@ -1,13 +1,16 @@
 .tagsContainer{
   padding: 4px;
+  overflow-y: auto;
 }
 
 .searchTag{
-  background-color: lightgray;
-  padding: 4px;
-  margin: 5px;
-  font-size: 0.9rem;
+  background-color: inherit;
+  color: black !important;
+  padding: 2px;
+  margin: 2px;
+  font-size: 0.8rem;
   border-radius: 5px;
+  border: 1px solid black;
 }
 
 .searchTag:empty{
@@ -19,8 +22,9 @@
 }
 
 .searchTag:hover{
-  background-color: darkred;
-  color: white;
+  background-color: #e74c3c;
+  color: white !important;
+  border-color: white;
   cursor: pointer;
 }
 

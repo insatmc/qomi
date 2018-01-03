@@ -6,19 +6,17 @@ class LocationSubTab extends Component {
     super(props)
     this.state = {
       locations: [
-        'Ariana',
         'Beja',
-        'Ben Arous',
         'Bizerte',
         'Gabes',
         'Gafsa',
+        'Grand Tunis',
         'Jendouba',
         'Kairouan',
         'Kasserine',
         'Kebili',
         'Kef',
         'Mahdia',
-        'Manouba',
         'Medenine',
         'Monastir',
         'Nabeul',
@@ -28,7 +26,6 @@ class LocationSubTab extends Component {
         'Sousse',
         'Tataouine',
         'Tozeur',
-        'Tunis',
         'Zaghouan',
         'Outside Tunisia'
       ]

@@ -9,8 +9,8 @@
   padding: 4px;
 }
 .contract-input:hover{
-  background-color: #172942;
+  background-color: #e74c3c;
 }
 .contract-input:focus{
-background-color: #172942;
+background-color: #e74c3c;
 }

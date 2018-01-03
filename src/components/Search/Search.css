@@ -13,14 +13,43 @@
 .search-name-input:focus{
   background-color: inherit;
   outline: none;
-  color:white;
+  color:black;
 }
 
 .search-name-input{
-  text-indent: 30px;
+  border: solid 1px black;
+  text-indent: 10px;
 }
+
+.search-name-input[placeholder]{
+  color: black !important;
+  font-size: 0.8rem;
+}
+
+.search-name-input::-webkit-input-placeholder {
+color: black !important;
+font-size: 0.8rem;
+}
+
+.search-name-input:-moz-placeholder {
+color: black !important;
+font-size: 0.8rem;
+}
+
+.search-name-input::-moz-placeholder {  /* Firefox 19+ */
+color: black !important;
+font-size: 0.8rem;
+}
+
+.search-name-input:-ms-input-placeholder {
+color: black !important;
+font-size: 0.8rem;
+}
+
+
 .fa-search{
   position:absolute;
-  top:7px;
-  left:3px;
+  top:25%;
+  left:5px;
+  color: black;
 }

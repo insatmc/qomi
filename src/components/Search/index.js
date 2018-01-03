@@ -11,12 +11,12 @@ class Search extends Component {
     return (<form>
 
       <div className='inputForm'>
-        <i class='fa fa-search fa-1x search-icon' />
+        <i className='fa fa-search fa-1x search-icon' />
         <input
           onChange={this.props.onChangeSearch}
           type='text'
           className='form-control search-name-input'
-          placeholder='Search student name...'
+          placeholder='search for students by name'
         />
 
       </div>

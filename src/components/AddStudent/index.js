@@ -30,6 +30,7 @@ class AddStudent extends Component {
 
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleChangeImage = this.handleChangeImage.bind(this)
     this.handleChangeSkills = this.handleChangeSkills.bind(this)
     this.handleChangeDisponibility = this.handleChangeDisponibility.bind(this)
     this.handleChangeLookingFor = this.handleChangeLookingFor.bind(this)
@@ -56,7 +57,7 @@ class AddStudent extends Component {
     })
   }
 
-  handleImageChange (e) {
+  handleChangeImage (e) {
     const target = e.target
     const value = target.value
 
@@ -161,7 +162,7 @@ class AddStudent extends Component {
               <div className='col-md-10'>
                 <input id='add-image' name='add-image' type='text' placeholder='add image link' className='form-control input-md'
                   value={this.state.image}
-                  onChange={this.handleImageChange} />
+                  onChange={this.handleChangeImage} />
               </div>
             </div>
 
@@ -169,19 +170,17 @@ class AddStudent extends Component {
               <label className='col-md-10 control-label' htmlFor='add-location'><h4>Location</h4></label>
               <div className='col-md-10'>
                 <select id='add-location' name='add-location' className='form-control' value={this.state.location} onChange={this.handleChange}>
-                  <option value='Ariana'>Ariana</option>
                   <option value='Beja'>Beja</option>
-                  <option value='Ben Arous'>Ben Arous</option>
                   <option value='Bizerte'>Bizerte</option>
                   <option value='Gabes'>Gabes</option>
                   <option value='Gafsa'>Gafsa</option>
+                  <option value='Grand Tunis'>Grand Tunis</option>
                   <option value='Jendouba'>Jendouba</option>
                   <option value='Kairouan'>Kairouan</option>
                   <option value='Kasserine'>Kasserine</option>
                   <option value='Kebili'>Kebili</option>
                   <option value='Kef'>Kef</option>
                   <option value='Mahdia'>Mahdia</option>
-                  <option value='Manouba'>Manouba</option>
                   <option value='Medenine'>Medenine</option>
                   <option value='Monastir'>Monastir</option>
                   <option value='Nabeul'>Nabeul</option>
@@ -191,7 +190,6 @@ class AddStudent extends Component {
                   <option value='Sousse'>Sousse</option>
                   <option value='Tataouine'>Tataouine</option>
                   <option value='Tozeur'>Tozeur</option>
-                  <option value='Tunis'>Tunis</option>
                   <option value='Zaghouan'>Zaghouan</option>
                   <option value='Outside Tunisia'>Outside Tunisia</option>
                 </select>

@@ -9,9 +9,9 @@
   padding: 4px;
 }
 .dispo-input:hover{
-  background-color: #172942;
+  background-color: #e74c3c;
 }
 
 .dispo-input:focus{
-  background-color: #172942;
+  background-color: #e74c3c;
 }
