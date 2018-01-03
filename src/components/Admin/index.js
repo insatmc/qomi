@@ -31,14 +31,14 @@ class Admin extends Component {
     this.intitStudents()
   }
   intitStudents () {
-    axios.get('http://localhost:8080/api/students').then((data) => {
+    axios.get('/api/students').then((data) => {
       this.setState({ students: data.data })
     }).catch(function (error) {
       alert('Something went wrong')
     })
   }
   onAddUser (e) {
-    axios.post('http://localhost:8080/api/students', e).then((data) => {
+    axios.post('/api/students', e).then((data) => {
       // TODO: fix hack, only add new user to students once the server returns it
       this.intitStudents()
     }).catch(function (error) {
@@ -46,7 +46,7 @@ class Admin extends Component {
     })
   }
   deleteUser (student) {
-    axios.delete(`http://localhost:8080/api/students/${student._id}`)
+    axios.delete(`/api/students/${student._id}`)
       .then(() => {
         this.setState({
           students: this.state.students.filter(el => el._id != student._id)
@@ -62,7 +62,7 @@ class Admin extends Component {
     }
     delete studentWithoutId._id
     console.log()
-    axios.put(`http://localhost:8080/api/students/${student._id}`, studentWithoutId)
+    axios.put(`/api/students/${student._id}`, studentWithoutId)
       .then(() => {
         this.intitStudents()
       })
