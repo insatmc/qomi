@@ -56,7 +56,7 @@ class App extends Component {
     let disponibilityToSearch = this.state.disponibilityFilter.toLowerCase()
 
     let studentContract = student.lookingFor
-    let contractFilter = this.state.contractFilter.toLowerCase()
+    let contractFilter = this.state.contractFilter
 
     let nameCond = (studentName.indexOf(nameToSearch) !== -1)
     let locationCond = (studentLocation.indexOf(locationToSearch) !== -1)
@@ -64,8 +64,13 @@ class App extends Component {
     if (skillsToSearch.length === 0) {
       skillsCond = true
     }
+
     let disponibilityCond = (studentDisponibility.indexOf(disponibilityToSearch) !== -1)
+
     let contractCond = (studentContract.indexOf(contractFilter) !== -1)
+    if (contractFilter === '') {
+      contractCond = true
+    }
 
     let userSearch = this.state.userSearch.toLowerCase()
     let userCond = (studentName.indexOf(userSearch) !== -1)
