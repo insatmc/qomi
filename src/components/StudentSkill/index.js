@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './style.css'
 
 class studentSkill extends Component {
   render () {
@@ -9,7 +10,7 @@ class studentSkill extends Component {
       fontWeight: '600'
     }
     return (
-      <span style={divStyle}>{skill}</span>
+      <span className='skill-container' style={divStyle}>{skill}</span>
     )
   }
 }

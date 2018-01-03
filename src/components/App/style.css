@@ -3,17 +3,27 @@ body{
   margin: 0px;
   overflow-x: hidden;
   overflow-y: hidden;
+  font-family: 'Roboto', sans-serif;
+
 }
 
 /********** Bars-container styling *********/
 
 .bars-container{
   height:40px;
+  background-color: #61728b;
 }
 
-.user-search{
-  background-color: #61728b;
-  border-right: 1px dotted black;
+.user-search input{
+  background: none;
+  border: none;
+  color: white;
+  outline: none;
+}
+
+.user-search:focus{
+  outline: none;
+  background-color: none;
 }
 
 .search-tags{

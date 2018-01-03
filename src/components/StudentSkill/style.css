@@ -1,0 +1,8 @@
+.skill-container{
+  padding: 3px;
+  margin: 3px;
+  background-color: teal;
+  color: white !important;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}

@@ -2,8 +2,25 @@
   height: 40px;
   padding: 2px;
   width: 100%;
+  position: relative;
 }
+
 .form-control{
   height: 34px;
   width: 100%;
+}
+
+.search-name-input:focus{
+  background-color: inherit;
+  outline: none;
+  color:white;
+}
+
+.search-name-input{
+  text-indent: 30px;
+}
+.fa-search{
+  position:absolute;
+  top:7px;
+  left:3px;
 }

@@ -2,18 +2,15 @@
   text-align: center;
   min-width: 160px;
   border: none;
-  border-bottom: 1px solid black;
-  background-color: #2e3e53;
+  background: none;
   cursor: pointer;
   color: white;
   font-weight: 500;
   padding: 4px;
 }
 .techno-input:hover{
-  background-color: white;
-  color:#2e3e53;
+background-color: #172942;
 }
 .techno-input:focus{
-  background-color: black;
-  color:white;
+background-color: #172942;
 }

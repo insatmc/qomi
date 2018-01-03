@@ -19,26 +19,33 @@ class MyTabs extends Component {
               <TabList>
                 <div>
                   <Tab className='tab' tabFor='vertical-tab-one'>
-                    <i className='fa fa-5x fa-map-marker tab-icon' aria-hidden='true' />
+                    <i className='fa fa-2x fa-map-marker tab-icon' aria-hidden='true' />
                     <div className='icon-title'>Location</div>
+                    <i className='fa fa-angle-double-right' />
                   </Tab>
                 </div>
                 <div>
                   <Tab className='tab' tabFor='vertical-tab-two'>
-                    <i className='fa fa-4x fa-calendar tab-icon' aria-hidden='true' />
+                    <i className='fa fa-2x fa-calendar tab-icon' aria-hidden='true' />
                     <div className='icon-title'>Disponibility</div>
+                    <i className='fa fa-angle-double-right' />
+
                   </Tab>
                 </div>
                 <div>
                   <Tab className='tab' tabFor='vertical-tab-three'>
-                    <i className='fa fa-4x fa-code tab-icon' aria-hidden='true' />
+                    <i className='fa fa-2x fa-code tab-icon' aria-hidden='true' />
                     <div className='icon-title'>Competencies</div>
+                    <i className='fa fa-angle-double-right' />
+
                   </Tab>
                 </div>
                 <div>
                   <Tab className='tab' tabFor='vertical-tab-four'>
-                    <i className='fa fa-4x fa-envelope-o tab-icon' aria-hidden='true' />
+                    <i className='fa fa-2x fa-envelope-o tab-icon' aria-hidden='true' />
                     <div className='icon-title'>Looking For</div>
+                    <i className='fa fa-angle-double-right' />
+
                   </Tab>
                 </div>
               </TabList>
