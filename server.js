@@ -8,8 +8,8 @@ const mongoDriver = require('mongodb').MongoClient
 const routes = require('./routes')
 const app = express()
 
-const DB_URL =  process.env.MONGOLAB_URI || 'mongodb://localhost:27017'
-const DATABASE = 'students-db'
+const DB_URL =  process.env.MONGODB_URI || 'mongodb://localhost:27017'
+const DATABASE = 'heroku_cfc3g6ss'
 const PORT = process.env.PORT || 8080
 
 app.use(logger('dev'))
