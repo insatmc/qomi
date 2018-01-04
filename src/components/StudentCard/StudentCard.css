@@ -36,9 +36,9 @@
 }
 
 .student-card .student-info-title{
-  color: #151E29;
+  color: #bb0000;
   margin: 4px auto 2px;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .student-info{
