@@ -6,7 +6,7 @@ class StudentsList extends Component {
 
   render () {
     return (
-      <div className='row Cards-container'>
+      <div className='Cards-container'>
 
         {
           this.props.students.map((el, i) => {

@@ -7,6 +7,10 @@
   margin: 6px;
 }
 
+.student-card:hover{
+  background-color: #f9f9f9;
+}
+
 .student-image img{
   width: 180px;
   height: 162px;
@@ -22,6 +26,11 @@
   margin-top: -2px;
   font-size: 1.3rem;
   color: black;
+}
+
+.hr-style{
+  width: 80%;
+  height: 2px;
 }
 
 .student-card h6{
@@ -53,12 +62,33 @@
   margin: 6px;
 }
 
+.student-social-icon a{
+  color: black;
+}
+
+.student-social-icon a .fa-google-plus-square {
+  color: #dd4b39;
+}
+
+.student-social-icon a .fa-linkedin-square {
+  color: #007bb5;
+}
+
+.student-social-icon a .fa-twitter-square {
+  color: #55ACEE;
+}
+
+.student-social-icon a .fa-github-square {
+  color: black;
+}
+
 .student-cv{
   border-radius: 4px;
-  margin: 5px;
+  margin: 5px auto;
   padding: 4px;
   background-color: #211c0d;
   color: white;
+  width: 40%;
 }
 
 .student-cv a{

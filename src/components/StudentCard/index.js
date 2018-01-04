@@ -17,6 +17,8 @@ class StudentCard extends Component {
           {student.fullName}
         </div>
 
+        <hr className='hr-style' />
+
         <div className='student-location'>
           <h6>Location:</h6>
           <div className='student-info'>{student.location}</div>
@@ -44,6 +46,8 @@ class StudentCard extends Component {
           }
           </div>
         </div>
+
+        <hr className='hr-style' />
 
         <div className='student-social-icon'>
           <a className='student-social-icon' rel='publisher' target='_blank' href={student.contacts.github}>
