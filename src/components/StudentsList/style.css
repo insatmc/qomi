@@ -4,7 +4,7 @@
   width: calc(100vw - 300px);
   position: absolute;
   left: 300px;
-  padding: 5px;
+  padding: 5px 2px 2px 0px;
   overflow-x: hidden;
   overflow-y: scroll;
 }

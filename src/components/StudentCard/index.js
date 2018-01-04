@@ -17,20 +17,19 @@ class StudentCard extends Component {
           {student.fullName}
         </div>
 
-        <hr className='hr-style' />
-
         <div className='student-location'>
-          <h6>Location:</h6>
           <div className='student-info'>{student.location}</div>
         </div>
 
+        <hr className='hr-style' />
+
         <div className='student-disponibility'>
-          <h6>Disponibility:</h6>
-          <div className='student-info'>{student.disponibility}</div>
+          <div className='student-info-title'>Disponibility:</div>
+          <div className='student-info-disponibility'>{student.disponibility}</div>
         </div>
 
         <div className='student-lookingFor'>
-          <h6>Looking for:</h6>
+          <div className='student-info-title'>Looking for:</div>
           <div className='student-info'>
             {
             student.lookingFor.map((el, i) => <span className='lookingFor-container' key={i}>{el}</span>)
@@ -39,17 +38,17 @@ class StudentCard extends Component {
         </div>
 
         <div className='student-skills'>
-          <h6>Skills:</h6>
+          <div className='student-info-title'>Some skills:</div>
           <div className='student-info'>
             {
-            student.skills.map((el, i) => <StudentSkill key={i} skill={el} />)
+            student.skills.slice(0, 4).map((el, i) => <StudentSkill key={i} skill={el} />)
           }
           </div>
         </div>
 
         <hr className='hr-style' />
 
-        <div className='student-social-icon'>
+        <div className='student-social-icon icons-container'>
           <a className='student-social-icon' rel='publisher' target='_blank' href={student.contacts.github}>
             <i className='fa fa-github-square fa-2x' />
           </a>

@@ -1,9 +1,9 @@
 .skill-container{
   padding: 3px;
-  margin: 3px;
+  margin: 2px;
   background-color: #211c0d;
   color: white !important;
   border-radius: 5px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 500 !important;
 }

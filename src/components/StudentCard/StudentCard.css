@@ -1,10 +1,11 @@
 .student-card{
-  width: 30%;
-  max-width: 30%;
+  width: 32%;
+  max-width: 32%;
   background-color: whitesmoke;
   text-align: center;
   border-radius: 4px;
-  margin: 6px;
+  margin: 5px;
+  display: inline-block;
 }
 
 .student-card:hover{
@@ -12,45 +13,47 @@
 }
 
 .student-image img{
-  width: 180px;
-  height: 162px;
-  max-width: 180px;
-  max-height: 162px;
+  width: 130px;
+  height: 115px;
+  max-width: 130px;
+  max-height: 115px;
   border-radius: 50%;
   border: 2px solid black;
-  margin: 14px;
+  margin: 5px;
 }
 
 .student-name{
-  margin: 8px;
+  margin: 5px;
   margin-top: -2px;
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: black;
 }
 
 .hr-style{
   width: 80%;
   height: 2px;
+  margin: 5px auto;
 }
 
-.student-card h6{
-  font-weight: 600;
-  letter-spacing: 0.18rem;
+.student-card .student-info-title{
   color: #151E29;
-  margin: 12px auto 2px;
+  margin: 4px auto 2px;
+  text-decoration: underline;
 }
 
 .student-info{
   color: #343a40;
+  font-size: 0.8rem;
+}
+
+.student-info-disponibility{
+  font-size: 0.8rem;
 }
 
 .lookingFor-container{
-  padding: 3px;
-  margin: 3px;
-  background-color: #211c0d;
-  color: white !important;
-  border-radius: 5px;
-  font-size: 0.8rem;
+  margin: 2px 4px 2px;
+  color: black !important;
+  font-size: 0.9rem;
   font-weight: 500 !important;
 }
 
@@ -59,7 +62,7 @@
 }
 
 .student-social-icon{
-  margin: 6px;
+  margin: 2px;
 }
 
 .student-social-icon a{
@@ -83,12 +86,12 @@
 }
 
 .student-cv{
-  border-radius: 4px;
-  margin: 5px auto;
-  padding: 4px;
+  border-radius: 20px;
+  margin: 3px auto;
+  padding: 2px;
   background-color: #211c0d;
   color: white;
-  width: 40%;
+  width: 33%;
 }
 
 .student-cv a{
