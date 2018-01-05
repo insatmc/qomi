@@ -3,6 +3,7 @@ import './StudentCard.css'
 import StudentSkill from '../StudentSkill'
 
 class StudentCard extends Component {
+
   render () {
     let student = this.props.student
     console.log('student in student card is ', student)
@@ -10,7 +11,7 @@ class StudentCard extends Component {
       <div className='student-card'>
 
         <div className='student-image'>
-          <img alt='student-image' src={student.image} />
+          <img className='student-image' src={student.image} />
         </div>
 
         <div className='student-name'>
@@ -43,7 +44,7 @@ class StudentCard extends Component {
         <div className='student-skills'>
           <div className='student-info'>
             {
-            student.skills.slice(0, 4).map((el, i) => <StudentSkill key={i} skill={el} />)
+            student.skills.slice(0, 3).map((el, i) => <StudentSkill key={i} skill={el} />)
           }
           </div>
         </div>

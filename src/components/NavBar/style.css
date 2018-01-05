@@ -32,6 +32,7 @@ ul.topnav li a.social-icon{
 
 .social-icons-container{
   margin: 3px !important;
+  text-align: center;
 }
 
 .social-icon:hover {
@@ -61,7 +62,7 @@ ul.topnav li a.social-icon{
 
 ul.topnav li.right {float: right;}
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 768px){
     ul.topnav li.right,
     ul.topnav li {float: none;}
 }
