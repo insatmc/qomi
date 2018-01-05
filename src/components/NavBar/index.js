@@ -7,8 +7,8 @@ class NavBar extends Component {
       <div className='navbar-container'>
         <ul className='topnav'>
           <li><a href='https://gomycode.tn' target='_blank'>Go My Code</a></li>
-          <li><a href='https://gomycode.tn/about' target='_blank'>Who are we?</a></li>
           <li><a href='https://gomycode.tn' target='_blank'>Contact Us</a></li>
+          <li><a href='https://gomycode.tn/about' target='_blank'>Who are we?</a></li>
           <li className='right'>
             <div className='social-icons-container'>
 
