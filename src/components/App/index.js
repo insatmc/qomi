@@ -128,13 +128,13 @@ class App extends Component {
                       <NavBar />
                       <div className='row bars-container'>
 
-                        <div className='col-xs-12 col-md-4 col-lg-4 user-search'>
+                        <div className='user-search'>
                           <Search
                             onChangeSearch={(e) => this.setState({userSearch: e.target.value})}
                           />
                         </div>
 
-                        <div className='col-xs-12 col-md-8 col-lg-8 search-tags'>
+                        <div className='search-tags'>
                           <SearchTags tags={
                             [
                               {

@@ -4,13 +4,13 @@
 }
 .left-col{
   height: calc(100vh - 92px);
-  background: linear-gradient(to bottom, rgba(20,20,20,1) 0%,rgba(33,28,13,1) 100%);
+  background-color: #eeeeee;
   overflow-y: auto;
 }
 .right-col{
   height: calc(100vh - 92px);
   overflow-y: auto;
-  background-color: #151E29;
+  background-color: white;
 }
 .tab-icon{
   color:#fff;
@@ -28,10 +28,9 @@
 
 .tab:hover{
   cursor: pointer;
-  background-color: rgba(0,0,0, 0.3);
 }
+
 .tab:focus{
-  background-color: black;
   outline: none;
 }
 
@@ -41,7 +40,7 @@
 .icon-title{
   color:#fff;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
 }
 
 .tab .fa-angle-double-right{
@@ -50,4 +49,20 @@
   right: 5px;
   top: calc(50% - 10px);
   display: none;
+}
+
+.left-location-tab{
+  background-color: #0d77ba;
+}
+
+.left-disponibility-tab{
+  background-color: #0d97ba;
+}
+
+.left-technologies-tab{
+  background-color: #0db8ba;
+}
+
+.left-lookingFor-tab{
+  background-color: #17a88b;
 }

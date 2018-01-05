@@ -17,32 +17,32 @@ class MyTabs extends Component {
 
             <div className='left-col'>
               <TabList>
-                <div>
+                <div className='left-location-tab'>
                   <Tab className='tab' tabFor='vertical-tab-one'>
                     <i className='fa fa-2x fa-map-marker tab-icon' aria-hidden='true' />
                     <div className='icon-title'>Location</div>
                     <i className='fa fa-angle-double-right' />
                   </Tab>
                 </div>
-                <div>
+                <div className='left-disponibility-tab'>
                   <Tab className='tab' tabFor='vertical-tab-two'>
-                    <i className='fa fa-2x fa-calendar tab-icon' aria-hidden='true' />
+                    <i className='fa fa-2x fa-clock-o tab-icon' aria-hidden='true' />
                     <div className='icon-title'>Disponibility</div>
                     <i className='fa fa-angle-double-right' />
 
                   </Tab>
                 </div>
-                <div>
+                <div className='left-technologies-tab'>
                   <Tab className='tab' tabFor='vertical-tab-three'>
-                    <i className='fa fa-2x fa-code tab-icon' aria-hidden='true' />
-                    <div className='icon-title'>Competencies</div>
+                    <i className='fa fa-2x fa-cog tab-icon' aria-hidden='true' />
+                    <div className='icon-title'>Technologies</div>
                     <i className='fa fa-angle-double-right' />
 
                   </Tab>
                 </div>
-                <div>
+                <div className='left-lookingFor-tab'>
                   <Tab className='tab' tabFor='vertical-tab-four'>
-                    <i className='fa fa-2x fa-envelope-o tab-icon' aria-hidden='true' />
+                    <i className='fa fa-2x fa-search-plus tab-icon' aria-hidden='true' />
                     <div className='icon-title'>Looking For</div>
                     <i className='fa fa-angle-double-right' />
 

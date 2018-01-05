@@ -21,24 +21,26 @@ class StudentCard extends Component {
           <div className='student-info'>{student.location}</div>
         </div>
 
-        <hr className='hr-style' />
+        <div className='student-disponibility-and-lookingFor-container'>
 
-        <div className='student-disponibility'>
-          <div className='student-info-title'>Disponibility:</div>
-          <div className='student-info-disponibility'>{student.disponibility}</div>
-        </div>
-
-        <div className='student-lookingFor'>
-          <div className='student-info-title'>Looking for:</div>
-          <div className='student-info'>
-            {
-            student.lookingFor.map((el, i) => <span className='lookingFor-container' key={i}>{el}</span>)
-          }
+          <hr className='hr-style' />
+          <div className='student-disponibility'>
+            <div className='student-info-title'>Disponibility</div>
+            <div className='student-info-disponibility'>{student.disponibility}</div>
           </div>
+
+          <div className='student-lookingFor'>
+            <div className='student-info-title'>Looking for</div>
+            <div className='student-info'>
+              {
+              student.lookingFor.map((el, i) => <span className='lookingFor-container' key={i}>{el}</span>)
+            }
+            </div>
+          </div>
+
         </div>
 
         <div className='student-skills'>
-          <div className='student-info-title'>Some skills:</div>
           <div className='student-info'>
             {
             student.skills.slice(0, 4).map((el, i) => <StudentSkill key={i} skill={el} />)
@@ -46,7 +48,11 @@ class StudentCard extends Component {
           </div>
         </div>
 
-        <hr className='hr-style' />
+        <div className='student-cv'>
+          <a target='_blank' href={student.cv}>
+            View CV
+          </a>
+        </div>
 
         <div className='student-social-icon icons-container'>
           <a className='student-social-icon' rel='publisher' target='_blank' href={student.contacts.github}>
@@ -60,12 +66,6 @@ class StudentCard extends Component {
           </a>
           <a className='student-social-icon' rel='publisher' target='_blank' href={student.contacts.twitter}>
             <i className='fa fa-twitter-square fa-2x' />
-          </a>
-        </div>
-
-        <div className='student-cv'>
-          <a target='_blank' href={student.cv}>
-            View CV
           </a>
         </div>
 

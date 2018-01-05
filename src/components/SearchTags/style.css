@@ -4,13 +4,12 @@
 }
 
 .searchTag{
-  background-color: inherit;
-  color: black !important;
-  padding: 2px;
+  background-color: white;
+  color: #9d9d9d !important;
+  padding: 4px;
   margin: 2px;
   font-size: 0.8rem;
-  border-radius: 5px;
-  border: 1px solid black;
+  border-radius: 8px;
 }
 
 .searchTag:empty{
@@ -24,7 +23,6 @@
 .searchTag:hover{
   background-color: #e74c3c;
   color: white !important;
-  border-color: white;
   cursor: pointer;
 }
 
