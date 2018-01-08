@@ -30,3 +30,10 @@
   padding: 4px;
   margin: 4px;
 }
+
+@media screen and (max-width: 768px){
+  .tagsContainer{
+    position: static;
+    width: 100%;
+  }
+}

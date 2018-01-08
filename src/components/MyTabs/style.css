@@ -66,3 +66,36 @@
 .left-lookingFor-tab{
   background-color: #17a88b;
 }
+
+@media screen and (max-width: 576px) {
+  .tab i,div {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 768px){
+
+  .cols-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left-col{
+    height: 85px;
+  }
+
+  .left-col-tablist{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    background: linear-gradient(to right, #0d77ba, #17a88b);
+    overflow-x: auto;
+  }
+
+  .right-col{
+    height: 52px;
+    display: flex;
+    flex-direction: row;
+  }
+
+}

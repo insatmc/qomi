@@ -14,3 +14,11 @@ background-color: #eae9e9;
 .techno-input:focus{
 background-color: #eae9e9;
 }
+
+@media screen and (max-width: 768px){
+  .techno-container{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+}

@@ -8,3 +8,12 @@
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
+@media screen and (max-width: 768px){
+  .Cards-container{
+    position:static;
+    height: auto;
+    width: 100vw;
+    overflow-y: auto;
+  }
+}

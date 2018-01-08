@@ -16,7 +16,7 @@ class MyTabs extends Component {
           <div className='cols-container'>
 
             <div className='left-col'>
-              <TabList>
+              <TabList className='left-col-tablist'>
                 <div className='left-location-tab'>
                   <Tab className='tab' tabFor='vertical-tab-one'>
                     <i className='fa fa-2x fa-map-marker tab-icon' aria-hidden='true' />
@@ -52,16 +52,16 @@ class MyTabs extends Component {
             </div>
 
             <div className='right-col'>
-              <TabPanel tabId='vertical-tab-one'>
+              <TabPanel tabId='vertical-tab-one' className='right-col-tabpanel'>
                 <LocationSubTab onChangeLocation={this.props.onChangeLocation} />
               </TabPanel>
-              <TabPanel tabId='vertical-tab-two'>
+              <TabPanel tabId='vertical-tab-two' className='right-col-tabpanel'>
                 <DisponibilitySubTab onChangeDisponibility={this.props.onChangeDisponibility} />
               </TabPanel>
-              <TabPanel tabId='vertical-tab-three'>
+              <TabPanel tabId='vertical-tab-three' className='right-col-tabpanel'>
                 <TechnologiesSubTab onChangeSkills={this.props.onChangeSkills} />
               </TabPanel>
-              <TabPanel tabId='vertical-tab-four'>
+              <TabPanel tabId='vertical-tab-four' className='right-col-tabpanel'>
                 <ContractSubTab onChangeContract={this.props.onChangeContract} />
               </TabPanel>
             </div>

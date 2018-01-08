@@ -126,7 +126,7 @@ class App extends Component {
                   return (
                     <div>
                       <NavBar />
-                      <div className='row bars-container'>
+                      <div className='flex-container bars-container'>
 
                         <div className='user-search'>
                           <Search

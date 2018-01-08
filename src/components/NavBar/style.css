@@ -59,10 +59,9 @@ ul.topnav li a.social-icon{
   color: white;
 }
 
-
 ul.topnav li.right {float: right;}
 
-@media screen and (max-width: 520px){
+@media screen and (max-width: 576px){
 
   .topnav{
     height: 38px;

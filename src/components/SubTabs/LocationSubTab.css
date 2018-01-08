@@ -14,3 +14,11 @@
 .location-input:focus{
   background-color: #eae9e9;
 }
+
+@media screen and (max-width: 768px){
+  .locations{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+}

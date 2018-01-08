@@ -9,6 +9,11 @@ body{
 
 /********** Bars-container styling *********/
 
+.flex-container{
+  display: flex;
+  flex-direction: row;
+}
+
 .bars-container{
   height:40px;
   background-color: #eeeeee;
@@ -30,8 +35,28 @@ body{
   text-align: center;
 }
 
+@media screen and (max-width: 768px) {
+
+  .bars-container{
+    height: auto;
+  }
+
+  .user-search{
+    width: 100%;
+  }
+
+  .user-search input{
+    width: 100%;
+  }
+
+  .search-tags{
+    width: 100%;
+  }
+}
+
 
 /********* Tabs-container Styling *********/
+
 
 .Tabs-Cards-container{
   height: calc(100vh - 52px);
@@ -41,4 +66,27 @@ body{
 .Tabs-container{
   height: calc(100vh - 52px);
   position:absolute;
+}
+
+@media screen and (max-width: 768px) {
+
+  body{
+    overflow-y: auto;
+  }
+  
+  .flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .Tabs-Cards-container{
+    position: static;
+    height: auto;
+  }
+
+  .Tabs-container{
+    position: static;
+    height: 125px;
+  }
 }
