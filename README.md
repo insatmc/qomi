@@ -1,4 +1,5 @@
 # Qomi
+The GoMyCode Talents platform.
 
 ## UP & RUNNING
 Install dependencies:
