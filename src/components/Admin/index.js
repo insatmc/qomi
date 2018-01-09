@@ -22,10 +22,12 @@ class Admin extends Component {
   		nameFilter: '',
   		locationFilter: '',
   		skillsFilter: '',
-      loggedIn: false
+      loggedIn: false,
+      username: '',
+      password: ''
   	}
 
-    if(window.localStorage.token){
+    if (window.localStorage.token) {
       this.state.loggedIn = true
     }
 
@@ -37,14 +39,22 @@ class Admin extends Component {
     this.intitStudents()
   }
 
-  logout(){
+  logout () {
     this.setState({
       loggedIn: false
     })
   }
 
-  login(){
-    console.log("not implemented yet")
+  login () {
+    console.log('not implemented yet')
+    axios.post('/api/login', { username: this.state.username, password: this.state.password }).then((data) => {
+      window.localStorage.token = data.data
+      this.setState({
+        loggedIn: true
+      })
+    }).catch(function (error) {
+      alert('Something went wrong')
+    })
   }
 
   intitStudents () {
@@ -92,7 +102,7 @@ class Admin extends Component {
   render () {
   		return (
     <div>
-    {
+      {
       this.state.loggedIn &&
       <TableUser
         students={this.state.students}
@@ -101,13 +111,24 @@ class Admin extends Component {
         onUpdateUser={this.UpdateUser}
         onLogout={this.logout} />
     }
-    {
+      {
       !this.state.loggedIn &&
-      <form> {/* send request to /api/login and save the token in window.localStorage.token */ }
-        <input />
-        <input />
+      <div className='login-form' > {/* send request to /api/login and save the token in window.localStorage.token */ }
+        <input id='username-input'
+          onChange={(e) => this.setState({
+            username: e.target.value
+          })
+        }
+        />
+        <input id='login-input'
+          onChange={(e) => this.setState({
+            password: e.target.value
+          })
+          }
+          type='password'
+        />
         <button onClick={this.login}>Go</button>
-      </form>
+      </div>
     }
 
     </div>
