@@ -8,6 +8,18 @@ import TechnologiesSubTab from '../SubTabs/TechnologiesSubTab.js'
 import ContractSubTab from '../SubTabs/ContractSubTab.js'
 
 class MyTabs extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      activeTab: 0
+    }
+  }
+
+  tabChanged(activeTab){
+    this.setState({
+      activeTab
+    })
+  }
 
   render () {
     return (
@@ -18,14 +30,14 @@ class MyTabs extends Component {
             <div className='left-col'>
               <TabList className='left-col-tablist'>
                 <div className='left-location-tab'>
-                  <Tab className='tab' tabFor='vertical-tab-one'>
+                  <Tab onClick={() => this.tabChanged(0) } className={'tab '+ (this.state.activeTab == 0? 'active': '')} tabFor='vertical-tab-one'>
                     <i className='fa fa-2x fa-map-marker tab-icon' aria-hidden='true' />
                     <div className='icon-title'>Location</div>
                     <i className='fa fa-angle-double-right' />
                   </Tab>
                 </div>
                 <div className='left-disponibility-tab'>
-                  <Tab className='tab' tabFor='vertical-tab-two'>
+                  <Tab onClick={() => this.tabChanged(1) } className='tab' tabFor='vertical-tab-two'>
                     <i className='fa fa-2x fa-clock-o tab-icon' aria-hidden='true' />
                     <div className='icon-title'>Disponibility</div>
                     <i className='fa fa-angle-double-right' />

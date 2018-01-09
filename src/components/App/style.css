@@ -24,6 +24,8 @@ body{
   color: white;
   width: 286px;
   height: 40px;
+  border: none;
+  border-bottom: solid 1px #eee;
 }
 
 .user-search:focus{
@@ -73,7 +75,7 @@ body{
   body{
     overflow-y: auto;
   }
-  
+
   .flex-container{
     display: flex;
     flex-direction: column;

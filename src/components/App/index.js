@@ -23,6 +23,7 @@ class App extends Component {
     super(props)
     this.state = {
       students: [],
+      loading: true,
       userSearch: '',
       nameFilter: '',
   		locationFilter: '',
@@ -36,7 +37,10 @@ class App extends Component {
     }
 
     axios.get('/api/students').then((data) => {
-      this.setState({ students: data.data })
+      this.setState({
+        students: data.data,
+        loading: false
+      })
     }).catch(function (error) {
       console.log(JSON.stringify(error))
     })
@@ -167,7 +171,7 @@ class App extends Component {
                             onChangeContract={(e) => this.setState({contractFilter: e.target.value, lookingForTag: e.target.value})}
                           />
                         </div>
-                        <StudentsList students={this.state.students.filter(this.isStudentVisible.bind(this))} />
+                        <StudentsList loading={this.state.loading} students={this.state.students.filter(this.isStudentVisible.bind(this))} />
                       </div>
                     </div>
                   )

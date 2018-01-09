@@ -20,7 +20,11 @@ ul.topnav li a {
     text-align: center;
     padding: 12px;
     text-decoration: none;
-    font-weight: 600 !important;
+    font-weight: normal;
+}
+
+ul.topnav li.logo a{
+  font-weight: bold !important
 }
 
 ul.topnav li a.social-icon{

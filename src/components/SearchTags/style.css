@@ -1,15 +1,15 @@
 .tagsContainer{
-  padding: 4px;
+  padding: 8px;
   overflow-y: auto;
 }
 
 .searchTag{
   background-color: white;
   color: #9d9d9d !important;
-  padding: 4px;
+  padding: 4px 7px;
   margin: 2px;
   font-size: 0.8rem;
-  border-radius: 8px;
+  border-radius: 5000px;
 }
 
 .searchTag:empty{
