@@ -37,10 +37,10 @@
     app.get('/api/students/:id', routes.students.getStudent)
 
     app.post('/api/login', function (req, res) {
-      if (req.body.password == 'mokhles' && req.body.username == 'admin') {
+      if (req.body.password == '+QA}pR57b6NQ_?scL+' && req.body.username == 'admin') {
         res.send('e1oIojaEj54tfSqPgAIqiBb9YrlAXXHp')
       } else {
-        res.send('you are trying to hack us :o').status(403)
+        res.status(403).send('you are trying to hack us :o')
       }
     })
 

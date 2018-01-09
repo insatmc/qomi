@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './style.css'
 import StudentsList from '../StudentsList'
 import Search from '../Search'
 import TableUser from '../TableUser'
@@ -113,21 +114,31 @@ class Admin extends Component {
     }
       {
       !this.state.loggedIn &&
-      <div className='login-form' > {/* send request to /api/login and save the token in window.localStorage.token */ }
-        <input id='username-input'
-          onChange={(e) => this.setState({
-            username: e.target.value
-          })
+      <div className='admin-login' > {/* send request to /api/login and save the token in window.localStorage.token */ }
+        <div className='login-inputs'>
+          <div className='label-container'>
+            <label>Login</label>
+          </div>
+          <input id='username-input'
+            onChange={(e) => this.setState({
+              username: e.target.value
+            })
         }
-        />
-        <input id='login-input'
-          onChange={(e) => this.setState({
-            password: e.target.value
-          })
+        /><br />
+          <div className='label-container'>
+            <label>Password</label>
+          </div>
+          <input id='login-input'
+            onChange={(e) => this.setState({
+              password: e.target.value
+            })
           }
-          type='password'
-        />
-        <button onClick={this.login}>Go</button>
+            type='password'
+        /><br />
+          <div className='login-btn'>
+            <button onClick={this.login}>Go</button>
+          </div>
+        </div>
       </div>
     }
 
