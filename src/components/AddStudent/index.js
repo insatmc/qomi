@@ -460,6 +460,15 @@ class AddStudent extends Component {
                     onChange={this.handleChangeTwitter} />
                 </div>
               </div>
+
+              <div className='form-group'>
+                <label className='col-md-10 control-label' htmlFor='student-cv'>Student CV</label>
+                <div className='col-md-10'>
+                  <input id='student-cv' name='student-cv' type='text' placeholder='' className='form-control input-md'
+                    value={this.state.cv}
+                    onChange={this.handleChangeCV} />
+                </div>
+              </div>
             </div>
 
             <div className='form-group'>

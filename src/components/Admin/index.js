@@ -21,15 +21,32 @@ class Admin extends Component {
       students: [],
   		nameFilter: '',
   		locationFilter: '',
-  		skillsFilter: ''
+  		skillsFilter: '',
+      loggedIn: false
   	}
+
+    if(window.localStorage.token){
+      this.state.loggedIn = true
+    }
 
     this.deleteUser = this.deleteUser.bind(this)
     this.intitStudents = this.intitStudents.bind(this)
     this.UpdateUser = this.UpdateUser.bind(this)
-
+    this.logout = this.logout.bind(this)
+    this.login = this.login.bind(this)
     this.intitStudents()
   }
+
+  logout(){
+    this.setState({
+      loggedIn: false
+    })
+  }
+
+  login(){
+    console.log("not implemented yet")
+  }
+
   intitStudents () {
     axios.get('/api/students').then((data) => {
       this.setState({ students: data.data })
@@ -38,7 +55,7 @@ class Admin extends Component {
     })
   }
   onAddUser (e) {
-    axios.post('/api/students', e).then((data) => {
+    axios.post('/api/students', { ...e, token: window.localStorage.token }).then((data) => {
       // TODO: fix hack, only add new user to students once the server returns it
       this.intitStudents()
     }).catch(function (error) {
@@ -46,7 +63,7 @@ class Admin extends Component {
     })
   }
   deleteUser (student) {
-    axios.delete(`/api/students/${student._id}`)
+    axios.delete(`/api/students/${student._id}?token=${window.localStorage.token}`)
       .then(() => {
         this.setState({
           students: this.state.students.filter(el => el._id != student._id)
@@ -58,7 +75,8 @@ class Admin extends Component {
   }
   UpdateUser (student) {
     let studentWithoutId = {
-      ...student
+      ...student,
+      token: window.localStorage.token
     }
     delete studentWithoutId._id
     console.log()
@@ -74,11 +92,24 @@ class Admin extends Component {
   render () {
   		return (
     <div>
+    {
+      this.state.loggedIn &&
       <TableUser
         students={this.state.students}
         onAddUser={(e) => this.onAddUser(e)}
         onDeleteUser={this.deleteUser}
-        onUpdateUser={this.UpdateUser} />
+        onUpdateUser={this.UpdateUser}
+        onLogout={this.logout} />
+    }
+    {
+      !this.state.loggedIn &&
+      <form> {/* send request to /api/login and save the token in window.localStorage.token */ }
+        <input />
+        <input />
+        <button onClick={this.login}>Go</button>
+      </form>
+    }
+
     </div>
   		)
   }
