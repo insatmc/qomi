@@ -87,7 +87,12 @@
   }
 
   .left-col{
-    height: 85px;
+    height: 73px;
+    width: 100% !important;
+  }
+
+  .right-col{
+    width: 100% !important;
   }
 
   .left-col-tablist{
@@ -99,9 +104,8 @@
   }
 
   .right-col{
-    height: 52px;
     display: flex;
     flex-direction: row;
+    height: auto;
   }
-
 }

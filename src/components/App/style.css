@@ -4,6 +4,7 @@ body{
   overflow-x: hidden;
   overflow-y: hidden;
   font-family: 'Roboto', sans-serif;
+  background-color: #eeeeee;
 
 }
 
@@ -90,5 +91,6 @@ body{
   .Tabs-container{
     position: static;
     height: 125px;
+    width: 100% !important;
   }
 }

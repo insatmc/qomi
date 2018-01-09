@@ -33,12 +33,12 @@ class LocationSubTab extends Component {
   }
   render () {
     return (
-      <div className='locations'>
+      <div className='input-container'>
         {
           this.state.locations.map((location, i) => {
             return (
               <div key={i}>
-                <input onClick={this.props.onChangeLocation} className='location-input' type='button' value={location} />
+                <input onClick={this.props.onChangeLocation} className='filter-input location-input' type='button' value={location} />
               </div>
             )
           })

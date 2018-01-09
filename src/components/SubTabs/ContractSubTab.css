@@ -1,4 +1,4 @@
-.contract-input{
+.filter-input{
   text-align: center;
   min-width: 100%;
   border: none;
@@ -8,17 +8,23 @@
   font-weight: 600;
   padding: 4px;
 }
-.contract-input:hover{
+.filter-input:hover{
   background-color: #eae9e9;
 }
-.contract-input:focus{
+.filter-input:focus{
 background-color: #eae9e9;
 }
 
 @media screen and (max-width: 768px){
-  .contract-container{
+  .input-container{
     display: flex;
     flex-direction: row;
     overflow-x: auto;
+    text-align: center;
+  }
+
+  .filter-input{
+    min-width: auto !important;
+    padding: 10px 8px;
   }
 }

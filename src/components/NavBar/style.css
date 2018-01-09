@@ -67,30 +67,5 @@ ul.topnav li.right {float: right;}
 
 @media screen and (max-width: 576px){
 
-  .topnav{
-    height: 38px;
-  }
-  ul.topnav li.right,
-  ul.topnav li {
-    float: none;
-    font-size: 0.75rem;
-  }
-
-  ul.topnav li{
-    display: none;
-  }
-
-  ul.topnav li:first-child, {
-    display: inline-block;
-  }
-
-  ul.topnav li:nth-child(3), {
-    display: inline-block;
-  }
-
-  ul.topnav li:last-child{
-    display: inline-block;
-    float: right;
-  }
-
+  
 }
