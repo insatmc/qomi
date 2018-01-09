@@ -30,6 +30,8 @@ mongoDriver.connect(DB_URL, function (err, client) {
     res.sendFile(__dirname + '/dist/index.html');
   });
 
+  app.get('/api/csv/students/', routes.students.fromCSV)
+
   app.get('/api/students', routes.students.getStudents);
 
   app.get('/api/students/:id', routes.students.getStudent);

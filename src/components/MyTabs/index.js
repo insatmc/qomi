@@ -45,7 +45,7 @@ class MyTabs extends Component {
                   </Tab>
                 </div>
                 <div className='left-technologies-tab'>
-                  <Tab className='tab' tabFor='vertical-tab-three'>
+                  <Tab onClick={() => this.tabChanged(2) } className='tab' tabFor='vertical-tab-three'>
                     <i className='fa fa-2x fa-cog tab-icon' aria-hidden='true' />
                     <div className='icon-title'>Technologies</div>
                     <i className='fa fa-angle-double-right' />
@@ -53,7 +53,7 @@ class MyTabs extends Component {
                   </Tab>
                 </div>
                 <div className='left-lookingFor-tab'>
-                  <Tab className='tab' tabFor='vertical-tab-four'>
+                  <Tab onClick={() => this.tabChanged(1) }xxxmljhgfdssq className='tab' tabFor='vertical-tab-four'>
                     <i className='fa fa-2x fa-search-plus tab-icon' aria-hidden='true' />
                     <div className='icon-title'>Looking For</div>
                     <i className='fa fa-angle-double-right' />
