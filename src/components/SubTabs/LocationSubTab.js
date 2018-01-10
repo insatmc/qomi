@@ -1,35 +1,28 @@
 import React, {Component} from 'react'
 import './LocationSubTab.css'
+import axios from 'axios'
 
 class LocationSubTab extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      locations: [
-        'Beja',
-        'Bizerte',
-        'Gabes',
-        'Gafsa',
-        'Grand Tunis',
-        'Jendouba',
-        'Kairouan',
-        'Kasserine',
-        'Kebili',
-        'Kef',
-        'Mahdia',
-        'Medenine',
-        'Monastir',
-        'Nabeul',
-        'Sfax',
-        'Sidi Bouzid',
-        'Siliana',
-        'Sousse',
-        'Tataouine',
-        'Tozeur',
-        'Zaghouan',
-        'Outside Tunisia'
-      ]
+      locations: []
     }
+  }
+
+  componentDidMount () {
+    axios.get('/api/students', {
+      validateStatus: function (status) {
+        return status >= 400 // Reject only if the status code is greater than or equal to 500
+      }
+    }).then((data) => {
+      console.log('for students location====>', data)
+      this.setState({
+        locations: data.data.map((el) => el.location).filter((item, pos) => data.data.indexOf(item) == pos)
+      })
+      // console.log(data.data.map((el) => el.location).filter((item, pos) => data.data.indexOf(item) == pos))
+    }).catch(function (error) {
+    })
   }
 
   render () {
