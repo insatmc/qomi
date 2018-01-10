@@ -94,7 +94,7 @@ module.exports = {
 
   },
   removeStudent (req, res) {
-    var url_parts = url.parse(request.url, true);
+    var url_parts = url.parse(req.url, true);
     var query = url_parts.query;
     if (query.token == "e1oIojaEj54tfSqPgAIqiBb9YrlAXXHp") {
       let o_id = new mongo.ObjectID(req.params.id)
