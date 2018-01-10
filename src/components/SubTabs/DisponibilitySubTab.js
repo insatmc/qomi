@@ -1,15 +1,42 @@
 import React, {Component} from 'react'
 import './DisponibilitySubTab.css'
+import axios from 'axios'
 
 class DisponibilitySubTab extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      disponibility: []
+    }
+  }
+
+  componentDidMount () {
+    axios.get('/api/students', {
+      validateStatus: function (status) {
+        return status < 400
+      }
+    }).then((data) => {
+      let students = data.data
+      let disponibility = students.map((el) => el.disponibility)
+      this.setState({
+        disponibility: disponibility.filter((item, pos) => disponibility.indexOf(item) == pos)
+      })
+    }).catch(function (error) {
+    })
+  }
+
   render () {
     return (
       <div className='input-container'>
-        <input onClick={this.props.onChangeDisponibility} className='filter-input dispo-input' type='button' value='Immediately' /><br />
-        <input onClick={this.props.onChangeDisponibility} className='filter-input dispo-input' type='button' value='In a few days' /><br />
-        <input onClick={this.props.onChangeDisponibility} className='filter-input dispo-input' type='button' value='In 1 month' /><br />
-        <input onClick={this.props.onChangeDisponibility} className='filter-input dispo-input' type='button' value='In 2 months' /><br />
-        <input onClick={this.props.onChangeDisponibility} className='filter-input dispo-input' type='button' value='In 3 months or more' /><br />
+        {
+          this.state.disponibility.map((disponibility, i) => {
+            return (
+              <div key={i}>
+                <input onClick={this.props.onChangeDisponibility} className='filter-input dispo-input' type='button' value={disponibility} />
+              </div>
+            )
+          })
+        }
       </div>
     )
   }
