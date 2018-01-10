@@ -11,7 +11,7 @@ class StudentCard extends Component {
       <div className='student-card'>
 
         <div className='student-image'>
-          <div className='student-image-elem' style={{backgroundImage: `url(${student.image})`}}></div>
+          <div className='student-image-elem' style={{backgroundImage: `url(${student.image})`}} />
         </div>
 
         <div className='student-name'>
@@ -59,15 +59,25 @@ class StudentCard extends Component {
           <a className='student-social-icon' rel='publisher' target='_blank' href={student.contacts.github}>
             <i className='fa fa-github-square fa-2x' />
           </a>
-          <a className='student-social-icon' rel='publisher' target='_blank' href={student.contacts.linkedin}>
-            <i className='fa fa-linkedin-square fa-2x' />
-          </a>
+
+          {
+            (student.contacts.linkedin !== '') &&
+            <a className='student-social-icon' rel='publisher' target='_blank' href={student.contacts.linkedin}>
+              <i className='fa fa-linkedin-square fa-2x' />
+            </a>
+          }
+
           <a className='student-social-icon' rel='publisher' target='_blank' href={student.contacts.mail}>
             <i className='fa fa-google-plus-square fa-2x' />
           </a>
-          <a className='student-social-icon' rel='publisher' target='_blank' href={student.contacts.twitter}>
-            <i className='fa fa-twitter-square fa-2x' />
-          </a>
+
+          {
+            (student.contacts.twitter !== '') &&
+            <a className='student-social-icon' rel='publisher' target='_blank' href={student.contacts.twitter}>
+              <i className='fa fa-twitter-square fa-2x' />
+            </a>
+          }
+
         </div>
 
       </div>

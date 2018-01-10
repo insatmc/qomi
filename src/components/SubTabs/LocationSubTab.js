@@ -31,6 +31,7 @@ class LocationSubTab extends Component {
       ]
     }
   }
+
   render () {
     return (
       <div className='input-container'>
