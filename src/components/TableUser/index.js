@@ -82,7 +82,7 @@ class TableUser extends Component {
 
   render () {
     return (
-      <div>
+      <div  className="AdminHolder">
         <ModalDeleteStudent
           visible={this.state.deleteModal.isOpen}
           onClose={this.hideDeleteModal}

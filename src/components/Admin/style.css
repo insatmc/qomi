@@ -1,3 +1,8 @@
+.AdminHolder{
+  overflow: auto;
+  height: 100vh;
+}
+
 .loginHolder{
   position: absolute;
   width: 100%;
