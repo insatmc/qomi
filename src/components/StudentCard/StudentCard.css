@@ -25,6 +25,9 @@
   width: 125px;
   height: 125px;
   border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin: 10px 0;
 }
 
 .student-name{
