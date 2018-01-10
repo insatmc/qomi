@@ -64,7 +64,9 @@ class App extends Component {
 
     let nameCond = (studentName.indexOf(nameToSearch) !== -1)
     let locationCond = (studentLocation.indexOf(locationToSearch) !== -1)
-    let skillsCond = studentSkills.some(el => skillsToSearch.includes(el))
+
+    let skillsCond = skillsToSearch.every(el => studentSkills.includes(el))
+
     if (skillsToSearch.length === 0) {
       skillsCond = true
     }
