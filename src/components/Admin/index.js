@@ -114,33 +114,42 @@ class Admin extends Component {
     }
       {
       !this.state.loggedIn &&
-      <div className='admin-login' > {/* send request to /api/login and save the token in window.localStorage.token */ }
-        <div className='login-inputs'>
-          <div className='label-container'>
-            <label>Login</label>
+      <div className="loginHolder">
+        <div className='admin-login' > {/* send request to /api/login and save the token in window.localStorage.token */ }
+          <div className='login-inputs'>
+            <h1>Login</h1>
+            <div className="form-group">
+              <input id='username-input'
+                className="form-control"
+                placeholder="username"
+                onChange={(e) => this.setState({
+                  username: e.target.value
+                })
+              }
+              />
+            </div>
+            <div className="form-group">
+              <input id='login-input'
+                className="form-control"
+                placeholder="password"
+                onChange={(e) => this.setState({
+                    password: e.target.value
+                  })
+                }
+                type='password'
+              />
+            </div>
+            <div className='form-group login-btn'>
+              <button className="btn btn-success" onClick={this.login}>Go</button>
+            </div>
           </div>
-          <input id='username-input'
-            onChange={(e) => this.setState({
-              username: e.target.value
-            })
-        }
-        /><br />
-          <div className='label-container'>
-            <label>Password</label>
-          </div>
-          <input id='login-input'
-            onChange={(e) => this.setState({
-              password: e.target.value
-            })
-          }
-            type='password'
-        /><br />
-          <div className='login-btn'>
-            <button onClick={this.login}>Go</button>
-          </div>
+        </div>
+        <div className="made-with">
+          Made with <span>♥</span> in GMC HackerSpace
         </div>
       </div>
     }
+
 
     </div>
   		)
