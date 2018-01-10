@@ -23,6 +23,13 @@
   max-height: 120px;
   border-radius: 50%;
   margin: 10px;
+  background-size: cover;
+}
+
+.student-image-elem{
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
 }
 
 .student-name{

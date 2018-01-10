@@ -11,7 +11,7 @@ class StudentCard extends Component {
       <div className='student-card'>
 
         <div className='student-image'>
-          <img className='student-image' src={student.image} />
+          <div className='student-image-elem' style={{backgroundImage: `url(${student.image})`}}></div>
         </div>
 
         <div className='student-name'>
