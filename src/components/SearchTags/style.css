@@ -33,7 +33,8 @@
 
 @media screen and (max-width: 768px){
   .tagsContainer{
-    position: static;
+    position: sticky;
     width: 100%;
+    top: 0;
   }
 }

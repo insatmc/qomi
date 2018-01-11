@@ -12,7 +12,7 @@ body{
 
 .search-filters{
   height: calc(100vh - 48px);
-  width: 287px;
+  width: 286px;
 }
 
 .search-filters input{
@@ -30,12 +30,12 @@ body{
 
 @media screen and (max-width: 768px) {
 
-  .user-searches{
-    height: calc(100vh - 48px);
+  .search-filters{
+    height: 170px;
     width: 100%;
   }
 
-  .user-searches input{
+  .search-filters input{
     width: 100%;
   }
 
@@ -61,7 +61,7 @@ body{
 }
 
 .search-tags{
-  width: calc(100vw - 287px);
+  width: 100%;
   text-align: center;
 }
 
@@ -74,7 +74,15 @@ body{
   .Tags-Cards-container{
     position: static;
     height: auto;
+    width: 100%;
   }
 
+  .search-tags{
+    display: block;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #eee;
+  }
 
 }
