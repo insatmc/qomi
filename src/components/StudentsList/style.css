@@ -2,9 +2,9 @@
   margin-left: 2px;
   height: calc(100vh - 92px);
   width: calc(100vw - 300px);
+  padding: 6px 2px 2px 4px;
   position: absolute;
-  left: 300px;
-  padding: 5px 2px 2px 0px;
+  left: 12px;
   overflow-x: hidden;
   overflow-y: scroll;
 }

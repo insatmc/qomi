@@ -132,13 +132,28 @@ class App extends Component {
                   return (
                     <div>
                       <NavBar />
-                      <div className='flex-container bars-container'>
 
-                        <div className='user-search'>
-                          <Search
-                            onChangeSearch={(e) => this.setState({userSearch: e.target.value})}
+                      <div className='search-filters'>
+
+                        <Search
+                          onChangeSearch={(e) => this.setState({userSearch: e.target.value})}
                           />
+
+                        <div className='Tabs-container'>
+                          <MyTabs
+                            onChangeLocation={(e) => this.setState({locationFilter: e.target.value, locationTag: e.target.value})}
+                            onChangeDisponibility={(e) => this.setState({disponibilityFilter: e.target.value, disponibilityTag: e.target.value})}
+                            onChangeSkills={(e) => this.setState(
+                              {skillsFilter: this.state.skillsFilter.concat(e.target.value),
+                                skillsTag: this.state.skillsTag.concat(e.target.value)}
+                              )}
+                            onChangeContract={(e) => this.setState({contractFilter: e.target.value, lookingForTag: e.target.value})}
+                            />
                         </div>
+
+                      </div>
+
+                      <div className='Tags-Cards-container'>
 
                         <div className='search-tags'>
                           <SearchTags tags={
@@ -153,26 +168,13 @@ class App extends Component {
                                 type: 'lookingFor', value: this.state.lookingForTag
                               }
                             ]
-                          }
+                        }
                             removeTag={this.removeTag.bind(this)}
                             skillsTag={this.state.skillsTag}
                             removeSkill={this.removeSkill.bind(this)}
-                          />
+                        />
                         </div>
 
-                      </div>
-                      <div className='Tabs-Cards-container'>
-                        <div className='Tabs-container'>
-                          <MyTabs
-                            onChangeLocation={(e) => this.setState({locationFilter: e.target.value, locationTag: e.target.value})}
-                            onChangeDisponibility={(e) => this.setState({disponibilityFilter: e.target.value, disponibilityTag: e.target.value})}
-                            onChangeSkills={(e) => this.setState(
-                              {skillsFilter: this.state.skillsFilter.concat(e.target.value),
-                                skillsTag: this.state.skillsTag.concat(e.target.value)}
-                            )}
-                            onChangeContract={(e) => this.setState({contractFilter: e.target.value, lookingForTag: e.target.value})}
-                          />
-                        </div>
                         <StudentsList loading={this.state.loading} students={this.state.students.filter(this.isStudentVisible.bind(this))} />
                       </div>
                     </div>
