@@ -5,8 +5,12 @@ class NavBar extends Component {
   render () {
     return (
       <div className='navbar-container'>
+        <input type='checkbox' id='navbar-dropdown-button' />
+        <label className='navbar-dropdown-label' htmlFor='navbar-dropdown-button' >
+          <i className='fa fa-bars fa-2x' aria-hidden='true' />
+        </label>
         <ul className='topnav'>
-          <li className="logo"><a href='https://gomycode.tn' target='_blank'>Go My Code</a></li>
+          <li className='logo'><a href='https://gomycode.tn' target='_blank'>Go My Code</a></li>
           <li><a href='https://gomycode.tn' target='_blank'>Contact Us</a></li>
           <li><a href='https://gomycode.tn/about' target='_blank'>Who are we?</a></li>
           <li className='right'>

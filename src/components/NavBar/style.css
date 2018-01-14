@@ -63,9 +63,50 @@ ul.topnav li a.social-icon{
   color: white;
 }
 
-ul.topnav li.right {float: right;}
+ul.topnav li.right {
+  float: right;
+}
 
-@media screen and (max-width: 576px){
+#navbar-dropdown-button{
+  display: none;
+}
 
-  
+.navbar-dropdown-label{
+  display: none;
+}
+
+@media screen and (max-width: 576px) {
+
+  .fa-bars{
+    margin: 6px;
+    color: black;
+  }
+
+  .navbar-container{
+    background: linear-gradient(to right, #046cb4, #43c3e2);
+    height: 40px;
+  }
+
+  .navbar-container ul{
+    display: none;
+  }
+
+  .navbar-dropdown-label{
+    display: block;
+    margin-bottom: 0;
+  }
+
+  .navbar-container #navbar-dropdown-button:checked ~ ul.topnav {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 40px;
+    text-align: center;
+    z-index: 99999;
+  }
+
+  .navbar-container #navbar-dropdown-button:checked ~ ul.topnav > li {
+    display: block !important;
+  }
+
 }
