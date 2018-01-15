@@ -9,6 +9,7 @@ import SearchTags from '../SearchTags'
 import PropTypes from 'prop-types'
 import TableUser from '../TableUser'
 import Admin from '../Admin'
+import HireGrads from '../HireGrads'
 import {
   BrowserRouter as Router,
   Route,
@@ -122,6 +123,11 @@ class App extends Component {
     <div>
       <Router>
         <Switch>
+          <Route path='/hire' render={() =>
+            <div>
+              <HireGrads />
+            </div>
+          } />
           <Route path='/admin' render={() =>
             <div>
               <Admin />

@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
 import './style.css'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch
+ } from 'react-router-dom'
 
 class NavBar extends Component {
   render () {
@@ -14,6 +20,9 @@ class NavBar extends Component {
         </div>
         <ul className='topnav'>
           <li className='logo'><a href='https://gomycode.tn' target='_blank'>Go My Code</a></li>
+          <li>
+            <Link to='/hire' target='_blank'>Hire Grads</Link>
+          </li>
           <li><a href='https://gomycode.tn' target='_blank'>Contact Us</a></li>
           <li><a href='https://gomycode.tn/about' target='_blank'>Who are we?</a></li>
           <li className='right'>
