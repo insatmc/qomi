@@ -6,25 +6,30 @@ class HireGrads extends Component {
     return (
       <div className='hiring-form-container'>
         <h2>Hire Our Grads</h2>
+        <h5>Get in touch with Us</h5>
         <form>
-          <div>
-            <input id='client-fullname' type='text' placeholder='add your fullname' required />
+          <div className='input-container'>
+            <input id='client-fullname' placeholder='Full-name' type='text' required />
           </div>
 
-          <div>
-            <input id='company-name' type='text' placeholder='add company name' required />
+          <div className='input-container'>
+            <input id='client-phone' type='text' placeholder='Phone' required />
           </div>
 
-          <div>
-            <input id='company-website' type='text' placeholder='add your company website' required />
+          <div className='input-container'>
+            <input id='company-name' type='text' placeholder='Company name' required />
           </div>
 
-          <div>
-            <textarea id='client-message' placeholder='add a message (your project, what technologies you use...)' required />
+          <div className='input-container'>
+            <input id='company-website' type='text' placeholder='Company website' required />
           </div>
 
-          <div>
-            <input id='client-submit-button' type='button' value='Submit your application' required />
+          <div className='input-container'>
+            <textarea id='client-message' placeholder='projects, technologies...' required />
+          </div>
+
+          <div className='input-container'>
+            <input id='client-submit-button' type='submit' value='Submit' required />
           </div>
 
         </form>

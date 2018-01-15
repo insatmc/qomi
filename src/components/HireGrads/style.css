@@ -1,8 +1,12 @@
+body{
+  overflow-y: auto;
+}
+
 .hiring-form-container{
   width: 550px;
   margin: 15px auto;
   text-align: center;
-  background-color: white;
+  background-color: #03a9f5;
   border-radius: 6px;
 }
 
@@ -11,40 +15,120 @@
   font-size: 2rem;
   padding: 8px;
   margin: 25px;
+  margin-bottom: 6px;
+  color: white;
 }
 
-.hiring-form-container input{
+.hiring-form-container h5{
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: white;
+}
+
+.input-container{
   width: 70%;
+  margin: 15px auto;
+}
+
+.input-container .label-container{
+  font-weight: bold;
+  color: white;
+  width: 100%;
+}
+
+.label-container label{
+  float: left;
+  margin-bottom: 0px;
+}
+
+.input-container input{
+  background-color: inherit;
+  width: 100%;
+  margin: 6px auto;
+  padding: 6px;
+  border: none;
+  border-bottom: 4px solid white;
+  color: white;
+}
+
+.input-container input::-webkit-input-placeholder {
+color: white !important;
+}
+
+.input-container input:-moz-placeholder { /* Firefox 18- */
+color: white !important;
+}
+
+.input-container input::-moz-placeholder {  /* Firefox 19+ */
+color: white !important;
+}
+
+.input-container input:-ms-input-placeholder {
+color: white !important;
+}
+
+.input-container textarea{
+  width: 100%;
   margin: 15px auto;
   border-radius: 5px;
   border: 1px solid #ced4da;
   padding: 6px;
+  background-color: inherit;
+  border: 2px solid white;
+  color: white;
 }
 
-.hiring-form-container textarea{
-  width: 70%;
-  margin: 15px auto;
-  border-radius: 5px;
-  border: 1px solid #ced4da;
-  padding: 6px;
+textarea::-webkit-input-placeholder {
+color: white !important;
+}
+
+textarea:-moz-placeholder { /* Firefox 18- */
+color: white !important;
+}
+
+textarea::-moz-placeholder {  /* Firefox 19+ */
+color: white !important;
+}
+
+textarea:-ms-input-placeholder {
+color: white !important;
 }
 
 #client-submit-button{
-  width: 55%;
+  width: 40%;
   font-weight: bold;
+  font-size: 1.2rem;
   padding: 5px;
   background-color: #28a745;
   border-radius: 0.25rem;
   color: white;
+  border-bottom: none;
+  cursor: pointer;
+  margin-bottom: 8px;
 }
 
 @media screen and (max-width: 550px){
+
   body{
-    background-color: white;
+    background-color: #03a9f5;
   }
 
   .hiring-form-container{
-    height: 100%;
+    height: auto;
+    width: 100%;
     margin: 0px;
   }
+
+  .input-container{
+    width: 100%;
+  }
+
+  .input-container input{
+    width: 80%;
+  }
+
+  .input-container textarea{
+    width: 80%;
+  }
+
 }
