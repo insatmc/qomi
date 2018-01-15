@@ -75,14 +75,14 @@ class TableUser extends Component {
     })
   }
 
-  logout(){
-    window.localStorage.removeItem("token");
-    this.props.onLogout();
+  logout () {
+    window.localStorage.removeItem('token')
+    this.props.onLogout()
   }
 
   render () {
     return (
-      <div  className="AdminHolder">
+      <div className='AdminHolder'>
         <ModalDeleteStudent
           visible={this.state.deleteModal.isOpen}
           onClose={this.hideDeleteModal}
@@ -104,7 +104,7 @@ class TableUser extends Component {
         <div>
           <button type='button' className='btn btn-primary AddStudentBtn' onClick={this.showModalStudent}>Add Student
           </button>
-          <button onClick={ () => this.logout() }>Logout</button>
+          <button className='btn btn-danger logout-button' onClick={() => this.logout()}>Logout</button>
         </div>
 
         <div>

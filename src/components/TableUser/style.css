@@ -22,3 +22,8 @@ max-width: 95%;
   margin: 2px;
   cursor: pointer;
 }
+
+.logout-button{
+  margin-top: 30px;
+  margin-left: 20px;
+}
