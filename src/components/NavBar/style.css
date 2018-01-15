@@ -75,11 +75,15 @@ ul.topnav li.right {
   display: none;
 }
 
+.responsive-navbar-logo{
+  display: none;
+}
+
 @media screen and (max-width: 576px) {
 
   .fa-bars{
     margin: 6px;
-    color: black;
+    color: white;
   }
 
   .navbar-container{
@@ -96,6 +100,20 @@ ul.topnav li.right {
     margin-bottom: 0;
   }
 
+  .responsive-navbar-logo{
+    display: inline-block;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .responsive-navbar-logo a {
+    text-decoration: none;
+    color: white;
+  }
+
   .navbar-container #navbar-dropdown-button:checked ~ ul.topnav {
     display: flex;
     flex-direction: column;
@@ -107,6 +125,10 @@ ul.topnav li.right {
 
   .navbar-container #navbar-dropdown-button:checked ~ ul.topnav > li {
     display: block !important;
+  }
+
+  .navbar-container #navbar-dropdown-button:checked ~ ul.topnav > li:first-child{
+    display: none !important;
   }
 
 }

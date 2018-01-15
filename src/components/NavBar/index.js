@@ -9,6 +9,9 @@ class NavBar extends Component {
         <label className='navbar-dropdown-label' htmlFor='navbar-dropdown-button' >
           <i className='fa fa-bars fa-2x' aria-hidden='true' />
         </label>
+        <div className='responsive-navbar-logo'>
+          <a href='https://gomycode.tn' target='_blank'>Go My Code</a>
+        </div>
         <ul className='topnav'>
           <li className='logo'><a href='https://gomycode.tn' target='_blank'>Go My Code</a></li>
           <li><a href='https://gomycode.tn' target='_blank'>Contact Us</a></li>
