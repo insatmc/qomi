@@ -7,6 +7,7 @@ import './style.css'
 import Rodal from 'rodal'
 import { Button } from 'react-bootstrap'
 import 'rodal/lib/rodal.css'
+import { Link } from 'react-router-dom'
 
 class TableUser extends Component {
   constructor (props) {
@@ -83,6 +84,9 @@ class TableUser extends Component {
   render () {
     return (
       <div className='AdminHolder'>
+        <div className='recruitment-link-container'>
+          <Link to='/admin/recruitment-suggestions' target='_blank'>Go to Recruitment Applications</Link>
+        </div>
         <ModalDeleteStudent
           visible={this.state.deleteModal.isOpen}
           onClose={this.hideDeleteModal}

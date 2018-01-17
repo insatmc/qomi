@@ -200,6 +200,7 @@ class AddStudent extends Component {
               <label className='col-md-10 control-label' htmlFor='add-disponibility'><h4>Disponibility</h4></label>
               <div className='col-md-10'>
                 <select id='add-disponibility' name='add-disponibility' className='form-control' value={this.state.disponibility} onChange={this.handleChangeDisponibility}>
+                  <option value='' />
                   <option value='Immediately'>Immediately</option>
                   <option value='In a few days'>In a few days</option>
                   <option value='In 1 month'>In 1 month</option>

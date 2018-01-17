@@ -10,17 +10,22 @@ body{
   border-radius: 6px;
 }
 
+form{
+  margin-top: 40px;
+}
+
 .hiring-form-container h2{
   font-weight: bold;
   font-size: 2rem;
-  padding: 8px;
-  margin: 25px;
-  margin-bottom: 6px;
+  padding: 4px;
   color: white;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  padding-top: 20px;
 }
 
 .hiring-form-container h5{
-  font-weight: bold;
+  font-weight: normal;
   margin-bottom: 6px;
   color: white;
 }
@@ -42,12 +47,13 @@ body{
 }
 
 .input-container input{
+  outline: none;
   background-color: inherit;
   width: 100%;
   margin: 6px auto;
   padding: 6px;
   border: none;
-  border-bottom: 4px solid white;
+  border-bottom: 1px solid white;
   color: white;
 }
 
@@ -68,13 +74,13 @@ color: white !important;
 }
 
 .input-container textarea{
+  outline: none;
   width: 100%;
   margin: 15px auto;
-  border-radius: 5px;
-  border: 1px solid #ced4da;
+  border: none;
+  border-bottom: 1px solid white;
   padding: 6px;
   background-color: inherit;
-  border: 2px solid white;
   color: white;
 }
 
@@ -94,17 +100,21 @@ textarea:-ms-input-placeholder {
 color: white !important;
 }
 
+.submit-btn-container{
+  padding: 20px;
+}
+
 #client-submit-button{
   width: 40%;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   padding: 5px;
-  background-color: #28a745;
+  background-color: white;
   border-radius: 0.25rem;
-  color: white;
+  color: #03a9f5;
   border-bottom: none;
   cursor: pointer;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 @media screen and (max-width: 550px){

@@ -3,6 +3,7 @@ import './style.css'
 import StudentsList from '../StudentsList'
 import Search from '../Search'
 import TableUser from '../TableUser'
+import RecruitsToDisplay from '../RecruitsToDisplay'
 import PropTypes from 'prop-types'
 import 'src/assets/stylesheets/base.scss'
 import {
@@ -84,6 +85,7 @@ class Admin extends Component {
         alert('Something went wrong')
       })
   }
+
   UpdateUser (student) {
     let studentWithoutId = {
       ...student,
@@ -101,59 +103,81 @@ class Admin extends Component {
   }
 
   render () {
-  		return (
-    <div>
-      {
-      this.state.loggedIn &&
-      <TableUser
-        students={this.state.students}
-        onAddUser={(e) => this.onAddUser(e)}
-        onDeleteUser={this.deleteUser}
-        onUpdateUser={this.UpdateUser}
-        onLogout={this.logout} />
-    }
-      {
-      !this.state.loggedIn &&
-      <div className="loginHolder">
-        <div className='admin-login' > {/* send request to /api/login and save the token in window.localStorage.token */ }
-          <div className='login-inputs'>
-            <h1>Login</h1>
-            <div className="form-group">
-              <input id='username-input'
-                className="form-control"
-                placeholder="username"
-                onChange={(e) => this.setState({
-                  username: e.target.value
-                })
-              }
-              />
-            </div>
-            <div className="form-group">
-              <input id='login-input'
-                className="form-control"
-                placeholder="password"
-                onChange={(e) => this.setState({
-                    password: e.target.value
-                  })
+    return (
+      <div>
+        <Router>
+          <Switch>
+            <Route path='/admin/recruitment-suggestions' render={() => {
+              return (
+                <div>
+                  <RecruitsToDisplay />
+                </div>
+              )
+            }
+            } />
+
+            <Route path='/' render={
+                () => {
+                  return (
+                    <div>
+                      {
+                      this.state.loggedIn &&
+                      <TableUser
+                        students={this.state.students}
+                        onAddUser={(e) => this.onAddUser(e)}
+                        onDeleteUser={this.deleteUser}
+                        onUpdateUser={this.UpdateUser}
+                        onLogout={this.logout} />
+                    }
+                      {
+                      !this.state.loggedIn &&
+                      <div className='loginHolder'>
+                        <div className='admin-login' > {/* send request to /api/login and save the token in window.localStorage.token */ }
+                          <div className='login-inputs'>
+                            <h1>Login</h1>
+                            <div className='form-group'>
+                              <input id='username-input'
+                                className='form-control'
+                                placeholder='username'
+                                onChange={(e) => this.setState({
+                                  username: e.target.value
+                                })
+                              }
+                              />
+                            </div>
+                            <div className='form-group'>
+                              <input id='login-input'
+                                className='form-control'
+                                placeholder='password'
+                                onChange={(e) => this.setState({
+                                  password: e.target.value
+                                })
+                                }
+                                type='password'
+                              />
+                            </div>
+                            <div className='form-group login-btn'>
+                              <button className='btn btn-success' onClick={this.login}>Go</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='made-with'>
+                          Made with <span>♥</span> in GMC HackerSpace
+                        </div>
+                      </div>
+                    }
+
+                    </div>
+                  )
                 }
-                type='password'
-              />
-            </div>
-            <div className='form-group login-btn'>
-              <button className="btn btn-success" onClick={this.login}>Go</button>
-            </div>
-          </div>
-        </div>
-        <div className="made-with">
-          Made with <span>♥</span> in GMC HackerSpace
-        </div>
+              } />
+
+          </Switch>
+        </Router>
       </div>
-    }
-
-
-    </div>
-  		)
+    )
   }
+
 }
 
 export default Admin

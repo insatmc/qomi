@@ -17,10 +17,14 @@ body{
 
 .search-filters input{
   background: none;
-  color: gray;
+  color: gray !important;
   height: 40px;
   border: none;
   border-bottom: solid 1px #eee;
+}
+
+.search-filters form{
+  margin-top: 0px !important;
 }
 
 .Tabs-container{
@@ -37,7 +41,7 @@ body{
   }
 
   .search-filters input{
-    width: 100%;
+    width: 100% !important;
   }
 
   .Tabs-container{
@@ -48,9 +52,7 @@ body{
 
 }
 
-
 /********* Tags-Cards-container- Styling *********/
-
 
 .Tags-Cards-container{
   height: calc(100vh - 48px);
@@ -85,5 +87,4 @@ body{
     width: 100%;
     background-color: #eee;
   }
-
 }

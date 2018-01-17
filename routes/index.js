@@ -1,3 +1,4 @@
 module.exports = {
-  students: require('./students.js')
+  students: require('./students.js'),
+  recruits: require('./recruits.js')
 }

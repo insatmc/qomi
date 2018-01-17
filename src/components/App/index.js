@@ -125,7 +125,10 @@ class App extends Component {
         <Switch>
           <Route path='/hire' render={() =>
             <div>
-              <HireGrads />
+              <HireGrads onSubmitHiringApplication={(RecruitObj) => {
+                console.log(RecruitObj)
+              }}
+              />
             </div>
           } />
           <Route path='/admin' render={() =>

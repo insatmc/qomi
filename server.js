@@ -60,6 +60,23 @@
 
     app.delete('/api/students/:id', routes.students.removeStudent)
 
+    let recruitsCollection = db.collection('recruits')
+
+    app.use(function (req, res, next) {
+      req.collection = recruitsCollection
+      next()
+    })
+
+    app.get('/api/recruits', routes.recruits.getRecruitsRequests)
+
+    app.get('/api/recruits/:id', routes.recruits.getRecruitsRequest)
+
+    app.post('/api/recruits', routes.recruits.addRecruitsRequest)
+
+    app.put('/api/recruits/:id', routes.recruits.updateRecruitsRequest)
+
+    app.delete('api/recruits/:id', routes.recruits.removeRecruitsRequest)
+
     app.get('/*', function (req, res) {
       res.sendFile(__dirname + '/dist/index.html')
     })
