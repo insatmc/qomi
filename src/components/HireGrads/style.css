@@ -117,14 +117,13 @@ color: white !important;
   margin-bottom: 15px;
 }
 
-@media screen and (max-width: 550px){
-
-  body{
-    background-color: #03a9f5;
-  }
+@media screen and (max-width: 565px){
 
   .hiring-form-container{
-    height: auto;
+    margin: 0px !important;
+    margin-top: -16px !important;
+    border-radius: 0px;
+    height: 100%;
     width: 100%;
     margin: 0px;
   }

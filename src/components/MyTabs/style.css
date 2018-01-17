@@ -6,21 +6,25 @@
   display: flex;
   height: 100vh;
 }
+
 .left-col{
   height: calc(100vh - 92px);
   background-color: #eeeeee;
   overflow-y: auto;
   width: 112px;
 }
+
 .right-col{
   width: calc(100% - 112px);
   height: calc(100vh - 92px);
   overflow-y: auto;
   background-color: white;
 }
+
 .tab-icon{
   color:#fff;
 }
+
 .tab{
   border: none;
   text-align: center;

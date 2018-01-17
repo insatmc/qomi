@@ -13,6 +13,7 @@ body{
 .search-filters{
   height: calc(100vh - 48px);
   width: 286px;
+  position:absolute;
 }
 
 .search-filters input{
@@ -28,8 +29,7 @@ body{
 }
 
 .Tabs-container{
-  height: calc(100vh - 64px);
-  position:absolute;
+  height: calc(100vh - 84px);
 }
 
 
