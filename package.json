@@ -54,7 +54,10 @@
     "semantic-ui-react": "^0.77.1",
     "style-loader": "^0.18.2",
     "sweetalert": "^2.1.0",
+<<<<<<< HEAD
     "sweetalert-react": "^0.4.11",
+=======
+>>>>>>> d77d4b3621fb294d0204adf6e309baa42aa44f71
     "webpack": "^3.6.0"
   },
   "devDependencies": {
