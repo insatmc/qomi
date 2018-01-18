@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './style.css'
 import axios from 'axios'
+import SweetAlert from 'sweetalert-react'
 
 class HireGrads extends Component {
   constructor (props) {
@@ -12,7 +13,8 @@ class HireGrads extends Component {
       clientMail: '',
       companyName: '',
       companyWebsite: '',
-      clientMsg: ''
+      clientMsg: '',
+      show: 
     }
 
     this.onSubmit = this.onSubmit.bind(this)
@@ -27,6 +29,9 @@ class HireGrads extends Component {
   onSubmit () {
     axios.post('/api/recruits', (this.state)).then((data) => {
       console.log('this is my data', data)
+      this.setState({
+        show: true
+      })
     }).catch(function (error) {
       console.log(JSON.stringify(error))
       alert('Something is not going well.Please, retry.')
@@ -102,8 +107,16 @@ class HireGrads extends Component {
           <div className='input-container submit-btn-container'>
             <input id='client-submit-button' type='submit' value='Submit' onClick={this.onSubmit} required />
           </div>
-
+          <SweetAlert
+            show
+            title='Demo'
+            text='SweetAlert in React'
+            onConfirm={() => this.setState({ show: false })}
+            >
+            Thank you for your time, we will contact you soon.
+            </SweetAlert>
         </form>
+
       </div>
     )
   }
