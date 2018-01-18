@@ -110,7 +110,17 @@ class Admin extends Component {
             <Route path='/admin/recruitment-suggestions' render={() => {
               return (
                 <div>
-                  <RecruitsToDisplay />
+                  {
+                    this.state.loggedIn &&
+                    <RecruitsToDisplay />
+                  }
+                  {
+                    !this.state.loggedIn &&
+                    <div>
+                    If you are an admin
+                    <Link to='/admin' target='_blank'>login as an admin</Link>
+                    </div>
+                  }
                 </div>
               )
             }
