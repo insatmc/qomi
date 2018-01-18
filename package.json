@@ -53,6 +53,7 @@
     "sass-loader": "^6.0.6",
     "semantic-ui-react": "^0.77.1",
     "style-loader": "^0.18.2",
+    "sweetalert": "^2.1.0",
     "sweetalert-react": "^0.4.11",
     "webpack": "^3.6.0"
   },
