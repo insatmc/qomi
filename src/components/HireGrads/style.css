@@ -30,13 +30,13 @@ body{
   color: white;
 }
 
-.input-container{
+.the-form .input-container{
   width: 70%;
   max-width: 70%;
   margin: 15px auto;
 }
 
-.input-container .label-container{
+.the-form .input-container .label-container{
   font-weight: bold;
   color: white;
   width: 100%;
@@ -47,7 +47,7 @@ body{
   margin-bottom: 0px;
 }
 
-.input-container input{
+.the-form .input-container input{
   outline: none;
   background-color: inherit;
   width: 100%;
@@ -58,23 +58,23 @@ body{
   color: white;
 }
 
-.input-container input::-webkit-input-placeholder {
+.the-form .input-container input::-webkit-input-placeholder {
 color: white !important;
 }
 
-.input-container input:-moz-placeholder { /* Firefox 18- */
+.the-form .input-container input:-moz-placeholder { /* Firefox 18- */
 color: white !important;
 }
 
-.input-container input::-moz-placeholder {  /* Firefox 19+ */
+.the-form .input-container input::-moz-placeholder {  /* Firefox 19+ */
 color: white !important;
 }
 
-.input-container input:-ms-input-placeholder {
+.the-form .input-container input:-ms-input-placeholder {
 color: white !important;
 }
 
-.input-container textarea{
+.the-form .input-container textarea{
   outline: none;
   width: 100%;
   margin: 15px auto;
@@ -129,15 +129,15 @@ color: white !important;
     margin: 0px;
   }
 
-  .input-container{
+  .the-form .input-container{
     width: 100%;
   }
 
-  .input-container input{
+  .the-form .input-container input{
     width: 80%;
   }
 
-  .input-container textarea{
+  .the-form .input-container textarea{
     width: 80%;
   }
 
