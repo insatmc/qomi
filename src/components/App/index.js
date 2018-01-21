@@ -152,10 +152,16 @@ class App extends Component {
                           <MyTabs
                             onChangeLocation={(e) => this.setState({locationFilter: e.target.value, locationTag: e.target.value})}
                             onChangeDisponibility={(e) => this.setState({disponibilityFilter: e.target.value, disponibilityTag: e.target.value})}
-                            onChangeSkills={(e) => this.setState(
-                              {skillsFilter: this.state.skillsFilter.concat(e.target.value),
-                                skillsTag: this.state.skillsTag.concat(e.target.value)}
-                              )}
+                            onChangeSkills={
+                              (e) => {
+                                if (this.state.skillsFilter.indexOf(e.target.value) === -1) {
+                                  this.setState(
+                                    {skillsFilter: this.state.skillsFilter.concat(e.target.value),
+                                      skillsTag: this.state.skillsTag.concat(e.target.value)}
+                                  )
+                                }
+                              }
+                            }
                             onChangeContract={(e) => this.setState({contractFilter: e.target.value, lookingForTag: e.target.value})}
                             />
                         </div>
