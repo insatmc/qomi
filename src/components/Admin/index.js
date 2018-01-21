@@ -118,7 +118,7 @@ class Admin extends Component {
                     !this.state.loggedIn &&
                     <div>
                     If you are an admin
-                    <Link to='/admin' target='_blank'>login as an admin</Link>
+                    <Link to='/admin'>login as an admin</Link>
                     </div>
                   }
                 </div>

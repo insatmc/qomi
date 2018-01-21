@@ -145,6 +145,7 @@
   .student-card{
     width: calc(100% - 12px);
     max-width: 100%;
+    margin: 6px 0px;
   }
 }
 

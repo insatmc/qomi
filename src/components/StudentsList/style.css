@@ -41,8 +41,9 @@
   .Cards-container{
     position:static;
     height: auto;
-    width: 100vw;
+    width: 100%;
     overflow-y: auto;
+    padding: 2px;
   }
   .Cards-container .alert{
     margin-left: 8px;

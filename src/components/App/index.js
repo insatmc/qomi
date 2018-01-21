@@ -139,7 +139,7 @@ class App extends Component {
           <Route path='/' render={
                 () => {
                   return (
-                    <div>
+                    <div className='talents-container'>
                       <NavBar />
 
                       <div className='search-filters'>
