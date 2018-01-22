@@ -1,5 +1,5 @@
 .Tabs-container {
-    width: 286px;
+  width: 286px;
 }
 
 .cols-container{
@@ -81,6 +81,11 @@
   .tab i,div {
     font-size: 0.9rem;
   }
+
+  .left-col{
+    line-height: 1.05 !important;
+    overflow-y: hidden;
+  }
 }
 
 @media screen and (max-width: 768px){
@@ -102,7 +107,6 @@
   .left-col-tablist{
     display: flex;
     flex-direction: row;
-    justify-content:center;
     background: linear-gradient(to right, #0d77ba, #17a88b);
     overflow-x: auto;
   }
@@ -112,4 +116,5 @@
     flex-direction: row;
     height: auto;
   }
+
 }
