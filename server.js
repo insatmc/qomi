@@ -139,7 +139,7 @@
     })
 
     app.post('/api/check', function (req, res) {
-      if (req.body.token == 'e1oIojaEj54tfSqPgAIqiBb9YrlAXXHp') {
+      if (req.user) {
         res.send({
           admin: true
         })

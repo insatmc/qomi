@@ -21,7 +21,7 @@ module.exports = {
     })
   },
   addStudent (req, res, next) {
-    if (req.body.token == 'e1oIojaEj54tfSqPgAIqiBb9YrlAXXHp') {
+    if (req.user) {
       req.collection.insert(req.body)
       .then(function (result) {
         res.status(201).send(result)
@@ -34,7 +34,7 @@ module.exports = {
     }
   },
   fromCSV (req, res) {
-    if (req.body.token == 'e1oIojaEj54tfSqPgAIqiBb9YrlAXXHp') {
+    if (req.user) {
       var stream = fs.createReadStream(__dirname + '/../dist/resumes.csv')
 
       var csvStream = csv()
@@ -75,7 +75,7 @@ module.exports = {
     }
   },
   updateStudent (req, res, next) {
-    if (req.body.token == 'e1oIojaEj54tfSqPgAIqiBb9YrlAXXHp') {
+    if (req.user) {
       let o_id = new mongo.ObjectID(req.params.id)
 
       req.collection.update(
@@ -93,9 +93,7 @@ module.exports = {
     }
   },
   removeStudent (req, res) {
-    var url_parts = url.parse(req.url, true)
-    var query = url_parts.query
-    if (query.token == 'e1oIojaEj54tfSqPgAIqiBb9YrlAXXHp') {
+    if (req.user) {
       let o_id = new mongo.ObjectID(req.params.id)
 
       req.collection.remove(

@@ -31,7 +31,7 @@ module.exports = {
   },
 
   updateRecruitsRequest (req, res, next) {
-    if (req.body.token == 'e1oIojaEj54tfSqPgAIqiBb9YrlAXXHp') {
+    if (req.user) {
       let o_id = new mongo.ObjectID(req.params.id)
 
       req.collection.update(

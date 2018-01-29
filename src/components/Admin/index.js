@@ -29,7 +29,7 @@ class Admin extends Component {
       password: ''
   	}
 
-    if (window.localStorage.token) {
+    if (window.localStorage.loggedIn) {
       this.state.loggedIn = true
     }
 
@@ -42,15 +42,16 @@ class Admin extends Component {
   }
 
   logout () {
+    window.localStorage.removeItem('loggedIn')
+
     this.setState({
       loggedIn: false
     })
   }
 
   login () {
-    console.log('not implemented yet')
-    axios.post('/api/login', { username: this.state.username, password: this.state.password }).then((data) => {
-      window.localStorage.token = data.data
+    axios.post('/login', { username: this.state.username, password: this.state.password }).then((data) => {
+      window.localStorage.loggedIn = data.data
       this.setState({
         loggedIn: true
       })
@@ -67,7 +68,7 @@ class Admin extends Component {
     })
   }
   onAddUser (e) {
-    axios.post('/api/students', { ...e, token: window.localStorage.token }).then((data) => {
+    axios.post('/api/students', { ...e}).then((data) => {
       // TODO: fix hack, only add new user to students once the server returns it
       this.intitStudents()
     }).catch(function (error) {
@@ -75,7 +76,7 @@ class Admin extends Component {
     })
   }
   deleteUser (student) {
-    axios.delete(`/api/students/${student._id}?token=${window.localStorage.token}`)
+    axios.delete(`/api/students/${student._id}`)
       .then(() => {
         this.setState({
           students: this.state.students.filter(el => el._id != student._id)
@@ -88,8 +89,7 @@ class Admin extends Component {
 
   UpdateUser (student) {
     let studentWithoutId = {
-      ...student,
-      token: window.localStorage.token
+      ...student
     }
     delete studentWithoutId._id
     console.log()
