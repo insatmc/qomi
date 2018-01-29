@@ -65,7 +65,8 @@
     "sweetalert": "^2.1.0",
     "sweetalert-react": "^0.4.11",
     "uuid-token-generator": "^1.0.0",
-    "webpack": "^3.6.0"
+    "webpack": "^3.6.0",
+    "html-webpack-plugin": "*"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
