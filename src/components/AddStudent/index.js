@@ -18,7 +18,8 @@ class AddStudent extends Component {
         github: '',
         linkedin: ''
       },
-      cv: ''
+      cv: '',
+      verification: ''
     }
 
     console.log('first props', props)
@@ -39,6 +40,7 @@ class AddStudent extends Component {
     this.handleChangeTwitter = this.handleChangeTwitter.bind(this)
     this.handleChangeMail = this.handleChangeMail.bind(this)
     this.handleChangeLinkedIn = this.handleChangeLinkedIn.bind(this)
+    this.handleChangeVerification = this.handleChangeVerification.bind(this)
   }
 
   componentWillReceiveProps (props) {
@@ -140,6 +142,14 @@ class AddStudent extends Component {
     this.setState({contacts})
   }
 
+  handleChangeVerification (e) {
+    const value = e.target.value
+
+    this.setState({
+      verification: value
+    })
+  }
+
   render () {
     return (
       <div className='student-form'>
@@ -154,6 +164,17 @@ class AddStudent extends Component {
                 <input id='add-fullName' name='add-fullName' type='text' placeholder='add fullname here' className='form-control input-md' required
                   value={this.state.fullName}
                   onChange={this.handleInputChange} />
+              </div>
+            </div>
+
+            <div className='form-group'>
+              <label className='col-md-10 control-label' htmlFor='add-disponibility'><h4>Verification</h4></label>
+              <div className='col-md-10'>
+                <select id='add-verification' name='add-verification' className='form-control' value={this.state.verification} onChange={this.handleChangeVerification} required>
+                  <option value='' />
+                  <option value='unverified'>unverified</option>
+                  <option value='verified'>verified</option>
+                </select>
               </div>
             </div>
 
@@ -462,14 +483,6 @@ class AddStudent extends Component {
                 </div>
               </div>
 
-              <div className='form-group'>
-                <label className='col-md-10 control-label' htmlFor='student-cv'>Student CV</label>
-                <div className='col-md-10'>
-                  <input id='student-cv' name='student-cv' type='text' placeholder='' className='form-control input-md'
-                    value={this.state.cv}
-                    onChange={this.handleChangeCV} />
-                </div>
-              </div>
             </div>
 
             <div className='form-group'>

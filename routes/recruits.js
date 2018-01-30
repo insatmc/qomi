@@ -31,7 +31,7 @@ module.exports = {
   },
 
   updateRecruitsRequest (req, res, next) {
-    if (req.user) {
+    if (req.user && req.user.role === 'admin') {
       let o_id = new mongo.ObjectID(req.params.id)
 
       req.collection.update(

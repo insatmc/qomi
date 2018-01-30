@@ -9,19 +9,20 @@ class StudentsList extends Component {
       <div className='Cards-container'>
         {
           this.props.loading &&
-          <div className="loading-card">
-          </div>
+          <div className='loading-card' />
         }
         {
           !this.props.loading && this.props.students.length == 0 &&
-          <div className="alert alert-info">
+          <div className='alert alert-info'>
             No corresponding results
           </div>
         }
         {
           !this.props.loading &&
           this.props.students.map((el, i) => {
-            return <StudentCard key={i} student={el} />
+            if (el.verification === 'verified') {
+              return <StudentCard key={i} student={el} />
+            }
           })
         }
 

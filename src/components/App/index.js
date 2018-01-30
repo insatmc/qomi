@@ -10,6 +10,7 @@ import PropTypes from 'prop-types'
 import TableUser from '../TableUser'
 import Admin from '../Admin'
 import HireGrads from '../HireGrads'
+import StudentAddHimself from '../StudentAddHimself'
 import {
   BrowserRouter as Router,
   Route,
@@ -123,6 +124,11 @@ class App extends Component {
     <div>
       <Router>
         <Switch>
+          <Route path='/add-student-form' render={() =>
+            <div>
+              <StudentAddHimself />
+            </div>
+          } />
           <Route path='/hire' render={() =>
             <div>
               <HireGrads onSubmitHiringApplication={(RecruitObj) => {

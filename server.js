@@ -51,7 +51,8 @@
         name: req.body.name,
         email: req.body.email,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        role: 'admin'
       })
 
       console.log(newUser)
@@ -97,12 +98,12 @@
   app.post('/login',
     passport.authenticate('local'),
     function (req, res) {
-      res.send(req.user.id)
+      res.send(req.user && req.user.role === 'admin'.id)
     }
   )
 
   app.get('/user', function (req, res) {
-    res.send(req.user)
+    res.send(req.user && req.user.role === 'admin')
   })
 
   app.get('/logout', function (req, res) {
@@ -139,7 +140,7 @@
     })
 
     app.post('/api/check', function (req, res) {
-      if (req.user) {
+      if (req.user && req.user.role === 'admin') {
         res.send({
           admin: true
         })
@@ -153,6 +154,8 @@
     app.put('/api/students/:id', routes.students.updateStudent)
 
     app.delete('/api/students/:id', routes.students.removeStudent)
+
+    app.post('/api/student-add-himself', routes.students.studentAddHimself)
 
     let recruitsCollection = db.collection('recruits')
 
@@ -169,7 +172,7 @@
 
     app.put('/api/recruits/:id', routes.recruits.updateRecruitsRequest)
 
-    app.delete('api/recruits/:id', routes.recruits.removeRecruitsRequest)
+    app.delete('/api/recruits/:id', routes.recruits.removeRecruitsRequest)
 
     app.get('/*', function (req, res) {
       res.sendFile(__dirname + '/dist/index.html')

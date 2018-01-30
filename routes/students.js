@@ -21,7 +21,7 @@ module.exports = {
     })
   },
   addStudent (req, res, next) {
-    if (req.user) {
+    if (req.user && req.user.role === 'admin') {
       req.collection.insert(req.body)
       .then(function (result) {
         res.status(201).send(result)
@@ -34,7 +34,7 @@ module.exports = {
     }
   },
   fromCSV (req, res) {
-    if (req.user) {
+    if (req.user && req.user.role === 'admin') {
       var stream = fs.createReadStream(__dirname + '/../dist/resumes.csv')
 
       var csvStream = csv()
@@ -75,7 +75,7 @@ module.exports = {
     }
   },
   updateStudent (req, res, next) {
-    if (req.user) {
+    if (req.user && req.user.role === 'admin') {
       let o_id = new mongo.ObjectID(req.params.id)
 
       req.collection.update(
@@ -93,7 +93,7 @@ module.exports = {
     }
   },
   removeStudent (req, res) {
-    if (req.user) {
+    if (req.user && req.user.role === 'admin') {
       let o_id = new mongo.ObjectID(req.params.id)
 
       req.collection.remove(
@@ -106,5 +106,14 @@ module.exports = {
     } else {
       res.send('you are trying to hack us :o').status(403)
     }
+  },
+  studentAddHimself (req, res, next) {
+    req.collection.insert(req.body)
+    .then(function (result) {
+      res.status(201).send(result)
+    })
+    .catch(function (error) {
+      next('Internal server error')
+    })
   }
 }
