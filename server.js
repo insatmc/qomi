@@ -46,7 +46,7 @@
     var password = req.body.password
     var password2 = req.body.password2
     console.log(req.body)
-    if (password == password2) {
+    if (password === password2) {
       var newUser = new User({
         name: req.body.name,
         email: req.body.email,
@@ -132,7 +132,7 @@
     app.get('/api/students/:id', routes.students.getStudent)
 
     app.post('/api/login', function (req, res) {
-      if (req.body.password == '+QA}pR57b6NQ_?scL+' && req.body.username == 'admin') {
+      if (req.user && req.user.role === 'admin') {
         res.send('e1oIojaEj54tfSqPgAIqiBb9YrlAXXHp')
       } else {
         res.status(403).send('you are trying to hack us :o')

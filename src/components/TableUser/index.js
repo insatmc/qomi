@@ -17,6 +17,7 @@ class TableUser extends Component {
       location: '',
       Skills: '',
       Disponibility: '',
+      verification: '',
       deleteModal: {
         isOpen: false,
         studentToDelete: null
@@ -127,6 +128,7 @@ class TableUser extends Component {
             <Table.Header className='tabHead'>
               <Table.Row>
                 <Table.HeaderCell>Full Name</Table.HeaderCell>
+                <Table.HeaderCell>Verification</Table.HeaderCell>
                 <Table.HeaderCell>Location</Table.HeaderCell>
                 <Table.HeaderCell>Skills</Table.HeaderCell>
                 <Table.HeaderCell>Disponibility</Table.HeaderCell>
@@ -140,6 +142,7 @@ class TableUser extends Component {
                   return (
                     <Table.Row key={i}>
                       <Table.Cell>{student.fullName}</Table.Cell>
+                      <Table.Cell>{student.verification}</Table.Cell>
                       <Table.Cell>{student.location}</Table.Cell>
                       <Table.Cell>
                         {

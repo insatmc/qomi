@@ -30,7 +30,6 @@ class StudentAddHimself extends Component {
       },
       cv: '',
       role: 'student',
-      verification: 'unverified',
       tags: [
         {id: 1, name: 'HTML'},
         {id: 2, name: 'CSS'}
@@ -135,12 +134,6 @@ class StudentAddHimself extends Component {
     })
   }
 
-  handleChangeSkills (e) {
-    this.setState({
-      skills: this.state.tags.map((el, i) => el.name)
-    })
-  }
-
   handleChangeLookingFor (newLookingFor) {
     this.setState({
       lookingFor: newLookingFor
@@ -191,6 +184,12 @@ class StudentAddHimself extends Component {
     this.setState({contacts})
   }
 
+  handleChangeSkills (e) {
+    this.setState({
+      skills: this.state.tags.map(el => el.name)
+    })
+  }
+
   intitStudents () {
     axios.get('/api/students').then((data) => {
       this.setState({ students: data.data })
@@ -199,28 +198,33 @@ class StudentAddHimself extends Component {
     })
   }
 
-  onAddStudent () {
-    handleChangeSkills()
-    axios.post('/api/student-add-himself', {
-      fullName: this.state.fullName,
-      image: this.state.image,
-      location: this.state.location,
-      disponibility: this.state.disponibility,
-      lookingFor: this.state.lookingFor,
-      skills: this.state.skills,
-      contacts: {
-        twitter: this.state.twitter,
-        mail: this.state.mail,
-        github: this.state.github,
-        linkedin: this.state.linkedin
-      },
-      cv: this.state.cv,
-      role: this.state.role
-    }).then((data) => {
-      swal('Thank you for your time!', 'success')
-    }).catch(function (error) {
-      console.log(JSON.stringify(error))
-      alert('Something is not going well.Please, retry.')
+  onAddStudent (e) {
+    this.setState({
+      skills: this.state.tags.map(el => el.name)
+    },
+    () => {
+      axios.post('/api/student-add-himself', {
+        fullName: this.state.fullName,
+        image: this.state.image,
+        location: this.state.location,
+        disponibility: this.state.disponibility,
+        lookingFor: this.state.lookingFor,
+        skills: this.state.skills,
+        contacts: {
+          twitter: this.state.twitter,
+          mail: this.state.mail,
+          github: this.state.github,
+          linkedin: this.state.linkedin
+        },
+        cv: this.state.cv,
+        role: this.state.role,
+        verification: 'unverified'
+      }).then((data) => {
+        swal('Thank you for your time!', 'success')
+      }).catch(function (error) {
+        console.log(JSON.stringify(error))
+        alert('Something is not going well.Please, retry.')
+      })
     })
   }
 

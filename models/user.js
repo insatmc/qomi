@@ -14,6 +14,9 @@ var UserSchema = mongoose.Schema({
   },
   token: {
     type: String
+  },
+  role: {
+    type: String
   }
 })
 

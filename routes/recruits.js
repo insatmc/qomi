@@ -50,9 +50,7 @@ module.exports = {
   },
 
   removeRecruitsRequest (req, res) {
-    var url_parts = url.parse(req.url, true)
-    var query = url_parts.query
-    if (query.token == 'e1oIojaEj54tfSqPgAIqiBb9YrlAXXHp') {
+    if (req.user && req.user.role === 'admin') {
       let o_id = new mongo.ObjectID(req.params.id)
 
       req.collection.remove(
@@ -66,5 +64,4 @@ module.exports = {
       res.send('you are trying to hack us :o').status(403)
     }
   }
-
 }

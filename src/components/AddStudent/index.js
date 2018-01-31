@@ -10,6 +10,7 @@ class AddStudent extends Component {
       image: '',
       location: '',
       disponibility: '',
+      verification: '',
       lookingFor: [],
       skills: [],
       contacts: {
@@ -18,8 +19,7 @@ class AddStudent extends Component {
         github: '',
         linkedin: ''
       },
-      cv: '',
-      verification: ''
+      cv: ''
     }
 
     console.log('first props', props)
@@ -78,8 +78,7 @@ class AddStudent extends Component {
   }
 
   handleChangeDisponibility (e) {
-    const target = e.target
-    const value = target.value
+    const value = e.target.value
 
     this.setState({
       disponibility: value
@@ -168,12 +167,12 @@ class AddStudent extends Component {
             </div>
 
             <div className='form-group'>
-              <label className='col-md-10 control-label' htmlFor='add-disponibility'><h4>Verification</h4></label>
+              <label className='col-md-10 control-label' htmlFor='add-verification'><h4>Verification</h4></label>
               <div className='col-md-10'>
-                <select id='add-verification' name='add-verification' className='form-control' value={this.state.verification} onChange={this.handleChangeVerification} required>
-                  <option value='' />
-                  <option value='unverified'>unverified</option>
+                <select id='add-verification' name='add-verification' className='form-control' value={this.state.verification} onChange={this.handleChangeVerification}>
+                  <option value='none'>none</option>
                   <option value='verified'>verified</option>
+                  <option value='unverified'>unverified</option>
                 </select>
               </div>
             </div>
@@ -395,15 +394,6 @@ class AddStudent extends Component {
             </div>
 
             <div className='form-group'>
-              <label className='col-md-10 control-label' htmlFor='add-cv'><h4>Student CV</h4></label>
-              <div className='col-md-10'>
-                <input id='add-cv' name='add-cv' type='text' placeholder='add CV link here' className='form-control input-md'
-                  value={this.state.cv}
-                  onChange={this.handleChangeCV} />
-              </div>
-            </div>
-
-            <div className='form-group'>
               <label className='col-md-10 control-label' htmlFor='looking-for-checkboxes'><h4>Looking for</h4></label>
               <div className='col-md-10'>
                 <CheckboxGroup
@@ -442,6 +432,15 @@ class AddStudent extends Component {
                   </div>
 
                 </CheckboxGroup>
+              </div>
+            </div>
+
+            <div className='form-group'>
+              <label className='col-md-10 control-label' htmlFor='add-cv'><h4>Student CV</h4></label>
+              <div className='col-md-10'>
+                <input id='add-cv' name='add-cv' type='text' placeholder='add CV link here' className='form-control input-md'
+                  value={this.state.cv}
+                  onChange={this.handleChangeCV} />
               </div>
             </div>
 
