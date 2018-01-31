@@ -54,7 +54,8 @@ module.exports = {
                 github: studentArray[8],
                 linkedin: studentArray[9]
               },
-              cv: studentArray[10]
+              cv: studentArray[10],
+              verification: 'verified'
             }
             req.collection.insert(studentObj)
                .then(function (result) {

@@ -9,6 +9,16 @@ import { Button } from 'react-bootstrap'
 import 'rodal/lib/rodal.css'
 import { Link } from 'react-router-dom'
 
+const verifiedStyle = {
+  color: 'green',
+  fontWeight: 'bold'
+}
+
+const unverifiedStyle = {
+  color: 'red',
+  fontWeight: 'bold'
+}
+
 class TableUser extends Component {
   constructor (props) {
     super(props)
@@ -36,6 +46,7 @@ class TableUser extends Component {
     this.showUpdateModal = this.showUpdateModal.bind(this)
     this.hideUpdateModalModal = this.hideUpdateModal.bind(this)
   }
+
   closeModalStudent () {
     this.setState({
       isModalOpenS: false
@@ -142,7 +153,16 @@ class TableUser extends Component {
                   return (
                     <Table.Row key={i}>
                       <Table.Cell>{student.fullName}</Table.Cell>
-                      <Table.Cell>{student.verification}</Table.Cell>
+                      <Table.Cell>
+                        {
+                          student.verification == 'verified' ?
+                          (
+                            <span style={verifiedStyle}>{student.verification}</span>
+                          ) : (
+                            <span style={unverifiedStyle}>{student.verification}</span>
+                          )
+                        }
+                      </Table.Cell>
                       <Table.Cell>{student.location}</Table.Cell>
                       <Table.Cell>
                         {
