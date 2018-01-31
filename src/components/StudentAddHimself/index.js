@@ -219,8 +219,9 @@ class StudentAddHimself extends Component {
         cv: this.state.cv,
         role: this.state.role,
         verification: 'unverified'
-      }).then((data) => {
-        swal('Thank you for your time!', 'success')
+      }
+      ).then((data) => {
+        swal('Thank you for your time!', 'We will verify you soon!', 'success')
       }).catch(function (error) {
         console.log(JSON.stringify(error))
         alert('Something is not going well.Please, retry.')

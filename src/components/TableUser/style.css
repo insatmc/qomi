@@ -1,11 +1,6 @@
 .table {
-margin: 50px;
-max-width: 95%;
-}
-
-.AddStudentBtn{
-  margin-top: 30px;
-  margin-left: 50px;
+margin: 32px;
+max-width: 97.5%;
 }
 
 .skill-span{
@@ -23,29 +18,47 @@ max-width: 95%;
   cursor: pointer;
 }
 
-.logout-button{
-  margin-top: 30px;
-  margin-left: 20px;
-}
-
 .admin-topnavbar{
   display: flex;
-  justify-content: flex-end;
-  padding: 18px;
+  justify-content:space-between;
+  padding: 4px;
+  height: 54px;
+  background-color: #252525;
 }
 
+.admin-topnavbar .btn-info{
+  margin: 4px;
+}
 
-.recruitment-link-container{
+#logout-button #AddStudentBtn{
+  margin: 7px !important;
+  padding: 4px !important;
+}
+
+.admin-topnavbar span{
   width: auto;
   padding: 6px 12px;
-  margin: 25px;
+  margin: 15px;
   font-weight: bold;
-  font-size: 1.2rem;
-  position: relative;
-  top: 12px;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.admin-topnavbar input[type='input']{
+  background-color: #3e3e3e;
+  border-radius: 0.35rem;
+  border: none !important;
+  padding: 4px;
+  margin:4px;
+  height: 38px;
+  color: white;
+  outline: none;
+}
+.admin-topnavbar input[type='input']::-webkit-input-placeholder{
+  color: gray;
 }
 
 .recruitment-link-container a{
   text-decoration: none;
-  color: #dc3545;
+  color: #fff;
 }

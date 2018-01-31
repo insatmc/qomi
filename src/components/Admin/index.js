@@ -21,6 +21,7 @@ class Admin extends Component {
 
     this.state = {
       students: [],
+      studentsForTabUser: [],
   		nameFilter: '',
   		locationFilter: '',
   		skillsFilter: '',
@@ -38,6 +39,8 @@ class Admin extends Component {
     this.UpdateUser = this.UpdateUser.bind(this)
     this.logout = this.logout.bind(this)
     this.login = this.login.bind(this)
+    this.sortStudentsByVerification = this.sortStudentsByVerification.bind(this)
+    this.adminStudentSearch = this.adminStudentSearch.bind(this)
     this.intitStudents()
   }
 
@@ -62,7 +65,10 @@ class Admin extends Component {
 
   intitStudents () {
     axios.get('/api/students').then((data) => {
-      this.setState({ students: data.data })
+      this.setState({
+        students: data.data,
+        studentsForTabUser: data.data
+      })
     }).catch(function (error) {
       alert('Something went wrong')
     })
@@ -102,6 +108,36 @@ class Admin extends Component {
       })
   }
 
+  sortStudentsByVerification (e) {
+    let value = e.target.value.toLowerCase()
+    if (value == 'all') {
+      this.setState({
+        studentsForTabUser: this.state.students.map(student => student)
+      })
+    } else if (value == 'verified') {
+      this.setState({
+        studentsForTabUser: this.state.students.filter(student => student.verification == 'verified')
+      })
+    } else if (value == 'unverified') {
+      this.setState({
+        studentsForTabUser: this.state.students.filter(student => student.verification == 'unverified')
+      })
+    }
+  }
+
+  adminStudentSearch (e) {
+    let value = e.target.value.toLowerCase()
+    if (value === '') {
+      this.setState({
+        studentsForTabUser: this.state.students.map(student => student)
+      })
+    } else {
+      this.setState({
+        studentsForTabUser: this.state.students.filter(student => student.fullName.toLowerCase().includes(value))
+      })
+    }
+  }
+
   render () {
     return (
       <div>
@@ -133,11 +169,13 @@ class Admin extends Component {
                       {
                       this.state.loggedIn &&
                       <TableUser
-                        students={this.state.students}
+                        students={this.state.studentsForTabUser}
                         onAddUser={(e) => this.onAddUser(e)}
                         onDeleteUser={this.deleteUser}
                         onUpdateUser={this.UpdateUser}
-                        onLogout={this.logout} />
+                        onLogout={this.logout}
+                        sortStudentsByVerification={this.sortStudentsByVerification}
+                        adminStudentSearch={this.adminStudentSearch} />
                     }
                       {
                       !this.state.loggedIn &&

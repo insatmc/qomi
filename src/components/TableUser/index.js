@@ -8,6 +8,8 @@ import Rodal from 'rodal'
 import { Button } from 'react-bootstrap'
 import 'rodal/lib/rodal.css'
 import { Link } from 'react-router-dom'
+import _ from 'lodash'
+import axios from 'axios'
 
 const verifiedStyle = {
   color: '#1e7e34',
@@ -35,8 +37,8 @@ class TableUser extends Component {
       UpdateModal: {
         isOpen: false,
         studentToUpdate: null
-      }
-
+      },
+      students: []
     }
 
     this.closeModalStudent = this.closeModalStudent.bind(this)
@@ -116,14 +118,31 @@ class TableUser extends Component {
 
         <div className='admin-topnavbar'>
 
-          <div className='recruitment-link-container'>
-            <Link to='/admin/recruitment-suggestions' target='_blank'>Go to Recruitment Applications</Link>
+          <div>
+            <span>Filter Students:</span>
+            <button className='btn btn-info' type='button' value='All' onClick={this.props.sortStudentsByVerification}>All
+            </button>
+            <button className='btn btn-info' type='button' value='Verified' onClick={this.props.sortStudentsByVerification}>Verified
+            </button>
+            <button className='btn btn-info' type='button' value='Unverified' onClick={this.props.sortStudentsByVerification}>Unverified
+            </button>
+            <span>
+              <input type='input' className='admin-search' placeholder='Search by name..'
+                onChange={this.props.adminStudentSearch} />
+            </span>
           </div>
 
-          <button type='button' className='btn btn-primary AddStudentBtn' onClick={this.showModalStudent}>Add Student
-          </button>
+          <div>
+            <span className='recruitment-link-container'>
+              <Link to='/admin/recruitment-suggestions' target='_blank'>Recruitment Apps</Link>
+            </span>
 
-          <button className='btn btn-danger logout-button' onClick={() => this.logout()}>Logout</button>
+            <button type='button' className='btn btn-info' id='AddStudentBtn' onClick={this.showModalStudent}>Add Student
+            </button>
+
+            <button className='btn btn-danger' id='logout-button' onClick={() => this.logout()}>Logout
+            </button>
+          </div>
 
         </div>
 
