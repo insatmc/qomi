@@ -10,12 +10,12 @@ import 'rodal/lib/rodal.css'
 import { Link } from 'react-router-dom'
 
 const verifiedStyle = {
-  color: 'green',
+  color: '#1e7e34',
   fontWeight: 'bold'
 }
 
 const unverifiedStyle = {
-  color: 'red',
+  color: '#dc3545',
   fontWeight: 'bold'
 }
 
@@ -96,9 +96,6 @@ class TableUser extends Component {
   render () {
     return (
       <div className='AdminHolder'>
-        <div className='recruitment-link-container'>
-          <Link to='/admin/recruitment-suggestions' target='_blank'>Go to Recruitment Applications</Link>
-        </div>
         <ModalDeleteStudent
           visible={this.state.deleteModal.isOpen}
           onClose={this.hideDeleteModal}
@@ -117,10 +114,17 @@ class TableUser extends Component {
           }}
           student={this.state.UpdateModal.studentToUpdate} />
 
-        <div>
+        <div className='admin-topnavbar'>
+
+          <div className='recruitment-link-container'>
+            <Link to='/admin/recruitment-suggestions' target='_blank'>Go to Recruitment Applications</Link>
+          </div>
+
           <button type='button' className='btn btn-primary AddStudentBtn' onClick={this.showModalStudent}>Add Student
           </button>
+
           <button className='btn btn-danger logout-button' onClick={() => this.logout()}>Logout</button>
+
         </div>
 
         <div>
