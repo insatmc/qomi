@@ -34,7 +34,7 @@ class StudentCard extends Component {
             <div className='student-info-title'>Looking for</div>
             <div className='student-info'>
               {
-              student.lookingFor.map((el, i) => <span className='lookingFor-container' key={i}>{el}</span>)
+              student.lookingFor.slice(0, 3).map((el, i) => <span className='lookingFor-container' key={i}>{el}</span>)
             }
             </div>
           </div>
