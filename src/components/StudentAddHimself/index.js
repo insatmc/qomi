@@ -57,7 +57,11 @@ class StudentAddHimself extends Component {
         {id: 22, name: 'AI'},
         {id: 23, name: 'Others'},
         {id: 24, name: 'Android Dev'},
-        {id: 25, name: 'Ios Dev'}
+        {id: 25, name: 'Ios Dev'},
+        {id: 26, name: 'Angular'},
+        {id: 27, name: 'Git'},
+        {id: 28, name: 'GitHub'},
+        {id: 29, name: 'Redux'}
       ]
     }
 
