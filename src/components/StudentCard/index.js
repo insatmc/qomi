@@ -67,7 +67,7 @@ class StudentCard extends Component {
             </a>
           }
 
-          <a className='student-social-icon' rel='publisher' target='_blank' href={student.contacts.mail}>
+          <a className='student-social-icon' rel='publisher' target='_blank' href={'mailto:' + student.contacts.mail}>
             <i className='fa fa-google-plus-square fa-2x' />
           </a>
 
