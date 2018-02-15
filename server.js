@@ -98,7 +98,7 @@
   app.post('/login',
     passport.authenticate('local'),
     function (req, res) {
-      res.send(req.user && req.user.role === 'admin'.id)
+      res.send(req.user)
     }
   )
 

@@ -388,6 +388,30 @@ class AddStudent extends Component {
                     Ios Dev
                   </label>
                   </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-24' value='Angular' />
+                    Angular
+                  </label>
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-24' value='Git' />
+                    Git
+                  </label>
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-24' value='GitHub' />
+                    GitHub
+                  </label>
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='skills' id='skills-24' value='Redux' />
+                    Redux
+                  </label>
+                  </div>
                 </CheckboxGroup>
 
               </div>
