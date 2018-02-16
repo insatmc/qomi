@@ -410,7 +410,7 @@ class StudentAddHimself extends Component {
                   type='submit'
                   id='save-button'
                   name='save-button'
-                  className='btn btn-primary'
+                  className='student-submit-form-btn'
                   value='Click to Save'
                   onClick={this.onAddStudent}
                   />
