@@ -234,6 +234,11 @@ class StudentAddHimself extends Component {
   render () {
     return (
       <div className='add-student-form'>
+        <div className='form-header'>
+          <h1>GO MY C<span className='gmc-logo'>&#123;>&#125;</span>DE</h1>
+          <div className='form-header-description'>Javascript  Student  Form</div>
+        </div>
+        <div />
         <form className='form-horizontal'>
           <fieldset>
 
