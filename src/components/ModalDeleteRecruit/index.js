@@ -4,8 +4,13 @@ import { Button } from 'react-bootstrap'
 import 'rodal/lib/rodal.css'
 
 class ModalDeleteRecruit extends Component {
+  constructor (props) {
+    super(props)
+  }
   render () {
-    return (this.props.recruit &&
+    console.log('recruit: ', this.props.recruit)
+    return (
+      !this.props.recruit ? '' :
       <div>
         <Rodal closeOnEsc visible={this.props.visible} onClose={this.props.onClose}>
           <div>

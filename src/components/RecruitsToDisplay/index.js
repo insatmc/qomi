@@ -64,6 +64,15 @@ class RecruitsToDisplay extends Component {
   deleteRecruit = (recruit) => {
     console.log(recruit)
     console.log(recruit._id)
+    axios.delete(`/api/recruits/${recruit._id} `)
+    .then(()=>{
+      this.setState({
+        recruits: this.state.recruits.filter(el => el._id != recruit._id)
+      })
+    })
+    .catch(function(error) {
+      alert('Something is not going well dude.')
+    })
   }
 
   render () {
