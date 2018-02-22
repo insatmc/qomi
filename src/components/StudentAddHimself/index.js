@@ -202,45 +202,48 @@ class StudentAddHimself extends Component {
     })
   }
 
-  onAddStudent (e) {
+  onAddStudent () {
     this.setState({
       skills: this.state.tags.map(el => el.name)
     },
-    () => {
-      axios.post('/api/student-add-himself', {
-        fullName: this.state.fullName,
-        image: this.state.image,
-        location: this.state.location,
-        disponibility: this.state.disponibility,
-        lookingFor: this.state.lookingFor,
-        skills: this.state.skills,
-        contacts: {
-          twitter: this.state.twitter,
-          mail: this.state.mail,
-          github: this.state.github,
-          linkedin: this.state.linkedin
-        },
-        cv: this.state.cv,
-        role: this.state.role,
-        verification: 'unverified'
-      }
-      ).then((data) => {
-        swal('Thank you for your time!', 'We will verify you soon!', 'success')
-      }).catch(function (error) {
-        console.log(JSON.stringify(error))
-        alert('Something is not going well.Please, retry.')
-      })
-    })
+    axios.post('/api/student-add-himself', {
+      fullName: this.state.fullName,
+      image: this.state.image,
+      location: this.state.location,
+      disponibility: this.state.disponibility,
+      lookingFor: this.state.lookingFor,
+      skills: this.state.skills,
+      contacts: {
+        twitter: this.state.twitter,
+        mail: this.state.mail,
+        github: this.state.github,
+        linkedin: this.state.linkedin
+      },
+      cv: this.state.cv,
+      role: this.state.role,
+      verification: 'unverified'
+    }
+    ).then((data) => {
+      swal('Thank you for your time!', 'We will check you soon!', 'success')
+    }).catch(function (error) {
+      console.log(JSON.stringify(error))
+      alert('Something is not going well.Please, retry.')
+    }))
   }
 
   render () {
     return (
       <div className='add-student-form'>
+        <div className='form-header'>
+          <img src='https://gomycode.tn/assets/images/logo.png' alt='go my code logo' />
+          <div className='form-header-description'>Javascript  Student  Form</div>
+        </div>
+        <div />
         <form className='form-horizontal'>
           <fieldset>
 
             <div className='form-group'>
-              <label className=' control-label' htmlFor='add-fullName'><h6>Fullname</h6></label>
+              <label className=' control-label' htmlFor='add-fullName'><h6>Full Name</h6></label>
               <div className=''>
                 <input id='add-fullName' name='add-fullName' type='text' className='form-control input-md' required
                   value={this.state.fullName}
@@ -344,19 +347,24 @@ class StudentAddHimself extends Component {
                   </div>
                   <div className='checkbox'>
                     <label>
-                      <Checkbox name='looking-for-checkboxes' id='looking-for-checkboxes-4' value='Others' />
-                      Others
+                      <Checkbox name='looking-for-checkboxes' id='looking-for-checkboxes-4' value='SIVP' />
+                      SIVP
                     </label>
                   </div>
-
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='looking-for-checkboxes' id='looking-for-checkboxes-5' value='Contract Karama' />
+                      Contract Karama
+                    </label>
+                  </div>
                 </CheckboxGroup>
               </div>
             </div>
 
             <div className='form-group'>
-              <label className=' control-label' htmlFor='add-cv'><h6>CV url</h6></label>
+              <label className=' control-label' htmlFor='add-cv'><h6>CV</h6></label>
               <div className=''>
-                <input id='add-cv' name='add-cv' type='text' className='form-control input-md'
+                <input placeholder='cv link' id='add-cv' name='add-cv' type='text' className='form-control input-md'
                   value={this.state.cv}
                   onChange={this.handleChangeCV}
                   required />
@@ -368,16 +376,16 @@ class StudentAddHimself extends Component {
               <div className='form-group'>
                 <label className=' control-label' htmlFor='student-github'>GitHub</label>
                 <div className=''>
-                  <input id='student-github' name='student-github' type='text' className='form-control input-md' required
+                  <input placeholder='github link' id='student-github' name='student-github' type='text' className='form-control input-md' required
                     value={this.state.contacts.github}
                     onChange={this.handleChangeGithub} />
                 </div>
               </div>
 
               <div className='form-group'>
-                <label className=' control-label' htmlFor='student-mail'>Mail</label>
+                <label className=' control-label' htmlFor='student-mail'>Email</label>
                 <div className=''>
-                  <input id='student-mail' name='student-mail' type='text' className='form-control input-md'
+                  <input placeholder='email address' id='student-mail' name='student-mail' type='text' className='form-control input-md'
                     value={this.state.contacts.mail}
                     onChange={this.handleChangeMail}
                     required />
@@ -387,7 +395,7 @@ class StudentAddHimself extends Component {
               <div className='form-group'>
                 <label className=' control-label' htmlFor='student-linkedin'>LinkedIn</label>
                 <div className=''>
-                  <input id='student-linkedin' name='student-linkedin' type='text' className='form-control input-md'
+                  <input placeholder='linkedin link' id='student-linkedin' name='student-linkedin' type='text' className='form-control input-md'
                     value={this.state.contacts.linkedin}
                     onChange={this.handleChangeLinkedIn} />
                 </div>
@@ -396,7 +404,7 @@ class StudentAddHimself extends Component {
               <div className='form-group'>
                 <label className=' control-label' htmlFor='student-twitter'>Twitter</label>
                 <div className=''>
-                  <input id='student-twitter' name='student-twitter' type='text' className='form-control input-md'
+                  <input placeholder='twitter link' id='student-twitter' name='student-twitter' type='text' className='form-control input-md'
                     value={this.state.contacts.twitter}
                     onChange={this.handleChangeTwitter} />
                 </div>
@@ -405,12 +413,12 @@ class StudentAddHimself extends Component {
             </div>
 
             <div className='form-group'>
-              <div className='col-md-6'>
-                <input
+              <div>
+                <input placeholder='link'
                   type='submit'
                   id='save-button'
                   name='save-button'
-                  className='btn btn-primary'
+                  className='student-submit-form-btn'
                   value='Click to Save'
                   onClick={this.onAddStudent}
                   />

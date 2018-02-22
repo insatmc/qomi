@@ -1,6 +1,7 @@
 .AdminHolder{
   overflow: auto;
   height: 100%;
+  overflow-x: hidden;
 }
 
 .loginHolder{
