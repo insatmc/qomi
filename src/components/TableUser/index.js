@@ -59,6 +59,7 @@ class TableUser extends Component {
       isModalOpenS: true
     })
   }
+
   showDeleteModal (studentToDelete) {
     this.setState({
       deleteModal: {
@@ -67,6 +68,7 @@ class TableUser extends Component {
       }
     })
   }
+
   hideDeleteModal () {
     this.setState({
       deleteModal: {
@@ -74,6 +76,7 @@ class TableUser extends Component {
       }
     })
   }
+
   showUpdateModal (studentToUpdate) {
     this.setState({
       UpdateModal: {
@@ -82,6 +85,7 @@ class TableUser extends Component {
       }
     })
   }
+
   hideUpdateModal () {
     this.setState({
       UpdateModal: {

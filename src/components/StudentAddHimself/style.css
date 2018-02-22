@@ -31,6 +31,8 @@ legend{
 }
 
 .student-submit-form-btn{
+  width: 100%;
+  font-size: 1.4em;
   padding: 6px 12px;
   background: #0db8ba;
   cursor: pointer;

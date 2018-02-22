@@ -450,8 +450,14 @@ class AddStudent extends Component {
                   </div>
                   <div className='checkbox'>
                     <label>
-                      <Checkbox name='looking-for-checkboxes' id='looking-for-checkboxes-4' value='Others' />
-                      Others
+                      <Checkbox name='looking-for-checkboxes' id='looking-for-checkboxes-4' value='SIVP' />
+                      SIVP
+                    </label>
+                  </div>
+                  <div className='checkbox'>
+                    <label>
+                      <Checkbox name='looking-for-checkboxes' id='looking-for-checkboxes-5' value='Contract Karama' />
+                      Contract Karama
                     </label>
                   </div>
 

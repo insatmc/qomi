@@ -1,4 +1,5 @@
 .recruits-offers-page-header{
+  background-color: #252525;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -12,17 +13,22 @@
 }
 
 .recruits-container-header{
+  color: white;
   margin: 32px;
   font-weight: normal;
   text-align: center;
   font-size: 2em;
 }
 
-.recruits-offers-page-header input{
+.admin-recruits-search{
+  color: white;
+  background-color: #3e3e3e;
+  border: none;
+  border-radius: 0.35rem;
   height: 45px;
   margin: 35px;
   width: 28%;
-  padding: 6px;
+  padding: 5px;
   outline: none;
 }
 
@@ -46,4 +52,13 @@
 
 .jumbotron {
   padding: 8px 6px;
+}
+
+.recruits-container a{
+  color: black;
+}
+
+.card-header{
+  display: flex;
+  justify-content: space-around;
 }
