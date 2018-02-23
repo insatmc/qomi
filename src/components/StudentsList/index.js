@@ -19,8 +19,9 @@ class StudentsList extends Component {
         }
         {
           !this.props.loading &&
+          this.props.students.length &&
           this.props.students.map((el, i) => {
-            if (el.verification.toLowerCase() === 'verified') {
+            if (el.verification && el.verification.toLowerCase() === 'verified') {
               return <StudentCard key={i} student={el} />
             }
           })

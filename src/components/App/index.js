@@ -124,7 +124,7 @@ class App extends Component {
     <div>
       <Router>
         <Switch>
-          <Route path='/add-student-form' render={() =>
+          <Route path='/add' render={() =>
             <div>
               <StudentAddHimself />
             </div>
