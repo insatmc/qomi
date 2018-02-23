@@ -236,7 +236,7 @@ class StudentAddHimself extends Component {
       <div className='add-student-form'>
         <div className='form-header'>
           <img src='https://gomycode.tn/assets/images/logo.png' alt='go my code logo' />
-          <div className='form-header-description'>Javascript  Student  Form</div>
+          <div className='form-header-description'>Student  Form</div>
         </div>
         <div />
         <form className='form-horizontal'>
