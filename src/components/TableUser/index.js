@@ -75,6 +75,7 @@ class TableUser extends Component {
         isOpen: false
       }
     })
+    window.location.reload()
   }
 
   showUpdateModal (studentToUpdate) {
