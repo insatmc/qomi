@@ -11,7 +11,7 @@ import swal from 'sweetalert'
 import axios from 'axios'
 const ReactTags = require('react-tag-autocomplete')
 
-class StudentAddHimself extends Component {
+class NewStudentAddForm extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -214,10 +214,10 @@ class StudentAddHimself extends Component {
       lookingFor: this.state.lookingFor,
       skills: this.state.skills,
       contacts: {
-        twitter: this.state.twitter,
-        mail: this.state.mail,
-        github: this.state.github,
-        linkedin: this.state.linkedin
+        twitter: this.state.contacts.twitter,
+        mail: this.state.contacts.mail,
+        github: this.state.contacts.github,
+        linkedin: this.state.contacts.linkedin
       },
       cv: this.state.cv,
       role: this.state.role,
@@ -252,12 +252,11 @@ class StudentAddHimself extends Component {
             </div>
 
             <div className='form-group'>
-              <label className=' control-label' htmlFor='add-image'><h6>Personal Photo link</h6></label>
+              <label className=' control-label' htmlFor='add-image'><h6>Image link</h6></label>
               <div className=''>
                 <input id='add-image' name='add-image' type='text' className='form-control input-md'
                   value={this.state.image}
                   onChange={this.handleChangeImage}
-                  placeholder='copy photo link from linkedin or github'
                   required />
               </div>
             </div>
@@ -415,13 +414,25 @@ class StudentAddHimself extends Component {
 
             <div className='form-group'>
               <div>
-                <input placeholder='link'
+                <input
                   type='submit'
                   id='save-button'
                   name='save-button'
                   className='student-submit-form-btn'
                   value='Click to Save'
                   onClick={this.onAddStudent}
+                  disabled={
+                    this.state.fullName != ''
+                    && this.state.image.length > 0
+                    && this.state.location != ''
+                    && this.state.disponibility != ''
+                    && this.state.lookingFor.length > 0
+                    && this.state.skills.length > 2
+                    && this.state.contacts.mail.includes('@')
+                    && this.state.contacts.github.includes('github.com')
+                    && this.state.contacts.linkedin.includes('linkedin')
+                    && this.state.cv != ''
+                  }
                   />
               </div>
             </div>
@@ -432,4 +443,4 @@ class StudentAddHimself extends Component {
   }
 }
 
-export default StudentAddHimself
+export default NewStudentAddForm

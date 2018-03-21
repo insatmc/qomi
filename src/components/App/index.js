@@ -19,6 +19,7 @@ import {
 } from 'react-router-dom'
 import axios from 'axios'
 import _ from 'lodash'
+import NewStudentAddForm from '../NewStudentAddForm'
 
 class App extends Component {
   constructor (props) {
@@ -126,7 +127,7 @@ class App extends Component {
         <Switch>
           <Route path='/add' render={() =>
             <div>
-              <StudentAddHimself />
+              <NewStudentAddForm />
             </div>
           } />
           <Route path='/hire' render={() =>
