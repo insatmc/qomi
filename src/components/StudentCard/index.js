@@ -11,7 +11,7 @@ class StudentCard extends Component {
       <div className='student-card'>
 
         <div className='student-image'>
-          <div className='student-image-elem' style={{backgroundImage: `url(${student.image})`}} />
+          <div className='student-image-elem' style={{backgroundImage: `url(${student.image || 'https://www.neolutionesport.com/wp-content/uploads/2017/03/default-avatar-knives-ninja.png'})`}} />
         </div>
 
         <div className='student-name'>
