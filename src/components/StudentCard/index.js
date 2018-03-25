@@ -19,7 +19,7 @@ class StudentCard extends Component {
         </div>
 
         <div className='student-location'>
-          <div className='student-info'>{student.location}</div>
+          <div className='student-info'>{student.location || 'Anywhere'}</div>
         </div>
 
         <div className='student-disponibility-and-lookingFor-container'>
@@ -27,15 +27,19 @@ class StudentCard extends Component {
           <hr className='hr-style' />
           <div className='student-disponibility'>
             <div className='student-info-title'>Disponibility</div>
-            <div className='student-info-disponibility'>{student.disponibility}</div>
+            <div className='student-info-disponibility'>{student.disponibility || 'Immediately'}</div>
           </div>
 
           <div className='student-lookingFor'>
             <div className='student-info-title'>Looking for</div>
             <div className='student-info'>
               {
-              student.lookingFor.slice(0, 3).map((el, i) => <span className='lookingFor-container' key={i}>{el}</span>)
-            }
+                student.lookingFor.slice(0, 3).map((el, i) => <span className='lookingFor-container' key={i}>{el}</span>)
+              }
+              {
+                student.lookingFor.length === 0 &&
+                <span className='lookingFor-container'>Others</span>
+              }
             </div>
           </div>
 
