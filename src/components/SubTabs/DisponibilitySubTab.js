@@ -19,7 +19,7 @@ class DisponibilitySubTab extends Component {
       let students = data.data
       let disponibility = students.map((el) => el.disponibility)
       this.setState({
-        disponibility: disponibility.filter((item, pos) => disponibility.indexOf(item) == pos)
+        disponibility: disponibility.filter((item, pos) => item !== '' && disponibility.indexOf(item) == pos)
       })
     }).catch(function (error) {
     })
